@@ -30,7 +30,7 @@ export function Hero() {
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-[#00d4ff] via-white to-[#00d4ff] bg-clip-text text-transparent text-balance">
+        <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-[#00d4ff] via-white to-[#00d4ff] bg-clip-text text-transparent text-balance">
           Ohjelmistoratkaisuja yhteisöille ja organisaatioille
         </h1>
         <p className="text-xl md:text-2xl mb-10 text-[#8b9dc3] text-pretty">
