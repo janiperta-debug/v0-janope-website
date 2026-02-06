@@ -77,8 +77,8 @@ const products = [
       "Ilmastotavoitteiden edistyminen",
       "Automaattinen datan päivitys",
     ],
-    link: "#yhteystiedot",
-    linkText: "Kysy lisää",
+    link: "https://v0-saa-s-community-platform-self.vercel.app/",
+    linkText: "Katso FinnVerdis",
   },
   {
     icon: Dice5,
