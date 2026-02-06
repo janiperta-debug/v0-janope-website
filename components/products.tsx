@@ -68,7 +68,7 @@ const products = [
   {
     icon: Sprout,
     badge: "Kehityksessä",
-    title: "Vihreän siirtymän sovellus",
+    title: "FinnVerdis",
     description:
       "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
     features: [
