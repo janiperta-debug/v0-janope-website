@@ -68,7 +68,7 @@ const products = [
   {
     icon: Sprout,
     badge: "Kehityksessä",
-    title: "Vihreän siirtymän sovellus",
+    title: "FinnVerdis",
     description:
       "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
     features: [
@@ -77,8 +77,8 @@ const products = [
       "Ilmastotavoitteiden edistyminen",
       "Automaattinen datan päivitys",
     ],
-    link: "#yhteystiedot",
-    linkText: "Kysy lisää",
+    link: "https://v0-saa-s-community-platform-self.vercel.app/",
+    linkText: "Katso FinnVerdis",
   },
   {
     icon: Dice5,

@@ -10,16 +10,39 @@ export function Contact() {
   const { ref: formRef, isInView: formInView } = useInView();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      organization: formData.get("organization"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const result = await res.json();
+        throw new Error(result.error || "Viestin lähetys epäonnistui.");
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Viestin lähetys epäonnistui. Yritä uudelleen.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -133,6 +156,12 @@ export function Contact() {
                   className="w-full px-4 py-3 border-2 border-[#e5e7eb] rounded-lg text-base resize-y focus:outline-none focus:border-[#00d4ff] focus:ring-4 focus:ring-[#00d4ff]/10 transition-all"
                 />
               </div>
+
+              {error && (
+                <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                  {error}
+                </div>
+              )}
 
               <button
                 type="submit"
