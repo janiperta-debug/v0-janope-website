@@ -72,7 +72,8 @@ export default function ReportsPage() {
         {/* Customer Report */}
         <div className="bg-white rounded-xl p-5 shadow-sm border border-[#e5e7eb]">
           <h2 className="text-sm font-semibold text-[#1f2937] mb-4">Asiakasraportti</h2>
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[500px]">
             <thead>
               <tr className="border-b border-[#f3f4f6]">
                 <th className="text-left text-xs font-medium text-[#6b7280] uppercase px-3 py-2">Asiakas</th>
@@ -95,6 +96,7 @@ export default function ReportsPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
 
         {/* Product Report */}

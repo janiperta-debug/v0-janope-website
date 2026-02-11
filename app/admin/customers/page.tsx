@@ -54,13 +54,21 @@ export default function CustomersPage() {
 
   return (
     <div className="p-6 lg:p-8">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div>
           <h1 className="text-2xl font-bold text-[#1f2937]">Asiakkaat</h1>
           <p className="text-sm text-[#6b7280] mt-1">
-            {mockCustomers.length} asiakasta yhteens\u00e4
+            {mockCustomers.length} asiakasta yhteensä
           </p>
         </div>
+        <Link
+          href="/admin/customers/new"
+          className="flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1d4ed8] transition-colors w-fit"
+        >
+          <Plus className="h-4 w-4" />
+          Lisää asiakas
+        </Link>
+      </div>
         <Link
           href="/admin/customers/new"
           className="flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1d4ed8] transition-colors"
@@ -83,8 +91,8 @@ export default function CustomersPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm border border-[#e5e7eb] overflow-hidden">
-        <table className="w-full">
+      <div className="bg-white rounded-xl shadow-sm border border-[#e5e7eb] overflow-x-auto">
+        <table className="w-full min-w-[700px]">
           <thead>
             <tr className="border-b border-[#f3f4f6]">
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
