@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import {
   LayoutDashboard,
   Users,
@@ -10,6 +11,8 @@ import {
   BarChart3,
   Settings,
   ArrowLeft,
+  Menu,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,11 +26,12 @@ const navItems = [
 
 export function AdminSidebar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-  return (
-    <aside className="w-64 min-h-screen bg-[#1f2937] flex flex-col border-r border-[#374151]">
-      <div className="p-5 border-b border-[#374151]">
-        <Link href="/admin" className="flex items-center gap-3">
+  const sidebarContent = (
+    <>
+      <div className="p-5 border-b border-[#374151] flex items-center justify-between">
+        <Link href="/admin" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <Image
             src="/janope-logo.png"
             alt="Janope"
@@ -39,6 +43,13 @@ export function AdminSidebar() {
             <p className="text-[#9ca3af] text-xs">Hallintapaneeli</p>
           </div>
         </Link>
+        <button
+          onClick={() => setOpen(false)}
+          className="lg:hidden text-[#9ca3af] hover:text-white"
+          aria-label="Sulje valikko"
+        >
+          <X className="h-5 w-5" />
+        </button>
       </div>
 
       <nav className="flex-1 p-3 flex flex-col gap-1">
@@ -52,6 +63,7 @@ export function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setOpen(false)}
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive
@@ -75,6 +87,49 @@ export function AdminSidebar() {
           Takaisin sivustolle
         </Link>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Mobile header bar */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#1f2937] border-b border-[#374151] flex items-center justify-between px-4 py-3">
+        <Link href="/admin" className="flex items-center gap-2">
+          <Image src="/janope-logo.png" alt="Janope" width={28} height={28} />
+          <span className="text-white font-bold text-sm">Hallintapaneeli</span>
+        </Link>
+        <button
+          onClick={() => setOpen(true)}
+          className="text-[#9ca3af] hover:text-white"
+          aria-label="Avaa valikko"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+      </div>
+
+      {/* Mobile overlay */}
+      {open && (
+        <div
+          className="lg:hidden fixed inset-0 z-40 bg-black/50"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile slide-out sidebar */}
+      <aside
+        className={cn(
+          "lg:hidden fixed top-0 left-0 z-50 w-64 h-full bg-[#1f2937] flex flex-col border-r border-[#374151] transition-transform duration-200",
+          open ? "translate-x-0" : "-translate-x-full"
+        )}
+      >
+        {sidebarContent}
+      </aside>
+
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:flex w-64 min-h-screen bg-[#1f2937] flex-col border-r border-[#374151]">
+        {sidebarContent}
+      </aside>
+    </>
   );
 }
