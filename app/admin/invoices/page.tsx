@@ -84,14 +84,6 @@ export default function InvoicesPage() {
           Luo lasku
         </Link>
       </div>
-        <Link
-          href="/admin/invoices/new"
-          className="flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1d4ed8] transition-colors"
-        >
-          <Plus className="h-4 w-4" />
-          Luo lasku
-        </Link>
-      </div>
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">

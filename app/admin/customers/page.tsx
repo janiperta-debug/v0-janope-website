@@ -69,14 +69,6 @@ export default function CustomersPage() {
           Lisää asiakas
         </Link>
       </div>
-        <Link
-          href="/admin/customers/new"
-          className="flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1d4ed8] transition-colors"
-        >
-          <Plus className="h-4 w-4" />
-          Lis\u00e4\u00e4 asiakas
-        </Link>
-      </div>
 
       {/* Search */}
       <div className="relative mb-6">
