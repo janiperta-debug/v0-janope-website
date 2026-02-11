@@ -33,7 +33,7 @@ export function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 py-4">
-        <div className="flex items-center">
+        <Link href="/admin" className="flex items-center">
           <Image
             src="/janope-logo.png"
             alt="Janope Logo"
@@ -42,7 +42,7 @@ export function Header() {
             className="h-14 w-auto object-contain"
             priority
           />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-8">
