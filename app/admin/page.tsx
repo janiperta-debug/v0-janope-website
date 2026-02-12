@@ -10,7 +10,7 @@ import {
 const stats = [
   {
     label: "MRR",
-    value: "2 670,00 \u20ac",
+    value: "2 670,00 €",
     change: "+12%",
     icon: Euro,
     color: "text-[#2563eb]",
@@ -25,16 +25,16 @@ const stats = [
     bg: "bg-[#10b981]/10",
   },
   {
-    label: "Laskut t\u00e4ss\u00e4 kuussa",
+    label: "Laskut tässä kuussa",
     value: "3",
-    change: "3 310,80 \u20ac",
+    change: "3 310,80 €",
     icon: FileText,
     color: "text-[#f59e0b]",
     bg: "bg-[#f59e0b]/10",
   },
   {
     label: "Vuositulo (arvio)",
-    value: "32 040,00 \u20ac",
+    value: "32 040,00 €",
     change: "+18% YoY",
     icon: TrendingUp,
     color: "text-[#8b5cf6]",
@@ -43,18 +43,18 @@ const stats = [
 ];
 
 const revenueByProduct = [
-  { product: "FinnVesta", mrr: "1 780,00 \u20ac", customers: 2, color: "bg-[#2563eb]", width: "w-[67%]" },
-  { product: "FinnVerdis", mrr: "890,00 \u20ac", customers: 1, color: "bg-[#10b981]", width: "w-[33%]" },
+  { product: "FinnVesta", mrr: "1 780,00 €", customers: 2, color: "bg-[#2563eb]", width: "w-[67%]" },
+  { product: "FinnVerdis", mrr: "890,00 €", customers: 1, color: "bg-[#10b981]", width: "w-[33%]" },
 ];
 
 const attentionItems = [
-  { type: "overdue", message: "Lasku #003/26 er\u00e4\u00e4ntynyt \u2013 Turun Kaupunki", date: "01.02.2026" },
-  { type: "upcoming", message: "Laskutus 15.02 \u2013 Espoon Kaupunki", date: "15.02.2026" },
+  { type: "overdue", message: "Lasku #003/26 erääntynyt – Turun Kaupunki", date: "01.02.2026" },
+  { type: "upcoming", message: "Laskutus 15.02 – Espoon Kaupunki", date: "15.02.2026" },
 ];
 
 const recentActivity = [
-  { action: "Maksu vastaanotettu", detail: "Hyvinp\u00e4\u00e4n Kaupunki \u2013 1 103,60 \u20ac", time: "2 p\u00e4iv\u00e4\u00e4 sitten" },
-  { action: "Lasku l\u00e4hetetty", detail: "#002/26 \u2013 Espoon Kaupunki", time: "5 p\u00e4iv\u00e4\u00e4 sitten" },
+  { action: "Maksu vastaanotettu", detail: "Hyvinkään Kaupunki – 1 103,60 €", time: "2 päivää sitten" },
+  { action: "Lasku lähetetty", detail: "#002/26 – Espoon Kaupunki", time: "5 päivää sitten" },
   { action: "Uusi asiakas", detail: "Turun Kaupunki (FinnVerdis)", time: "1 viikko sitten" },
 ];
 

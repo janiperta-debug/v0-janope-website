@@ -10,14 +10,14 @@ import {
 
 const customer = {
   id: "1",
-  name: "Hyvink\u00e4\u00e4n Kaupunki",
+  name: "Hyvinkään Kaupunki",
   yTunnus: "0920261-1",
-  contact: "Matti Meik\u00e4l\u00e4inen",
+  contact: "Matti Meikäläinen",
   email: "matti.meikalainen@hyvinkaa.fi",
   phone: "+358 40 123 4567",
   address: "Kankurinkatu 4-6",
   postalCode: "05800",
-  city: "Hyvink\u00e4\u00e4",
+  city: "Hyvinkää",
   verkkolaskuOsoite: "003709202611",
   operaattori: "Maventa",
   billingDay: 1,
@@ -34,16 +34,16 @@ const customer = {
     },
   ],
   invoices: [
-    { id: "001/26", date: "01.01.2026", amount: "1 103,60 \u20ac", status: "paid" },
-    { id: "002/26", date: "01.02.2026", amount: "1 103,60 \u20ac", status: "sent" },
+    { id: "001/26", date: "01.01.2026", amount: "1 103,60 €", status: "paid" },
+    { id: "002/26", date: "01.02.2026", amount: "1 103,60 €", status: "sent" },
   ],
 };
 
 const invoiceStatus: Record<string, { label: string; class: string }> = {
   paid: { label: "Maksettu", class: "bg-[#10b981]/10 text-[#10b981]" },
-  sent: { label: "L\u00e4hetetty", class: "bg-[#f59e0b]/10 text-[#f59e0b]" },
+  sent: { label: "Lähetetty", class: "bg-[#f59e0b]/10 text-[#f59e0b]" },
   draft: { label: "Luonnos", class: "bg-[#2563eb]/10 text-[#2563eb]" },
-  overdue: { label: "Er\u00e4\u00e4ntynyt", class: "bg-[#ef4444]/10 text-[#ef4444]" },
+  overdue: { label: "Erääntynyt", class: "bg-[#ef4444]/10 text-[#ef4444]" },
 };
 
 export default async function CustomerDetailPage({
@@ -94,7 +94,7 @@ export default async function CustomerDetailPage({
                   <Building2 className="h-4 w-4 text-[#6b7280]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#9ca3af]">Yhteyshenkil\u00f6</p>
+                  <p className="text-xs text-[#9ca3af]">Yhteyshenkilö</p>
                   <p className="text-sm text-[#1f2937]">{customer.contact}</p>
                 </div>
               </div>
@@ -103,7 +103,7 @@ export default async function CustomerDetailPage({
                   <Mail className="h-4 w-4 text-[#6b7280]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#9ca3af]">S\u00e4hk\u00f6posti</p>
+                  <p className="text-xs text-[#9ca3af]">Sähköposti</p>
                   <p className="text-sm text-[#1f2937]">{customer.email}</p>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default async function CustomerDetailPage({
                     <span className="text-sm font-medium text-[#1f2937]">{p.name}</span>
                     <span className="text-xs bg-[#2563eb]/10 text-[#2563eb] px-2 py-0.5 rounded-md">{p.plan}</span>
                   </div>
-                  <p className="text-xs text-[#9ca3af]">Aloitettu {p.startDate} &middot; {p.activeUsers} k\u00e4ytt\u00e4j\u00e4\u00e4 &middot; {p.properties} kiinteist\u00f6\u00e4</p>
+                  <p className="text-xs text-[#9ca3af]">Aloitettu {p.startDate} &middot; {p.activeUsers} käyttäjää &middot; {p.properties} kiinteistöä</p>
                 </div>
                 <p className="text-lg font-bold text-[#1f2937]">{p.monthlyPrice} &euro;/kk</p>
               </div>
@@ -152,7 +152,7 @@ export default async function CustomerDetailPage({
               <thead>
                 <tr className="border-b border-[#f3f4f6]">
                   <th className="text-left text-xs font-medium text-[#6b7280] uppercase px-3 py-2">Lasku</th>
-                  <th className="text-left text-xs font-medium text-[#6b7280] uppercase px-3 py-2">P\u00e4iv\u00e4</th>
+                  <th className="text-left text-xs font-medium text-[#6b7280] uppercase px-3 py-2">Päivä</th>
                   <th className="text-left text-xs font-medium text-[#6b7280] uppercase px-3 py-2">Summa</th>
                   <th className="text-left text-xs font-medium text-[#6b7280] uppercase px-3 py-2">Tila</th>
                 </tr>
@@ -190,12 +190,12 @@ export default async function CustomerDetailPage({
                 <p className="text-sm text-[#1f2937]">{customer.operaattori}</p>
               </div>
               <div>
-                <p className="text-xs text-[#9ca3af]">Laskutusp\u00e4iv\u00e4</p>
-                <p className="text-sm text-[#1f2937]">{customer.billingDay}. p\u00e4iv\u00e4 kuussa</p>
+                <p className="text-xs text-[#9ca3af]">Laskutuspäivä</p>
+                <p className="text-sm text-[#1f2937]">{customer.billingDay}. päivä kuussa</p>
               </div>
               <div>
                 <p className="text-xs text-[#9ca3af]">Maksuehto</p>
-                <p className="text-sm text-[#1f2937]">{customer.paymentTermsDays} p\u00e4iv\u00e4\u00e4 netto</p>
+                <p className="text-sm text-[#1f2937]">{customer.paymentTermsDays} päivää netto</p>
               </div>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default async function CustomerDetailPage({
                 <span className="text-sm font-bold text-[#1f2937]">890,00 &euro;</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-[#6b7280]">Laskut yhteens\u00e4</span>
+                <span className="text-sm text-[#6b7280]">Laskut yhteensä</span>
                 <span className="text-sm font-bold text-[#1f2937]">2 207,20 &euro;</span>
               </div>
               <div className="flex items-center justify-between">

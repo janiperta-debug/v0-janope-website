@@ -7,11 +7,11 @@ import { useState } from "react";
 const mockInvoices = [
   {
     id: "001/26",
-    customer: "Hyvink\u00e4\u00e4n Kaupunki",
+    customer: "Hyvinkään Kaupunki",
     product: "FinnVesta",
     date: "01.01.2026",
     dueDate: "15.01.2026",
-    amount: "1 103,60 \u20ac",
+    amount: "1 103,60 €",
     status: "paid" as const,
     paidDate: "10.01.2026",
   },
@@ -21,7 +21,7 @@ const mockInvoices = [
     product: "FinnVesta",
     date: "15.01.2026",
     dueDate: "29.01.2026",
-    amount: "1 103,60 \u20ac",
+    amount: "1 103,60 €",
     status: "sent" as const,
     paidDate: null,
   },
@@ -31,17 +31,17 @@ const mockInvoices = [
     product: "FinnVerdis",
     date: "01.02.2026",
     dueDate: "15.02.2026",
-    amount: "1 103,60 \u20ac",
+    amount: "1 103,60 €",
     status: "overdue" as const,
     paidDate: null,
   },
   {
     id: "004/26",
-    customer: "Hyvink\u00e4\u00e4n Kaupunki",
+    customer: "Hyvinkään Kaupunki",
     product: "FinnVesta",
     date: "01.02.2026",
     dueDate: "15.02.2026",
-    amount: "1 103,60 \u20ac",
+    amount: "1 103,60 €",
     status: "draft" as const,
     paidDate: null,
   },
@@ -49,9 +49,9 @@ const mockInvoices = [
 
 const statusLabels: Record<string, { label: string; class: string }> = {
   paid: { label: "Maksettu", class: "bg-[#10b981]/10 text-[#10b981]" },
-  sent: { label: "L\u00e4hetetty", class: "bg-[#f59e0b]/10 text-[#f59e0b]" },
+  sent: { label: "Lähetetty", class: "bg-[#f59e0b]/10 text-[#f59e0b]" },
   draft: { label: "Luonnos", class: "bg-[#2563eb]/10 text-[#2563eb]" },
-  overdue: { label: "Er\u00e4\u00e4ntynyt", class: "bg-[#ef4444]/10 text-[#ef4444]" },
+  overdue: { label: "Erääntynyt", class: "bg-[#ef4444]/10 text-[#ef4444]" },
   cancelled: { label: "Peruttu", class: "bg-[#6b7280]/10 text-[#6b7280]" },
 };
 
@@ -104,9 +104,9 @@ export default function InvoicesPage() {
         >
           <option value="all">Kaikki tilat</option>
           <option value="draft">Luonnos</option>
-          <option value="sent">L\u00e4hetetty</option>
+          <option value="sent">Lähetetty</option>
           <option value="paid">Maksettu</option>
-          <option value="overdue">Er\u00e4\u00e4ntynyt</option>
+          <option value="overdue">Erääntynyt</option>
         </select>
       </div>
 
@@ -118,8 +118,8 @@ export default function InvoicesPage() {
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Lasku</th>
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Asiakas</th>
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Tuote</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">P\u00e4iv\u00e4</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Er\u00e4p\u00e4iv\u00e4</th>
+              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Päivä</th>
+              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Eräpäivä</th>
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Summa</th>
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Tila</th>
               <th className="px-5 py-3" />

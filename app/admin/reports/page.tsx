@@ -10,7 +10,7 @@ const monthlyRevenue = [
 const maxRevenue = Math.max(...monthlyRevenue.map((m) => m.invoiced));
 
 const customerReport = [
-  { name: "Hyvink\u00e4\u00e4n Kaupunki", product: "FinnVesta", mrr: 890, totalPaid: 5340, invoices: 6 },
+  { name: "Hyvinkään Kaupunki", product: "FinnVesta", mrr: 890, totalPaid: 5340, invoices: 6 },
   { name: "Espoon Kaupunki", product: "FinnVesta", mrr: 890, totalPaid: 3560, invoices: 4 },
   { name: "Turun Kaupunki", product: "FinnVerdis", mrr: 890, totalPaid: 890, invoices: 1 },
 ];
