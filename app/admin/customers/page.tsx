@@ -7,9 +7,9 @@ import { useState } from "react";
 const mockCustomers = [
   {
     id: "1",
-    name: "Hyvink\u00e4\u00e4n Kaupunki",
+    name: "Hyvinkään Kaupunki",
     yTunnus: "0920261-1",
-    contact: "Matti Meik\u00e4l\u00e4inen",
+    contact: "Matti Meikäläinen",
     email: "matti.meikalainen@hyvinkaa.fi",
     products: [{ name: "FinnVesta", plan: "Professional", price: 890 }],
     status: "active" as const,
@@ -75,7 +75,7 @@ export default function CustomersPage() {
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9ca3af]" />
         <input
           type="text"
-          placeholder="Hae nimell\u00e4 tai Y-tunnuksella..."
+          placeholder="Hae nimellä tai Y-tunnuksella..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="w-full pl-10 pr-4 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]"
@@ -91,7 +91,7 @@ export default function CustomersPage() {
                 Organisaatio
               </th>
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
-                Yhteyshenkil\u00f6
+                Yhteyshenkilö
               </th>
               <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
                 Tuotteet

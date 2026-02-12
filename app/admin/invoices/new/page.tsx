@@ -5,7 +5,7 @@ import { ArrowLeft, Plus, Trash2 } from "lucide-react";
 import { useState } from "react";
 
 const customers = [
-  { id: "1", name: "Hyvink\u00e4\u00e4n Kaupunki", yTunnus: "0920261-1", product: "FinnVesta", price: 890 },
+  { id: "1", name: "Hyvinkään Kaupunki", yTunnus: "0920261-1", product: "FinnVesta", price: 890 },
   { id: "2", name: "Espoon Kaupunki", yTunnus: "0101263-6", product: "FinnVesta", price: 890 },
   { id: "3", name: "Turun Kaupunki", yTunnus: "0204819-8", product: "FinnVerdis", price: 890 },
 ];
@@ -32,7 +32,7 @@ export default function NewInvoicePage() {
       const month = new Date().toLocaleDateString("fi-FI", { month: "long", year: "numeric" });
       setItems([
         {
-          description: `${c.product} \u2013 ${month}`,
+          description: `${c.product} – ${month}`,
           quantity: 1,
           unitPrice: c.price,
           vatRate: 25.5,
@@ -89,7 +89,7 @@ export default function NewInvoicePage() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Laskun p\u00e4iv\u00e4 *</label>
+              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Laskun päivä *</label>
               <input
                 type="date"
                 defaultValue={new Date().toISOString().split("T")[0]}
@@ -97,7 +97,7 @@ export default function NewInvoicePage() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Er\u00e4p\u00e4iv\u00e4</label>
+              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Eräpäivä</label>
               <input
                 type="date"
                 defaultValue={new Date(Date.now() + 14 * 86400000).toISOString().split("T")[0]}
@@ -128,7 +128,7 @@ export default function NewInvoicePage() {
               className="flex items-center gap-1.5 text-sm text-[#2563eb] hover:text-[#1d4ed8] font-medium bg-transparent"
             >
               <Plus className="h-3.5 w-3.5" />
-              Lis\u00e4\u00e4 rivi
+              Lisää rivi
             </button>
           </div>
 
@@ -136,8 +136,8 @@ export default function NewInvoicePage() {
             {/* Header */}
             <div className="grid grid-cols-12 gap-3 text-xs font-medium text-[#6b7280] uppercase px-1">
               <div className="col-span-5">Kuvaus</div>
-              <div className="col-span-2">M\u00e4\u00e4r\u00e4</div>
-              <div className="col-span-2">Yksikk\u00f6hinta</div>
+              <div className="col-span-2">Määrä</div>
+              <div className="col-span-2">Yksikköhinta</div>
               <div className="col-span-2">ALV %</div>
               <div className="col-span-1" />
             </div>
@@ -206,15 +206,15 @@ export default function NewInvoicePage() {
           {/* Totals */}
           <div className="mt-6 pt-4 border-t border-[#f3f4f6] flex flex-col items-end gap-1.5">
             <div className="flex items-center gap-8">
-              <span className="text-sm text-[#6b7280]">V\u00e4litulos (alv 0%)</span>
+              <span className="text-sm text-[#6b7280]">Välitulos (alv 0%)</span>
               <span className="text-sm font-medium text-[#1f2937] w-28 text-right">{formatEUR(subtotal)}</span>
             </div>
             <div className="flex items-center gap-8">
-              <span className="text-sm text-[#6b7280]">ALV yhteens\u00e4</span>
+              <span className="text-sm text-[#6b7280]">ALV yhteensä</span>
               <span className="text-sm font-medium text-[#1f2937] w-28 text-right">{formatEUR(vatTotal)}</span>
             </div>
             <div className="flex items-center gap-8 pt-2 border-t border-[#f3f4f6]">
-              <span className="text-sm font-semibold text-[#1f2937]">Yhteens\u00e4</span>
+              <span className="text-sm font-semibold text-[#1f2937]">Yhteensä</span>
               <span className="text-lg font-bold text-[#1f2937] w-28 text-right">{formatEUR(total)}</span>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function NewInvoicePage() {
 
         {/* Notes */}
         <div className="bg-white rounded-xl p-5 shadow-sm border border-[#e5e7eb]">
-          <h2 className="text-sm font-semibold text-[#1f2937] mb-4">Lis\u00e4tiedot</h2>
+          <h2 className="text-sm font-semibold text-[#1f2937] mb-4">Lisätiedot</h2>
           <textarea
             rows={3}
             placeholder="Vapaamuotoinen viesti laskulle..."
@@ -233,7 +233,7 @@ export default function NewInvoicePage() {
         {/* Actions */}
         <div className="flex items-center gap-3">
           <button type="submit" className="bg-[#2563eb] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1d4ed8] transition-colors">
-            Luo ja l\u00e4het\u00e4
+            Luo ja lähetä
           </button>
           <button type="button" className="border border-[#e5e7eb] text-[#1f2937] px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-[#f9fafb] transition-colors bg-transparent">
             Tallenna luonnoksena

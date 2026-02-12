@@ -22,7 +22,7 @@ export default function SettingsPage() {
               <input type="text" defaultValue="XXXXXXX-X" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">S\u00e4hk\u00f6posti</label>
+              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Sähköposti</label>
               <input type="email" defaultValue="hello@janope.fi" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
             </div>
             <div>
@@ -64,7 +64,7 @@ export default function SettingsPage() {
           <h2 className="text-sm font-semibold text-[#1f2937] mb-4">Laskutuksen oletusasetukset</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Maksuehto (p\u00e4ivi\u00e4)</label>
+              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Maksuehto (päiviä)</label>
               <input type="number" defaultValue={14} className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
             </div>
             <div>
@@ -77,7 +77,7 @@ export default function SettingsPage() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Viiv\u00e4styskorko %</label>
+              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Viivästyskorko %</label>
               <input type="number" defaultValue={11} step="0.5" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function SettingsPage() {
             <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Alatunnisteen teksti</label>
             <textarea
               rows={2}
-              defaultValue="Kiitos luottamuksestanne. Maksuehto 14 p\u00e4iv\u00e4\u00e4 netto."
+              defaultValue="Kiitos luottamuksestanne. Maksuehto 14 päivää netto."
               className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb] resize-none"
             />
           </div>
