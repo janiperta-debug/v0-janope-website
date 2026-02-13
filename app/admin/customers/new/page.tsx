@@ -64,10 +64,31 @@ export default function NewCustomerPage() {
           </div>
         </div>
 
-        {/* Verkkolaskutus */}
+        {/* Laskutustapa */}
         <div className="bg-white rounded-xl p-5 shadow-sm border border-[#e5e7eb]">
-          <h2 className="text-sm font-semibold text-[#1f2937] mb-4">Verkkolaskutus</h2>
+          <h2 className="text-sm font-semibold text-[#1f2937] mb-4">Laskutustapa</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="sm:col-span-2">
+              <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Laskutustapa *</label>
+              <select
+                id="invoiceMethod"
+                defaultValue="verkkolasku"
+                className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]"
+                onChange={(e) => {
+                  const eInvoiceFields = document.getElementById("eInvoiceFields");
+                  const pdfFields = document.getElementById("pdfFields");
+                  if (eInvoiceFields) eInvoiceFields.style.display = e.target.value === "verkkolasku" ? "grid" : "none";
+                  if (pdfFields) pdfFields.style.display = e.target.value === "pdf" ? "block" : "none";
+                }}
+              >
+                <option value="verkkolasku">Verkkolasku</option>
+                <option value="pdf">PDF-lasku sähköpostiin</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Verkkolasku fields */}
+          <div id="eInvoiceFields" className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
             <div>
               <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Verkkolaskuosoite (OVT) *</label>
               <input type="text" placeholder="003712345678" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm font-mono text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
@@ -82,6 +103,13 @@ export default function NewCustomerPage() {
                 ))}
               </select>
             </div>
+          </div>
+
+          {/* PDF fields */}
+          <div id="pdfFields" className="mt-4" style={{ display: "none" }}>
+            <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Laskutussähköposti *</label>
+            <input type="email" placeholder="laskut@organisaatio.fi" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
+            <p className="text-xs text-[#9ca3af] mt-1">PDF-lasku lähetetään tähän osoitteeseen</p>
           </div>
         </div>
 
