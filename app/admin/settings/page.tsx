@@ -19,7 +19,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Y-tunnus</label>
-              <input type="text" defaultValue="XXXXXXX-X" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
+              <input type="text" defaultValue="3600818-6" className="w-full px-3 py-2.5 bg-white border border-[#e5e7eb] rounded-lg text-sm text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb]" />
             </div>
             <div>
               <label className="block text-xs font-medium text-[#6b7280] mb-1.5">Sähköposti</label>
