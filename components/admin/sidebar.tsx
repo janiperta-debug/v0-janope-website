@@ -11,9 +11,12 @@ import {
   BarChart3,
   Settings,
   ArrowLeft,
+  LogOut,
   Menu,
   X,
 } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -26,7 +29,14 @@ const navItems = [
 
 export function AdminSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+
+  async function handleLogout() {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push("/");
+  }
 
   const sidebarContent = (
     <>
@@ -78,7 +88,7 @@ export function AdminSidebar() {
         })}
       </nav>
 
-      <div className="p-3 border-t border-[#374151]">
+      <div className="p-3 border-t border-[#374151] flex flex-col gap-1">
         <Link
           href="/"
           className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-[#9ca3af] hover:bg-[#374151] hover:text-white transition-colors"
@@ -86,6 +96,13 @@ export function AdminSidebar() {
           <ArrowLeft className="h-4 w-4" />
           Takaisin sivustolle
         </Link>
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-[#9ca3af] hover:bg-[#374151] hover:text-white transition-colors w-full text-left"
+        >
+          <LogOut className="h-4 w-4" />
+          Kirjaudu ulos
+        </button>
       </div>
     </>
   );
