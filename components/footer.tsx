@@ -49,16 +49,16 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#0a1128] mb-4">Laki ja yksityisyys</h3>
             <div className="flex flex-col gap-2">
-              <Link href="#" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+              <Link href="/tietosuoja" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 Tietosuojaseloste
               </Link>
-              <Link href="#" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+              <Link href="/kayttoehdot" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 Käyttöehdot
               </Link>
-              <Link href="#" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+              <Link href="/evasteet" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 Evästekäytäntö
               </Link>
-              <Link href="#" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+              <Link href="/saavutettavuus" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 Saavutettavuusseloste
               </Link>
             </div>
@@ -68,7 +68,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#0a1128] mb-4">Kehittäjä</h3>
             <p className="text-sm font-medium text-[#0a1128]">T:mi Janope</p>
-            <p className="text-sm text-[#6b7280] mb-4">Y-tunnus: XXXXXXX-X</p>
+            <p className="text-sm text-[#6b7280] mb-4">Y-tunnus: 3600818-6</p>
             <p className="text-sm font-medium text-[#0a1128] mb-2">Muut tuotteet:</p>
             <div className="flex flex-col gap-2">
               <Link href="https://finnvesta.fi" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors inline-flex items-center gap-1">
