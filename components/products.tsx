@@ -1,12 +1,13 @@
 "use client";
 
-import { Users, Zap, Gamepad2, Building2, Sprout, Dice5, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "@/hooks/use-in-view";
 
 const products = [
   {
-    icon: Users,
+    logo: "/products/pihapiiri_logo.png",
     badge: "Kehityksessä",
     title: "Pihapiiri",
     description:
@@ -21,7 +22,7 @@ const products = [
     linkText: "Katso Pihapiiri",
   },
   {
-    icon: Zap,
+    logo: "/products/chargehub_logo.png",
     badge: "Kehityksessä",
     title: "ChargeHub",
     description:
@@ -36,7 +37,7 @@ const products = [
     linkText: "Katso ChargeHub",
   },
   {
-    icon: Gamepad2,
+    logo: "/products/gamedesk_logo.png",
     badge: "Kehityksessä",
     title: "GameDesk",
     description:
@@ -51,7 +52,7 @@ const products = [
     linkText: "Katso GameDesk",
   },
   {
-    icon: Building2,
+    logo: "/products/finnvesta_logo.png",
     badge: "Tuotannossa",
     title: "Finnvesta",
     description:
@@ -66,7 +67,7 @@ const products = [
     linkText: "Tutustu Finnvestaan",
   },
   {
-    icon: Sprout,
+    logo: "/products/finnverdis_logo.png",
     badge: "Kehityksessä",
     title: "FinnVerdis",
     description:
@@ -81,7 +82,7 @@ const products = [
     linkText: "Katso FinnVerdis",
   },
   {
-    icon: Dice5,
+    logo: "/products/gametable_logo.png",
     badge: "Julkaistu",
     title: "GameTable",
     description:
