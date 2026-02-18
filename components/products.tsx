@@ -106,7 +106,6 @@ function ProductCard({
   index: number;
 }) {
   const { ref, isInView } = useInView();
-  const Icon = product.icon;
 
   return (
     <div
@@ -119,8 +118,14 @@ function ProductCard({
       {/* Top border accent */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00d4ff] to-[#0088ff] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
-      <div className="w-16 h-16 bg-gradient-to-br from-[#00d4ff] to-[#0088ff] rounded-xl flex items-center justify-center mb-6 shadow-[0_4px_15px_rgba(0,212,255,0.3)]">
-        <Icon className="w-8 h-8 text-[#0a1128]" />
+      <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
+        <Image
+          src={product.logo}
+          alt={`${product.title} logo`}
+          width={64}
+          height={64}
+          className="object-contain"
+        />
       </div>
 
       <span className="inline-block bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-3 py-1 rounded-full text-sm font-bold mb-4 shadow-[0_2px_10px_rgba(0,212,255,0.3)]">
