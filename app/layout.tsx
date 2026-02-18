@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { CookieBanner } from "@/components/cookie-banner";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="fi">
       <body className={`${inter.className} antialiased`}>
         {children}
+        <CookieBanner />
         <Analytics />
       </body>
     </html>
