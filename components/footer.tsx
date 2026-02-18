@@ -4,7 +4,7 @@ import { ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-[#e5e7eb] py-12 px-4 md:px-8">
+    <footer className="bg-[#f8fafc] border-t border-[#00d4ff]/10 py-12 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}

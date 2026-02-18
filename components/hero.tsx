@@ -7,7 +7,7 @@ export function Hero() {
   const { ref, isInView } = useInView();
 
   return (
-    <section className="mt-[70px] bg-gradient-to-br from-[#0a1128] to-[#1a2847] text-white py-32 px-8 text-center relative overflow-hidden">
+    <section className="mt-[70px] bg-gradient-to-br from-[#0a1128] to-[#1a2847] text-white py-16 sm:py-24 md:py-32 px-4 sm:px-8 text-center relative overflow-hidden">
       {/* Gradient overlay */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(0,212,255,0.1)_0%,transparent_50%)]" />
@@ -33,19 +33,19 @@ export function Hero() {
         <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-[#00d4ff] via-white to-[#00d4ff] bg-clip-text text-transparent text-balance">
           Ohjelmistoratkaisuja yhteisöille ja organisaatioille
         </h1>
-        <p className="text-xl md:text-2xl mb-10 text-[#8b9dc3] text-pretty">
+        <p className="text-base sm:text-xl md:text-2xl mb-8 sm:mb-10 text-[#8b9dc3] text-pretty">
           Rakennamme digitaalisia alustoja jotka yhdistävät ihmisiä, dataa ja yhteisöjä
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
             href="#tuotteet"
-            className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,212,255,0.4)] hover:shadow-[0_6px_30px_rgba(0,212,255,0.6)]"
+            className="bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,212,255,0.4)] hover:shadow-[0_6px_30px_rgba(0,212,255,0.6)]"
           >
             Tutustu tuotteisiin
           </Link>
           <Link
             href="#yhteystiedot"
-            className="bg-transparent text-[#00d4ff] px-8 py-4 rounded-lg font-semibold text-lg border-2 border-[#00d4ff] transition-all duration-300 hover:bg-[#00d4ff]/10 hover:-translate-y-1"
+            className="bg-transparent text-[#00d4ff] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg border-2 border-[#00d4ff] transition-all duration-300 hover:bg-[#00d4ff]/10 hover:-translate-y-1"
           >
             Varaa konsultaatio
           </Link>

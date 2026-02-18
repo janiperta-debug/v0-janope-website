@@ -46,7 +46,7 @@ export function Contact() {
   };
 
   return (
-    <section id="yhteystiedot" className="py-20 px-4 md:px-8">
+    <section id="yhteystiedot" className="py-20 px-4 md:px-8 bg-gradient-to-b from-white to-[#f0f7ff]">
       <div className="max-w-7xl mx-auto">
         <div
           ref={ref}
@@ -54,17 +54,17 @@ export function Contact() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-4xl font-extrabold text-[#0a1128] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] mb-4">
             Ota yhteyttä
           </h2>
-          <p className="text-xl text-[#8b9dc3]">
+          <p className="text-lg sm:text-xl text-[#8b9dc3]">
             Vastataan 1 työpäivän sisällä
           </p>
         </div>
 
         <div
           ref={formRef}
-          className={`max-w-xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-lg border border-[#00d4ff]/10 transition-all duration-700 ${
+          className={`max-w-xl mx-auto bg-white/90 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-xl shadow-lg border border-[#00d4ff]/15 transition-all duration-700 ${
             formInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
