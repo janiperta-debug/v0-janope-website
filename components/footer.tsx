@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-[#e5e7eb] py-12 px-4 md:px-8">
+    <footer className="bg-[#f8fafc] border-t border-[#00d4ff]/10 py-12 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -68,16 +67,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#0a1128] mb-4">Kehittäjä</h3>
             <p className="text-sm font-medium text-[#0a1128]">T:mi Janope</p>
-            <p className="text-sm text-[#6b7280] mb-4">Y-tunnus: 3600818-6</p>
-            <p className="text-sm font-medium text-[#0a1128] mb-2">Muut tuotteet:</p>
-            <div className="flex flex-col gap-2">
-              <Link href="https://finnvesta.fi" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors inline-flex items-center gap-1">
-                Finnvesta <ExternalLink className="w-3 h-3" />
-              </Link>
-              <Link href="https://gametable.site" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors inline-flex items-center gap-1">
-                GameTable <ExternalLink className="w-3 h-3" />
-              </Link>
-            </div>
+            <p className="text-sm text-[#6b7280]">Y-tunnus: 3600818-6</p>
           </div>
         </div>
 

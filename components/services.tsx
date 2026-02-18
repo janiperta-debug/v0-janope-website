@@ -43,7 +43,7 @@ function ServiceCard({
   return (
     <div
       ref={ref}
-      className={`bg-white/5 backdrop-blur-md rounded-xl p-8 text-center border border-[#00d4ff]/10 transition-all duration-500 hover:-translate-y-2 hover:border-[#00d4ff] hover:bg-[#00d4ff]/10 ${
+      className={`bg-white/5 backdrop-blur-md rounded-xl p-6 sm:p-8 text-center border border-[#00d4ff]/10 transition-all duration-500 hover:-translate-y-2 hover:border-[#00d4ff] hover:bg-[#00d4ff]/10 ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -82,13 +82,13 @@ export function Services() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-4xl font-extrabold text-white mb-4">Palvelut</h2>
-          <p className="text-xl text-[#8b9dc3] max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Palvelut</h2>
+          <p className="text-lg sm:text-xl text-[#8b9dc3] max-w-2xl mx-auto">
             Räätälöidyt ratkaisut organisaatiosi tarpeisiin
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

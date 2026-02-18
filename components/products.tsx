@@ -1,12 +1,13 @@
 "use client";
 
-import { Users, Zap, Gamepad2, Building2, Sprout, Dice5, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "@/hooks/use-in-view";
 
 const products = [
   {
-    icon: Users,
+    logo: "/products/pihapiiri_logo.png",
     badge: "Kehityksessä",
     title: "Pihapiiri",
     description:
@@ -21,7 +22,7 @@ const products = [
     linkText: "Katso Pihapiiri",
   },
   {
-    icon: Zap,
+    logo: "/products/chargehub_logo.png",
     badge: "Kehityksessä",
     title: "ChargeHub",
     description:
@@ -36,7 +37,7 @@ const products = [
     linkText: "Katso ChargeHub",
   },
   {
-    icon: Gamepad2,
+    logo: "/products/gamedesk_logo.png",
     badge: "Kehityksessä",
     title: "GameDesk",
     description:
@@ -51,7 +52,7 @@ const products = [
     linkText: "Katso GameDesk",
   },
   {
-    icon: Building2,
+    logo: "/products/finnvesta_logo.png",
     badge: "Tuotannossa",
     title: "Finnvesta",
     description:
@@ -66,7 +67,7 @@ const products = [
     linkText: "Tutustu Finnvestaan",
   },
   {
-    icon: Sprout,
+    logo: "/products/finnverdis_logo.png",
     badge: "Kehityksessä",
     title: "FinnVerdis",
     description:
@@ -81,7 +82,7 @@ const products = [
     linkText: "Katso FinnVerdis",
   },
   {
-    icon: Dice5,
+    logo: "/products/gametable_logo.png",
     badge: "Julkaistu",
     title: "GameTable",
     description:
@@ -105,12 +106,11 @@ function ProductCard({
   index: number;
 }) {
   const { ref, isInView } = useInView();
-  const Icon = product.icon;
 
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-2xl p-8 shadow-md border border-[#e5e7eb] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,212,255,0.2)] ${
+      className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-md border border-[#00d4ff]/10 relative overflow-hidden group transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,212,255,0.2)] ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -118,8 +118,14 @@ function ProductCard({
       {/* Top border accent */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00d4ff] to-[#0088ff] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
-      <div className="w-16 h-16 bg-gradient-to-br from-[#00d4ff] to-[#0088ff] rounded-xl flex items-center justify-center mb-6 shadow-[0_4px_15px_rgba(0,212,255,0.3)]">
-        <Icon className="w-8 h-8 text-[#0a1128]" />
+      <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 overflow-hidden">
+        <Image
+          src={product.logo}
+          alt={`${product.title} logo`}
+          width={64}
+          height={64}
+          className="object-contain"
+        />
       </div>
 
       <span className="inline-block bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-3 py-1 rounded-full text-sm font-bold mb-4 shadow-[0_2px_10px_rgba(0,212,255,0.3)]">
@@ -159,18 +165,22 @@ export function Products() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="tuotteet" className="py-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="tuotteet" className="py-20 px-4 md:px-8 bg-gradient-to-b from-[#f0f7ff] to-[#e8f1fd] relative overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-[#00d4ff]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0088ff]/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div
           ref={ref}
           className={`text-center mb-16 transition-all duration-700 ${
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-4xl font-extrabold text-[#0a1128] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] mb-4">
             Tuotteet ja ratkaisut
           </h2>
-          <p className="text-xl text-[#8b9dc3] max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-[#8b9dc3] max-w-2xl mx-auto">
             Valmiita ohjelmistoratkaisuja jotka ratkaisevat todellisia ongelmia
           </p>
         </div>

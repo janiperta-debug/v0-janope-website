@@ -26,7 +26,7 @@ export function About() {
   const { ref: imageRef, isInView: imageInView } = useInView();
 
   return (
-    <section id="tietoa" className="py-20 px-4 md:px-8">
+    <section id="tietoa" className="py-20 px-4 md:px-8 bg-gradient-to-b from-white to-[#f0f7ff]">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div
@@ -35,13 +35,13 @@ export function About() {
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <h2 className="text-4xl font-extrabold text-[#0a1128] mb-8">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] mb-6 sm:mb-8">
               Miksi Janope?
             </h2>
 
             {aboutPoints.map((point, index) => (
-              <div key={point.title} className="mb-8">
-                <h3 className="text-2xl font-bold text-[#0a1128] mb-3 flex items-center gap-4">
+              <div key={point.title} className="mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0a1128] mb-3 flex items-center gap-3 sm:gap-4">
                   <span className="w-1 h-8 bg-gradient-to-b from-[#00d4ff] to-[#0088ff] inline-block" />
                   {point.title}
                 </h3>
@@ -54,7 +54,7 @@ export function About() {
 
           <div
             ref={imageRef}
-            className={`bg-gradient-to-br from-[#00d4ff]/10 to-[#0088ff]/10 rounded-2xl p-12 border-2 border-[#00d4ff]/20 flex items-center justify-center transition-all duration-700 ${
+            className={`bg-gradient-to-br from-[#00d4ff]/10 to-[#0088ff]/10 rounded-2xl p-8 sm:p-12 border-2 border-[#00d4ff]/20 flex items-center justify-center transition-all duration-700 ${
               imageInView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"

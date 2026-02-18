@@ -17,15 +17,15 @@ export function CTASection() {
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <h2 className="text-4xl font-extrabold mb-4 text-balance">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-balance">
           Aloitetaan yhdessä
         </h2>
-        <p className="text-xl text-[#8b9dc3] mb-8">
+        <p className="text-lg sm:text-xl text-[#8b9dc3] mb-8">
           Kerro meille haasteestasi, niin katsotaan miten voimme auttaa
         </p>
         <Link
           href="#yhteystiedot"
-          className="inline-block bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 hover:-translate-y-1 animate-glow"
+          className="inline-block bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 hover:-translate-y-1 animate-glow"
         >
           Varaa maksuton konsultaatio
         </Link>

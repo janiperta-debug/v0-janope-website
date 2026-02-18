@@ -31,16 +31,15 @@ export function CookieBanner() {
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex-1">
             <h3 className="text-sm font-semibold text-white mb-1">
-              Evasteet
+              {"Evästeet"}
             </h3>
             <p className="text-xs text-[#94a3b8] leading-relaxed">
-              Kaytamme valttamattomia evasteita sivuston toimintaan ja
-              kirjautumiseen. Lue lisaa{" "}
+              {"Käytämme välttämättömiä evästeitä sivuston toimintaan ja kirjautumiseen. Lue lisää "}
               <Link
                 href="/evasteet"
                 className="text-[#3b82f6] hover:underline"
               >
-                evastekaytannostamme
+                {"evästekäytännöstämme"}
               </Link>
               .
             </p>
@@ -50,13 +49,13 @@ export function CookieBanner() {
               onClick={acceptNecessary}
               className="px-4 py-2 text-xs font-medium text-[#94a3b8] border border-[#1e3a5f] rounded-lg hover:bg-[#1e3a5f]/30 transition-colors"
             >
-              Vain valttamattomat
+              {"Vain välttämättömät"}
             </button>
             <button
               onClick={accept}
               className="px-4 py-2 text-xs font-medium text-white bg-[#2563eb] rounded-lg hover:bg-[#1d4ed8] transition-colors"
             >
-              Hyvaksy kaikki
+              {"Hyväksy kaikki"}
             </button>
           </div>
         </div>
