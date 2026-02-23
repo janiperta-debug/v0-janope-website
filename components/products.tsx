@@ -9,7 +9,7 @@ import { useInView } from "@/hooks/use-in-view";
 const products = [
   {
     logo: "/products/pihapiiri_logo.png",
-    badge: "Kehityksessä",
+    badge: "Tuotannossa",
     title: "Lähellä",
     description:
       "Sovellus naapurustoavun etsimiseen ja tarjoamiseen. Löydä leikkikavereita lapsille, vapaaehtoisia apuun tai mukavia hetkiä lähialueeltasi.",
@@ -19,7 +19,7 @@ const products = [
       "Lähitapahtumat ja kokoontumiseet",
       "Turvallinen yhteydenotto",
     ],
-    link: "https://v0-pihapiiri.vercel.app/",
+    link: "https://v0-lahella-app-build.vercel.app/",
     linkText: "Katso Lähellä",
   },
   {
@@ -54,7 +54,7 @@ const products = [
   },
   {
     logo: "/products/finnvesta_logo.png",
-    badge: "Tuotannossa",
+    badge: "Julkaistu",
     title: "Finnvesta",
     description:
       "Kiinteistöomaisuuden hallinta ja kuntoarvio-as-a-service. Korvaa perinteisen 5 vuoden kuntoarviosyklin jatkuvalla valvonnalla.",
@@ -69,7 +69,7 @@ const products = [
   },
   {
     logo: "/products/finnverdis_logo.png",
-    badge: "Kehityksessä",
+    badge: "Tuotannossa",
     title: "FinnVerdis",
     description:
       "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
@@ -109,6 +109,17 @@ function ProductCard({
   const { ref, isInView } = useInView();
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const badgeStyles: Record<string, string> = {
+    Julkaistu:
+      "bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white shadow-[0_2px_10px_rgba(34,197,94,0.3)]",
+    Tuotannossa:
+      "bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] shadow-[0_2px_10px_rgba(0,212,255,0.3)]",
+    Kehityksessä:
+      "bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white shadow-[0_2px_10px_rgba(245,158,11,0.3)]",
+  };
+
+  const badgeClass = badgeStyles[product.badge] ?? badgeStyles["Kehityksessä"];
+
   return (
     <div
       ref={ref}
@@ -146,7 +157,9 @@ function ProductCard({
           {product.title}
         </h3>
 
-        <span className="inline-block bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-2.5 py-0.5 rounded-full text-xs font-bold shadow-[0_2px_10px_rgba(0,212,255,0.3)] flex-shrink-0">
+        <span
+          className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold flex-shrink-0 ${badgeClass}`}
+        >
           {product.badge}
         </span>
 
