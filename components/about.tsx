@@ -65,7 +65,7 @@ export function About() {
               alt="Janope - Ohjelmistoratkaisuja yhteisöille"
               width={300}
               height={300}
-              className="rounded-xl"
+              className="rounded-xl w-auto h-auto"
             />
           </div>
         </div>

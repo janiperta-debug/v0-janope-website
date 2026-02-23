@@ -47,6 +47,7 @@ export function AdminSidebar() {
             alt="Janope"
             width={32}
             height={32}
+            className="w-auto h-auto"
           />
           <div>
             <h2 className="text-white font-bold text-sm">Janope</h2>
@@ -112,7 +113,7 @@ export function AdminSidebar() {
       {/* Mobile header bar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#1f2937] border-b border-[#374151] flex items-center justify-between px-4 py-3">
         <Link href="/admin" className="flex items-center gap-2">
-          <Image src="/janope-logo.png" alt="Janope" width={28} height={28} />
+          <Image src="/janope-logo.png" alt="Janope" width={28} height={28} className="w-auto h-auto" />
           <span className="text-white font-bold text-sm">Hallintapaneeli</span>
         </Link>
         <button
