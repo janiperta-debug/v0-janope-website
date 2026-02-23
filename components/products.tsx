@@ -10,7 +10,7 @@ const products = [
   {
     logo: "/products/pihapiiri_logo.png",
     badge: "Kehityksessä",
-    title: "Pihapiiri",
+    title: "Lähellä",
     description:
       "Sovellus naapurustoavun etsimiseen ja tarjoamiseen. Löydä leikkikavereita lapsille, vapaaehtoisia apuun tai mukavia hetkiä lähialueeltasi.",
     features: [
@@ -20,12 +20,12 @@ const products = [
       "Turvallinen yhteydenotto",
     ],
     link: "https://v0-pihapiiri.vercel.app/",
-    linkText: "Katso Pihapiiri",
+    linkText: "Katso Lähellä",
   },
   {
     logo: "/products/chargehub_logo.png",
     badge: "Kehityksessä",
-    title: "ChargeHub",
+    title: "Voltteri",
     description:
       "Sähköautoilijoiden keskitetty latauspalvelu. Yhdistä Virta, K-Lataus, ABC ja muut latausverkot yhteen sovellukseen.",
     features: [
@@ -35,7 +35,7 @@ const products = [
       "Hintojen vertailu",
     ],
     link: "https://v0-charge-hub.vercel.app/",
-    linkText: "Katso ChargeHub",
+    linkText: "Katso Voltteri",
   },
   {
     logo: "/products/gamedesk_logo.png",
