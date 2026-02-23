@@ -14,6 +14,7 @@ export function Footer() {
                 alt="Janope"
                 width={36}
                 height={36}
+                className="w-auto h-auto"
               />
               <h3 className="text-lg font-bold text-[#0a1128]">Janope</h3>
             </div>

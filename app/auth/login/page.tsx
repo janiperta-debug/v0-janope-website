@@ -49,7 +49,7 @@ export default function LoginPage() {
               alt="Janope"
               width={64}
               height={64}
-              className="mx-auto mb-4"
+              className="mx-auto mb-4 w-auto h-auto"
             />
           </Link>
           <h1 className="text-xl font-bold text-white">Hallintapaneeli</h1>

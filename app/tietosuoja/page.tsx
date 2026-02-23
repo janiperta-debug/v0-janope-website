@@ -14,7 +14,7 @@ export default function TietosuojaPage() {
         <div className="max-w-3xl mx-auto flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 text-[#6b7280] hover:text-[#0a1128] transition-colors">
             <ArrowLeft className="h-4 w-4" />
-            <Image src="/janope-logo.png" alt="Janope" width={28} height={28} />
+            <Image src="/janope-logo.png" alt="Janope" width={28} height={28} className="w-auto h-auto" />
           </Link>
           <h1 className="text-lg font-bold text-[#0a1128]">Tietosuojaseloste</h1>
         </div>
