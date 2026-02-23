@@ -54,7 +54,7 @@ const products = [
   },
   {
     logo: "/products/finnvesta_logo.png",
-    badge: "Tuotannossa",
+    badge: "Julkaistu",
     title: "Finnvesta",
     description:
       "Kiinteistöomaisuuden hallinta ja kuntoarvio-as-a-service. Korvaa perinteisen 5 vuoden kuntoarviosyklin jatkuvalla valvonnalla.",
@@ -109,6 +109,19 @@ function ProductCard({
   const { ref, isInView } = useInView();
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const badgeStyles: Record<string, string> = {
+    Julkaistu:
+      "bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white shadow-[0_2px_10px_rgba(34,197,94,0.3)]",
+    Kehityksessä:
+      "bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] shadow-[0_2px_10px_rgba(0,212,255,0.3)]",
+  };
+
+  // Voltteri & GameDesk get an amber style
+  const isAmber = product.title === "Voltteri" || product.title === "GameDesk";
+  const badgeClass = isAmber
+    ? "bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white shadow-[0_2px_10px_rgba(245,158,11,0.3)]"
+    : badgeStyles[product.badge] ?? badgeStyles["Kehityksessä"];
+
   return (
     <div
       ref={ref}
@@ -146,7 +159,9 @@ function ProductCard({
           {product.title}
         </h3>
 
-        <span className="inline-block bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] px-2.5 py-0.5 rounded-full text-xs font-bold shadow-[0_2px_10px_rgba(0,212,255,0.3)] flex-shrink-0">
+        <span
+          className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold flex-shrink-0 ${badgeClass}`}
+        >
           {product.badge}
         </span>
 
