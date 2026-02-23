@@ -94,7 +94,7 @@ const products = [
       "Pelien hallinta",
       "Yhteisön rakentaminen",
     ],
-    link: "https://gametable.site",
+    link: "https://v0-gametable-2-0.vercel.app/",
     linkText: "Katso GameTable",
   },
 ];
