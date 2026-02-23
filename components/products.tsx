@@ -19,7 +19,7 @@ const products = [
       "Lähitapahtumat ja kokoontumiseet",
       "Turvallinen yhteydenotto",
     ],
-    link: "https://v0-pihapiiri.vercel.app/",
+    link: "https://v0-lahella-app-build.vercel.app/",
     linkText: "Katso Lähellä",
   },
   {
