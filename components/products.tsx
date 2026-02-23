@@ -9,7 +9,7 @@ import { useInView } from "@/hooks/use-in-view";
 const products = [
   {
     logo: "/products/pihapiiri_logo.png",
-    badge: "Kehityksessä",
+    badge: "Tuotannossa",
     title: "Lähellä",
     description:
       "Sovellus naapurustoavun etsimiseen ja tarjoamiseen. Löydä leikkikavereita lapsille, vapaaehtoisia apuun tai mukavia hetkiä lähialueeltasi.",
@@ -69,7 +69,7 @@ const products = [
   },
   {
     logo: "/products/finnverdis_logo.png",
-    badge: "Kehityksessä",
+    badge: "Tuotannossa",
     title: "FinnVerdis",
     description:
       "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
@@ -112,15 +112,13 @@ function ProductCard({
   const badgeStyles: Record<string, string> = {
     Julkaistu:
       "bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white shadow-[0_2px_10px_rgba(34,197,94,0.3)]",
-    Kehityksessä:
+    Tuotannossa:
       "bg-gradient-to-r from-[#00d4ff] to-[#0088ff] text-[#0a1128] shadow-[0_2px_10px_rgba(0,212,255,0.3)]",
+    Kehityksessä:
+      "bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white shadow-[0_2px_10px_rgba(245,158,11,0.3)]",
   };
 
-  // Voltteri & GameDesk get an amber style
-  const isAmber = product.title === "Voltteri" || product.title === "GameDesk";
-  const badgeClass = isAmber
-    ? "bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white shadow-[0_2px_10px_rgba(245,158,11,0.3)]"
-    : badgeStyles[product.badge] ?? badgeStyles["Kehityksessä"];
+  const badgeClass = badgeStyles[product.badge] ?? badgeStyles["Kehityksessä"];
 
   return (
     <div
