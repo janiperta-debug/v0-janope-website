@@ -39,7 +39,7 @@ export function Header() {
             alt="Janope Logo"
             width={120}
             height={56}
-            className="h-14 w-auto object-contain"
+            className="h-auto w-auto max-h-14 object-contain"
             priority
           />
         </Link>
