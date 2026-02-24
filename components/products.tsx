@@ -7,6 +7,38 @@ import Link from "next/link";
 import { useInView } from "@/hooks/use-in-view";
 
 const products = [
+  // Julkaistu
+  {
+    logo: "/products/finnvesta_logo.png",
+    badge: "Julkaistu",
+    title: "FinnVesta",
+    description:
+      "Kiinteistöomaisuuden hallinta ja kuntoarvio-as-a-service. Korvaa perinteisen 5 vuoden kuntoarviosyklin jatkuvalla valvonnalla.",
+    features: [
+      "Reaaliaikainen kunnon valvonta",
+      "Automaattinen 15v kunnostussuunnitelma",
+      "Investointisuunnittelu",
+      "Korvaa konsulttikustannukset",
+    ],
+    link: "https://finnvesta.fi",
+    linkText: "Tutustu FinnVestaan",
+  },
+  {
+    logo: "/products/gametable_logo.png",
+    badge: "Julkaistu",
+    title: "GameTable",
+    description:
+      "Sovellus lautapelaajien yhdistämiseen. Löydä pelikavereita ja organisoi peliiltoja helposti.",
+    features: [
+      "Pelaajaprofiilit",
+      "Tapahtumakalenteri",
+      "Pelien hallinta",
+      "Yhteisön rakentaminen",
+    ],
+    link: "https://v0-gametable-2-0.vercel.app/",
+    linkText: "Katso GameTable",
+  },
+  // Tuotannossa
   {
     logo: "/products/pihapiiri_logo.png",
     badge: "Tuotannossa",
@@ -22,6 +54,22 @@ const products = [
     link: "https://v0-lahella-app-build.vercel.app/",
     linkText: "Katso Lähellä",
   },
+  {
+    logo: "/products/finnverdis_logo.png",
+    badge: "Tuotannossa",
+    title: "FinnVerdis",
+    description:
+      "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
+    features: [
+      "Reaaliaikainen aurinkosähkön seuranta",
+      "Energiainvestointien visualisointi",
+      "Ilmastotavoitteiden edistyminen",
+      "Automaattinen datan päivitys",
+    ],
+    link: "https://v0-saa-s-community-platform-self.vercel.app/",
+    linkText: "Katso FinnVerdis",
+  },
+  // Kehityksessä
   {
     logo: "/products/chargehub_logo.png",
     badge: "Kehityksessä",
@@ -51,51 +99,6 @@ const products = [
     ],
     link: "https://v0-game-desk-landing-page.vercel.app/",
     linkText: "Katso GameDesk",
-  },
-  {
-    logo: "/products/finnvesta_logo.png",
-    badge: "Julkaistu",
-    title: "FinnVesta",
-    description:
-      "Kiinteistöomaisuuden hallinta ja kuntoarvio-as-a-service. Korvaa perinteisen 5 vuoden kuntoarviosyklin jatkuvalla valvonnalla.",
-    features: [
-      "Reaaliaikainen kunnon valvonta",
-      "Automaattinen 15v kunnostussuunnitelma",
-      "Investointisuunnittelu",
-      "Korvaa konsulttikustannukset",
-    ],
-    link: "https://finnvesta.fi",
-    linkText: "Tutustu FinnVestaan",
-  },
-  {
-    logo: "/products/finnverdis_logo.png",
-    badge: "Tuotannossa",
-    title: "FinnVerdis",
-    description:
-      "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
-    features: [
-      "Reaaliaikainen aurinkosähkön seuranta",
-      "Energiainvestointien visualisointi",
-      "Ilmastotavoitteiden edistyminen",
-      "Automaattinen datan päivitys",
-    ],
-    link: "https://v0-saa-s-community-platform-self.vercel.app/",
-    linkText: "Katso FinnVerdis",
-  },
-  {
-    logo: "/products/gametable_logo.png",
-    badge: "Julkaistu",
-    title: "GameTable",
-    description:
-      "Sovellus lautapelaajien yhdistämiseen. Löydä pelikavereita ja organisoi peliiltoja helposti.",
-    features: [
-      "Pelaajaprofiilit",
-      "Tapahtumakalenteri",
-      "Pelien hallinta",
-      "Yhteisön rakentaminen",
-    ],
-    link: "https://v0-gametable-2-0.vercel.app/",
-    linkText: "Katso GameTable",
   },
 ];
 
