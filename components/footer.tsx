@@ -37,7 +37,7 @@ export function Footer() {
                 GameDesk
               </Link>
               <Link href="https://finnvesta.fi" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
-                Finnvesta
+                FinnVesta
               </Link>
               <Link href="https://v0-gametable-2-0.vercel.app/" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 GameTable

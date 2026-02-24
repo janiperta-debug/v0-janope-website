@@ -4,7 +4,7 @@ import { useInView } from "@/hooks/use-in-view";
 
 const stats = [
   { number: "2", label: "Tuotantosovellusta" },
-  { number: "97", label: "Kiinteistöä Finnvestassa" },
+  { number: "97", label: "Kiinteistöä FinnVestassa" },
   { number: "100%", label: "Suomalainen toimija" },
   { number: "12 vk", label: "Keskimääräinen toteutusaika" },
 ];

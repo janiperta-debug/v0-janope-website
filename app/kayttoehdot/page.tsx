@@ -25,7 +25,7 @@ export default function KayttoehdotPage() {
           <p className="text-[#6b7280] text-sm mb-8">{"Päivitetty: 12.2.2026"}</p>
 
           <h2 className="text-lg font-semibold text-[#0a1128] mt-8 mb-3">1. Yleistä</h2>
-          <p>Nämä käyttöehdot koskevat T:mi Janopen (Y-tunnus: 3600818-6) tuottamia ohjelmistopalveluita, mukaan lukien Finnvesta, Pihapiiri, ChargeHub ja muut Janopen tuotteet. Käyttämällä palveluita hyväksyt nämä ehdot.</p>
+          <p>Nämä käyttöehdot koskevat T:mi Janopen (Y-tunnus: 3600818-6) tuottamia ohjelmistopalveluita, mukaan lukien FinnVesta, Lähellä, Voltteri ja muut Janopen tuotteet. Käyttämällä palveluita hyväksyt nämä ehdot.</p>
 
           <h2 className="text-lg font-semibold text-[#0a1128] mt-8 mb-3">2. Palvelun kuvaus</h2>
           <p>Janope tuottaa ohjelmistoratkaisuja yhteisöille ja organisaatioille. Palvelut toimitetaan SaaS-mallilla (Software as a Service) verkon välityksellä.</p>

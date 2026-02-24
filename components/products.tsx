@@ -55,7 +55,7 @@ const products = [
   {
     logo: "/products/finnvesta_logo.png",
     badge: "Julkaistu",
-    title: "Finnvesta",
+    title: "FinnVesta",
     description:
       "Kiinteistöomaisuuden hallinta ja kuntoarvio-as-a-service. Korvaa perinteisen 5 vuoden kuntoarviosyklin jatkuvalla valvonnalla.",
     features: [
@@ -65,7 +65,7 @@ const products = [
       "Korvaa konsulttikustannukset",
     ],
     link: "https://finnvesta.fi",
-    linkText: "Tutustu Finnvestaan",
+    linkText: "Tutustu FinnVestaan",
   },
   {
     logo: "/products/finnverdis_logo.png",
