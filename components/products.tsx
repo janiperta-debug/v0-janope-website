@@ -49,7 +49,7 @@ const products = [
       "Saavutusten tilastot",
       "Suositukset pelattavaksi",
     ],
-    link: "https://janiperta.riff.works/game-desk",
+    link: "https://v0-game-desk-landing-page.vercel.app/",
     linkText: "Katso GameDesk",
   },
   {

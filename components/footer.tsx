@@ -27,19 +27,19 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#0a1128] mb-4">Tuotteet</h3>
             <div className="flex flex-col gap-2">
-              <Link href="https://v0-pihapiiri.vercel.app/" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
-                Pihapiiri
+              <Link href="https://v0-lahella-app-build.vercel.app/" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+                Lähellä
               </Link>
               <Link href="https://v0-charge-hub.vercel.app/" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
-                ChargeHub
+                Voltteri
               </Link>
-              <Link href="https://janiperta.riff.works/game-desk" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+              <Link href="https://v0-game-desk-landing-page.vercel.app/" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 GameDesk
               </Link>
               <Link href="https://finnvesta.fi" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 Finnvesta
               </Link>
-              <Link href="https://gametable.site" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
+              <Link href="https://v0-gametable-2-0.vercel.app/" target="_blank" className="text-sm text-[#6b7280] hover:text-[#0a1128] transition-colors">
                 GameTable
               </Link>
             </div>
@@ -69,6 +69,9 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-[#0a1128] mb-4">Kehittäjä</h3>
             <p className="text-sm font-medium text-[#0a1128]">T:mi Janope</p>
             <p className="text-sm text-[#6b7280]">Y-tunnus: 3600818-6</p>
+            <a href="mailto:info@janope.fi" className="text-sm text-[#00d4ff] hover:text-[#0088ff] transition-colors mt-1 inline-block">
+              info@janope.fi
+            </a>
           </div>
         </div>
 

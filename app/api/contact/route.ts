@@ -15,7 +15,7 @@ export async function POST(request: Request) {
 
     await resend.emails.send({
       from: "Janope Yhteydenotto <onboarding@resend.dev>",
-      to: "jani.perta@gmail.com",
+      to: "info@janope.fi",
       subject: `Yhteydenotto: ${name}${organization ? ` (${organization})` : ""}`,
       replyTo: email,
       text: `Nimi: ${name}\nSähköposti: ${email}\nOrganisaatio: ${organization || "Ei ilmoitettu"}\n\nViesti:\n${message}`,
