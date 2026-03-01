@@ -100,6 +100,21 @@ const products = [
     link: "https://v0-game-desk-landing-page.vercel.app/",
     linkText: "Katso GameDesk",
   },
+  {
+    logo: "/products/skuuttila_logo.png",
+    badge: "Kehityksessä",
+    title: "Skuuttila",
+    description:
+      "Kaikki vuokraskuutit yhdessä sovelluksessa. Näe Tier, Voi, Lime, Bolt ja muut operaattorit samalla kartalla.",
+    features: [
+      "Kaikki operaattorit yhdellä kartalla",
+      "Lähimmän skuutin löytäminen",
+      "Suora avaus operaattorisovellukseen",
+      "Toimii kuten natiivi sovellus",
+    ],
+    link: "https://v0-landing-page-with-demo-two.vercel.app/",
+    linkText: "Katso Skuuttila",
+  },
 ];
 
 function ProductCard({
