@@ -105,16 +105,23 @@ export default function CRMPage() {
   }, []);
 
   async function fetchContacts() {
+    console.log("[v0] CRM fetchContacts called");
     setLoading(true);
-    const { data, error } = await supabase
-      .from("crm_contacts")
-      .select("*")
-      .order("created_at", { ascending: false });
+    try {
+      const { data, error } = await supabase
+        .from("crm_contacts")
+        .select("*")
+        .order("created_at", { ascending: false });
 
-    if (error) {
-      console.error("Error fetching contacts:", error);
-    } else {
-      setContacts(data || []);
+      console.log("[v0] CRM fetch result:", { data, error });
+
+      if (error) {
+        console.error("[v0] CRM Error fetching contacts:", error);
+      } else {
+        setContacts(data || []);
+      }
+    } catch (err) {
+      console.error("[v0] CRM unexpected error:", err);
     }
     setLoading(false);
   }
@@ -277,6 +284,8 @@ export default function CRMPage() {
     if (!dateStr) return "—";
     return new Date(dateStr).toLocaleDateString("fi-FI");
   }
+
+  console.log("[v0] CRM rendering, loading:", loading, "contacts:", contacts.length);
 
   return (
     <div className="space-y-6">
