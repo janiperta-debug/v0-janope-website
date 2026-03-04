@@ -2,40 +2,22 @@
 
 import Link from "next/link";
 import { Plus, Search, MoreHorizontal } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
 
-const mockCustomers = [
-  {
-    id: "1",
-    name: "Hyvinkään Kaupunki",
-    yTunnus: "0920261-1",
-    contact: "Matti Meikäläinen",
-    email: "matti.meikalainen@hyvinkaa.fi",
-    products: [{ name: "FinnVesta", plan: "Professional", price: 890 }],
-    status: "active" as const,
-    mrr: 890,
-  },
-  {
-    id: "2",
-    name: "Espoon Kaupunki",
-    yTunnus: "0101263-6",
-    contact: "Liisa Virtanen",
-    email: "liisa.virtanen@espoo.fi",
-    products: [{ name: "FinnVesta", plan: "Professional", price: 890 }],
-    status: "active" as const,
-    mrr: 890,
-  },
-  {
-    id: "3",
-    name: "Turun Kaupunki",
-    yTunnus: "0204819-8",
-    contact: "Pekka Korhonen",
-    email: "pekka.korhonen@turku.fi",
-    products: [{ name: "FinnVerdis", plan: "Team", price: 890 }],
-    status: "active" as const,
-    mrr: 890,
-  },
-];
+type CustomerWithProducts = {
+  id: string;
+  organization_name: string;
+  y_tunnus: string;
+  contact_name: string;
+  email: string;
+  status: string;
+  customer_products: {
+    product_name: string;
+    plan_name: string;
+    monthly_price: number;
+  }[];
+};
 
 const statusLabels: Record<string, { label: string; class: string }> = {
   active: { label: "Aktiivinen", class: "bg-[#10b981]/10 text-[#10b981]" },
@@ -45,11 +27,35 @@ const statusLabels: Record<string, { label: string; class: string }> = {
 
 export default function CustomersPage() {
   const [search, setSearch] = useState("");
+  const [customers, setCustomers] = useState<CustomerWithProducts[]>([]);
+  const [loading, setLoading] = useState(true);
+  const supabase = createClient();
 
-  const filtered = mockCustomers.filter(
+  useEffect(() => {
+    async function fetchCustomers() {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("customers")
+        .select(
+          "id, organization_name, y_tunnus, contact_name, email, status, customer_products(product_name, plan_name, monthly_price)"
+        )
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Error fetching customers:", error);
+      } else {
+        setCustomers((data as CustomerWithProducts[]) || []);
+      }
+      setLoading(false);
+    }
+
+    fetchCustomers();
+  }, []);
+
+  const filtered = customers.filter(
     (c) =>
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.yTunnus.includes(search)
+      c.organization_name.toLowerCase().includes(search.toLowerCase()) ||
+      (c.y_tunnus && c.y_tunnus.includes(search))
   );
 
   return (
@@ -58,7 +64,7 @@ export default function CustomersPage() {
         <div>
           <h1 className="text-2xl font-bold text-[#1f2937]">Asiakkaat</h1>
           <p className="text-sm text-[#6b7280] mt-1">
-            {mockCustomers.length} asiakasta yhteensä
+            {loading ? "Ladataan..." : `${customers.length} asiakasta yhteensä`}
           </p>
         </div>
         <Link
@@ -84,83 +90,122 @@ export default function CustomersPage() {
 
       {/* Table */}
       <div className="bg-white rounded-xl shadow-sm border border-[#e5e7eb] overflow-x-auto">
-        <table className="w-full min-w-[700px]">
-          <thead>
-            <tr className="border-b border-[#f3f4f6]">
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
-                Organisaatio
-              </th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
-                Yhteyshenkilö
-              </th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
-                Tuotteet
-              </th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
-                MRR
-              </th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
-                Tila
-              </th>
-              <th className="px-5 py-3" />
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((customer) => {
-              const status = statusLabels[customer.status];
-              return (
-                <tr
-                  key={customer.id}
-                  className="border-b border-[#f3f4f6] last:border-0 hover:bg-[#f9fafb] transition-colors"
-                >
-                  <td className="px-5 py-4">
-                    <Link href={`/admin/customers/${customer.id}`} className="hover:text-[#2563eb]">
+        {loading ? (
+          <div className="p-12 text-center text-[#6b7280]">
+            <div className="w-8 h-8 border-2 border-[#2563eb] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+            Ladataan asiakkaita...
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="p-12 text-center text-[#6b7280]">
+            <p className="text-lg font-medium mb-1">Ei asiakkaita</p>
+            <p className="text-sm">
+              {search
+                ? "Haulla ei löytynyt tuloksia."
+                : "Lisää ensimmäinen asiakas aloittaaksesi."}
+            </p>
+          </div>
+        ) : (
+          <table className="w-full min-w-[700px]">
+            <thead>
+              <tr className="border-b border-[#f3f4f6]">
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Organisaatio
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Yhteyshenkilö
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Tuotteet
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  MRR
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Tila
+                </th>
+                <th className="px-5 py-3" />
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((customer) => {
+                const status = statusLabels[customer.status] || {
+                  label: customer.status,
+                  class: "bg-[#6b7280]/10 text-[#6b7280]",
+                };
+                const mrr = customer.customer_products.reduce(
+                  (sum, p) => sum + (p.monthly_price || 0),
+                  0
+                );
+                return (
+                  <tr
+                    key={customer.id}
+                    className="border-b border-[#f3f4f6] last:border-0 hover:bg-[#f9fafb] transition-colors"
+                  >
+                    <td className="px-5 py-4">
+                      <Link
+                        href={`/admin/customers/${customer.id}`}
+                        className="hover:text-[#2563eb]"
+                      >
+                        <p className="text-sm font-medium text-[#1f2937]">
+                          {customer.organization_name}
+                        </p>
+                        <p className="text-xs text-[#9ca3af]">
+                          {customer.y_tunnus}
+                        </p>
+                      </Link>
+                    </td>
+                    <td className="px-5 py-4">
+                      <p className="text-sm text-[#1f2937]">
+                        {customer.contact_name}
+                      </p>
+                      <p className="text-xs text-[#9ca3af]">{customer.email}</p>
+                    </td>
+                    <td className="px-5 py-4">
+                      <div className="flex flex-col gap-1">
+                        {customer.customer_products.length > 0 ? (
+                          customer.customer_products.map((p) => (
+                            <span
+                              key={p.product_name}
+                              className="inline-flex items-center text-xs bg-[#2563eb]/10 text-[#2563eb] px-2 py-0.5 rounded-md w-fit"
+                            >
+                              {p.product_name}
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-xs text-[#9ca3af]">-</span>
+                        )}
+                      </div>
+                    </td>
+                    <td className="px-5 py-4">
                       <p className="text-sm font-medium text-[#1f2937]">
-                        {customer.name}
+                        {mrr > 0
+                          ? `${mrr.toLocaleString("fi-FI")} \u20AC/kk`
+                          : "-"}
                       </p>
-                      <p className="text-xs text-[#9ca3af]">
-                        {customer.yTunnus}
-                      </p>
-                    </Link>
-                  </td>
-                  <td className="px-5 py-4">
-                    <p className="text-sm text-[#1f2937]">{customer.contact}</p>
-                    <p className="text-xs text-[#9ca3af]">{customer.email}</p>
-                  </td>
-                  <td className="px-5 py-4">
-                    <div className="flex flex-col gap-1">
-                      {customer.products.map((p) => (
-                        <span
-                          key={p.name}
-                          className="inline-flex items-center text-xs bg-[#2563eb]/10 text-[#2563eb] px-2 py-0.5 rounded-md w-fit"
+                    </td>
+                    <td className="px-5 py-4">
+                      <span
+                        className={`inline-flex text-xs font-medium px-2.5 py-1 rounded-full ${status.class}`}
+                      >
+                        {status.label}
+                      </span>
+                    </td>
+                    <td className="px-5 py-4">
+                      <Link href={`/admin/customers/${customer.id}`}>
+                        <button
+                          type="button"
+                          className="text-[#9ca3af] hover:text-[#6b7280] bg-transparent cursor-pointer"
                         >
-                          {p.name}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                  <td className="px-5 py-4">
-                    <p className="text-sm font-medium text-[#1f2937]">
-                      {customer.mrr.toLocaleString("fi-FI")} &euro;/kk
-                    </p>
-                  </td>
-                  <td className="px-5 py-4">
-                    <span
-                      className={`inline-flex text-xs font-medium px-2.5 py-1 rounded-full ${status.class}`}
-                    >
-                      {status.label}
-                    </span>
-                  </td>
-                  <td className="px-5 py-4">
-                    <button type="button" className="text-[#9ca3af] hover:text-[#6b7280] bg-transparent">
-                      <MoreHorizontal className="h-4 w-4" />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                          <MoreHorizontal className="h-4 w-4" />
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
