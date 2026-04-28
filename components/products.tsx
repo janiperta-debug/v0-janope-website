@@ -35,7 +35,7 @@ const products = [
       "Pelien hallinta",
       "Yhteisön rakentaminen",
     ],
-    link: "https://v0-gametable-2-0.vercel.app/",
+    link: "https://www.gametable.fi",
     linkText: "Katso GameTable",
   },
   // Tuotannossa
@@ -114,6 +114,21 @@ const products = [
     ],
     link: "https://v0-landing-page-with-demo-two.vercel.app/",
     linkText: "Katso Skuuttila",
+  },
+  {
+    logo: "/products/loytoretki_logo.png",
+    badge: "Kehityksessä",
+    title: "Löytöretki",
+    description:
+      "Reaaliaikainen tuotehaku fyysisiltä kirpputoreilta. Löydä aarteesi lähialueen kirpputoreilta ilman kierroksia hyllyltä hyllylle.",
+    features: [
+      "47+ kirpputorin tuotteet yhdessä",
+      "Reaaliaikainen tuotehaku",
+      "Karttanäkymä toimipisteistä",
+      "Hälytykset uusista löydöistä",
+    ],
+    link: "",
+    linkText: "Tulossa pian",
   },
 ];
 
@@ -212,14 +227,20 @@ function ProductCard({
               ))}
             </ul>
 
-            <Link
-              href={product.link}
-              target={product.link.startsWith("http") ? "_blank" : undefined}
-              className="text-[#00d4ff] font-semibold inline-flex items-center gap-2 group/link hover:gap-4 transition-all duration-300 text-sm"
-            >
-              {product.linkText}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {product.link ? (
+              <Link
+                href={product.link}
+                target={product.link.startsWith("http") ? "_blank" : undefined}
+                className="text-[#00d4ff] font-semibold inline-flex items-center gap-2 group/link hover:gap-4 transition-all duration-300 text-sm"
+              >
+                {product.linkText}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            ) : (
+              <span className="text-[#6b7280] font-semibold inline-flex items-center gap-2 text-sm">
+                {product.linkText}
+              </span>
+            )}
           </div>
         </div>
       </div>

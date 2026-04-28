@@ -2,50 +2,21 @@
 
 import Link from "next/link";
 import { Plus, Search, Download } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createClient } from "@/lib/supabase/client";
 
-const mockInvoices = [
-  {
-    id: "001/26",
-    customer: "Hyvinkään Kaupunki",
-    product: "FinnVesta",
-    date: "01.01.2026",
-    dueDate: "15.01.2026",
-    amount: "1 103,60 €",
-    status: "paid" as const,
-    paidDate: "10.01.2026",
-  },
-  {
-    id: "002/26",
-    customer: "Espoon Kaupunki",
-    product: "FinnVesta",
-    date: "15.01.2026",
-    dueDate: "29.01.2026",
-    amount: "1 103,60 €",
-    status: "sent" as const,
-    paidDate: null,
-  },
-  {
-    id: "003/26",
-    customer: "Turun Kaupunki",
-    product: "FinnVerdis",
-    date: "01.02.2026",
-    dueDate: "15.02.2026",
-    amount: "1 103,60 €",
-    status: "overdue" as const,
-    paidDate: null,
-  },
-  {
-    id: "004/26",
-    customer: "Hyvinkään Kaupunki",
-    product: "FinnVesta",
-    date: "01.02.2026",
-    dueDate: "15.02.2026",
-    amount: "1 103,60 €",
-    status: "draft" as const,
-    paidDate: null,
-  },
-];
+type InvoiceRow = {
+  id: string;
+  invoice_number: string;
+  date: string;
+  due_date: string;
+  total: number;
+  status: string;
+  paid_date: string | null;
+  customers: {
+    organization_name: string;
+  } | null;
+};
 
 const statusLabels: Record<string, { label: string; class: string }> = {
   paid: { label: "Maksettu", class: "bg-[#10b981]/10 text-[#10b981]" },
@@ -58,13 +29,43 @@ const statusLabels: Record<string, { label: string; class: string }> = {
 export default function InvoicesPage() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
+  const [invoices, setInvoices] = useState<InvoiceRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const supabase = createClient();
 
-  const filtered = mockInvoices.filter((inv) => {
-    const matchesSearch =
-      inv.id.includes(search) ||
-      inv.customer.toLowerCase().includes(search.toLowerCase());
-    const matchesStatus = statusFilter === "all" || inv.status === statusFilter;
-    return matchesSearch && matchesStatus;
+  useEffect(() => {
+    async function fetchInvoices() {
+      setLoading(true);
+      let query = supabase
+        .from("invoices")
+        .select(
+          "id, invoice_number, date, due_date, total, status, paid_date, customers(organization_name)"
+        )
+        .order("date", { ascending: false });
+
+      if (statusFilter !== "all") {
+        query = query.eq("status", statusFilter);
+      }
+
+      const { data, error } = await query;
+
+      if (error) {
+        console.error("Error fetching invoices:", error);
+      } else {
+        setInvoices((data as InvoiceRow[]) || []);
+      }
+      setLoading(false);
+    }
+
+    fetchInvoices();
+  }, [statusFilter]);
+
+  const filtered = invoices.filter((inv) => {
+    const customerName = inv.customers?.organization_name || "";
+    return (
+      (inv.invoice_number || "").includes(search) ||
+      customerName.toLowerCase().includes(search.toLowerCase())
+    );
   });
 
   return (
@@ -73,7 +74,7 @@ export default function InvoicesPage() {
         <div>
           <h1 className="text-2xl font-bold text-[#1f2937]">Laskut</h1>
           <p className="text-sm text-[#6b7280] mt-1">
-            {mockInvoices.length} laskua yhteensä
+            {loading ? "Ladataan..." : `${invoices.length} laskua yhteensä`}
           </p>
         </div>
         <Link
@@ -112,49 +113,104 @@ export default function InvoicesPage() {
 
       {/* Table */}
       <div className="bg-white rounded-xl shadow-sm border border-[#e5e7eb] overflow-x-auto">
-        <table className="w-full min-w-[800px]">
-          <thead>
-            <tr className="border-b border-[#f3f4f6]">
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Lasku</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Asiakas</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Tuote</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Päivä</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Eräpäivä</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Summa</th>
-              <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">Tila</th>
-              <th className="px-5 py-3" />
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((inv) => {
-              const status = statusLabels[inv.status];
-              return (
-                <tr key={inv.id} className="border-b border-[#f3f4f6] last:border-0 hover:bg-[#f9fafb] transition-colors">
-                  <td className="px-5 py-4">
-                    <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-[#2563eb] hover:underline">
-                      #{inv.id}
-                    </Link>
-                  </td>
-                  <td className="px-5 py-4 text-sm text-[#1f2937]">{inv.customer}</td>
-                  <td className="px-5 py-4">
-                    <span className="text-xs bg-[#2563eb]/10 text-[#2563eb] px-2 py-0.5 rounded-md">{inv.product}</span>
-                  </td>
-                  <td className="px-5 py-4 text-sm text-[#1f2937]">{inv.date}</td>
-                  <td className="px-5 py-4 text-sm text-[#1f2937]">{inv.dueDate}</td>
-                  <td className="px-5 py-4 text-sm font-medium text-[#1f2937]">{inv.amount}</td>
-                  <td className="px-5 py-4">
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${status.class}`}>{status.label}</span>
-                  </td>
-                  <td className="px-5 py-4">
-                    <button type="button" className="text-[#9ca3af] hover:text-[#6b7280] bg-transparent" title="Lataa PDF">
-                      <Download className="h-4 w-4" />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {loading ? (
+          <div className="p-12 text-center text-[#6b7280]">
+            <div className="w-8 h-8 border-2 border-[#2563eb] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+            Ladataan laskuja...
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="p-12 text-center text-[#6b7280]">
+            <p className="text-lg font-medium mb-1">Ei laskuja</p>
+            <p className="text-sm">
+              {search || statusFilter !== "all"
+                ? "Haulla ei löytynyt tuloksia."
+                : "Luo ensimmäinen lasku aloittaaksesi."}
+            </p>
+          </div>
+        ) : (
+          <table className="w-full min-w-[800px]">
+            <thead>
+              <tr className="border-b border-[#f3f4f6]">
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Lasku
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Asiakas
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Päivä
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Eräpäivä
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Summa
+                </th>
+                <th className="text-left text-xs font-medium text-[#6b7280] uppercase tracking-wider px-5 py-3">
+                  Tila
+                </th>
+                <th className="px-5 py-3" />
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((inv) => {
+                const status = statusLabels[inv.status] || {
+                  label: inv.status,
+                  class: "bg-[#6b7280]/10 text-[#6b7280]",
+                };
+                return (
+                  <tr
+                    key={inv.id}
+                    className="border-b border-[#f3f4f6] last:border-0 hover:bg-[#f9fafb] transition-colors"
+                  >
+                    <td className="px-5 py-4">
+                      <Link
+                        href={`/admin/invoices/${inv.id}`}
+                        className="text-sm font-medium text-[#2563eb] hover:underline"
+                      >
+                        #{inv.invoice_number}
+                      </Link>
+                    </td>
+                    <td className="px-5 py-4 text-sm text-[#1f2937]">
+                      {inv.customers?.organization_name || "-"}
+                    </td>
+                    <td className="px-5 py-4 text-sm text-[#1f2937]">
+                      {inv.date
+                        ? new Date(inv.date).toLocaleDateString("fi-FI")
+                        : "-"}
+                    </td>
+                    <td className="px-5 py-4 text-sm text-[#1f2937]">
+                      {inv.due_date
+                        ? new Date(inv.due_date).toLocaleDateString("fi-FI")
+                        : "-"}
+                    </td>
+                    <td className="px-5 py-4 text-sm font-medium text-[#1f2937]">
+                      {inv.total != null
+                        ? `${Number(inv.total).toLocaleString("fi-FI", { minimumFractionDigits: 2 })} \u20AC`
+                        : "-"}
+                    </td>
+                    <td className="px-5 py-4">
+                      <span
+                        className={`text-xs font-medium px-2.5 py-1 rounded-full ${status.class}`}
+                      >
+                        {status.label}
+                      </span>
+                    </td>
+                    <td className="px-5 py-4">
+                      <button
+                        type="button"
+                        className="text-[#9ca3af] hover:text-[#6b7280] bg-transparent cursor-pointer"
+                        title="Lataa PDF"
+                      >
+                        <Download className="h-4 w-4" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

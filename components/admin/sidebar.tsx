@@ -14,6 +14,7 @@ import {
   LogOut,
   Menu,
   X,
+  Target,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
@@ -21,6 +22,7 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/admin", label: "Yleisnäkymä", icon: LayoutDashboard },
+  { href: "/admin/crm", label: "CRM", icon: Target },
   { href: "/admin/customers", label: "Asiakkaat", icon: Users },
   { href: "/admin/invoices", label: "Laskut", icon: FileText },
   { href: "/admin/reports", label: "Raportit", icon: BarChart3 },

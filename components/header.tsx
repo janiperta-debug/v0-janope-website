@@ -33,7 +33,7 @@ export function Header() {
       }`}
     >
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 py-4">
-        <Link href="/admin" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src="/janope-logo.png"
             alt="Janope Logo"
