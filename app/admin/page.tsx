@@ -8,6 +8,9 @@ import {
   Clock,
 } from "lucide-react";
 
+// Prevent static generation - this page requires runtime data
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
   const supabase = await createClient();
 

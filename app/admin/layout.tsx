@@ -3,6 +3,9 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { AdminSidebar } from "@/components/admin/sidebar";
 
+// Prevent static generation - this layout requires runtime auth
+export const dynamic = "force-dynamic";
+
 export default async function AdminLayout({
   children,
 }: {
