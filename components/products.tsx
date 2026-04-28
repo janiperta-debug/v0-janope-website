@@ -35,7 +35,7 @@ const products = [
       "Pelien hallinta",
       "Yhteisön rakentaminen",
     ],
-    link: "https://v0-gametable-2-0.vercel.app/",
+    link: "https://www.gametable.fi",
     linkText: "Katso GameTable",
   },
   // Tuotannossa
