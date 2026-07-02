@@ -80,6 +80,8 @@ export interface Area {
   icon: string;
   /** CSS-muuttujan nimi alueen aksenttivärille (ks. globals.css) */
   accentVar: string;
+  /** Alueen oma yksityiskohtainen karttakuva (valinnainen; lisätään sitä mukaa kun grafiikat valmistuvat) */
+  image?: string;
   /** Sijainti maailmakartalla (%) */
   hotspot: MapPoint;
   /** Zoom-fokus kun alue on valittu */
@@ -104,8 +106,9 @@ export const AREAS: Area[] = [
     ],
     icon: "Users",
     accentVar: "--area-communities",
-    hotspot: { x: 40, y: 19 },
-    focus: { x: 40, y: 19, scale: 1.9 },
+    image: "/world/area-yhteisojen-alue.jpg",
+    hotspot: { x: 24, y: 17 },
+    focus: { x: 24, y: 17, scale: 1.9 },
     buildingIds: ["gametable", "gamedesk"],
   },
   {
@@ -124,8 +127,8 @@ export const AREAS: Area[] = [
     ],
     icon: "Landmark",
     accentVar: "--area-property",
-    hotspot: { x: 72, y: 18 },
-    focus: { x: 72, y: 18, scale: 1.9 },
+    hotspot: { x: 73, y: 14 },
+    focus: { x: 73, y: 14, scale: 2 },
     buildingIds: ["finnvesta"],
   },
   {
@@ -144,8 +147,8 @@ export const AREAS: Area[] = [
     ],
     icon: "Home",
     accentVar: "--area-local",
-    hotspot: { x: 85, y: 42 },
-    focus: { x: 85, y: 42, scale: 2 },
+    hotspot: { x: 80, y: 35 },
+    focus: { x: 80, y: 35, scale: 2 },
     buildingIds: ["lahella"],
   },
   {
