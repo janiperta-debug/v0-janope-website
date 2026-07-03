@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { WORLD_TAGLINE } from "@/lib/janope-world";
 
 const NAV = [
@@ -27,7 +27,11 @@ export function SiteHeader() {
       <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Compass className="h-9 w-9 flex-shrink-0 text-foreground" strokeWidth={1.25} />
+          <img
+            src="/world/janope-compass.png"
+            alt="Janope"
+            className="h-10 w-10 flex-shrink-0 object-contain"
+          />
           <span className="flex flex-col leading-none">
             <span className="font-display text-2xl font-700 tracking-[0.14em] text-foreground sm:text-3xl">
               JANOPE

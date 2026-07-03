@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Compass } from "lucide-react";
-import { AREAS, getArea, WORLD_TAGLINE, type Area } from "@/lib/janope-world";
+import { AREAS, getArea, type Area } from "@/lib/janope-world";
 import { WorldIcon } from "./world-icon";
 
 interface Focus {
@@ -27,7 +27,7 @@ function resolveFocus(pathname: string): Focus {
       };
     }
   }
-  return { x: 50, y: 50, scale: 1, activeAreaSlug: null };
+  return { x: 50, y: 45, scale: 1, activeAreaSlug: null };
 }
 
 function Hotspot({
@@ -65,10 +65,10 @@ function Hotspot({
         }}
       >
         <span
-          className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-md transition-all duration-300 ${
+          className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-lg transition-all duration-300 ${
             isActive
               ? "border-gold-bright marker-pulse scale-110"
-              : "border-card/70"
+              : "border-card/80"
           } ${isDimmed ? "opacity-40" : "opacity-100"}`}
           style={{ backgroundColor: `var(${area.accentVar})` }}
         >
@@ -76,12 +76,12 @@ function Hotspot({
         </span>
 
         <span
-          className={`pointer-events-none flex max-w-[180px] flex-col rounded-lg border border-border bg-card/95 px-3 py-1.5 shadow-md transition-all duration-300 ${
-            isDimmed ? "opacity-0" : "opacity-100"
-          } ${
+          className={`pointer-events-none flex max-w-[180px] flex-col rounded-lg border border-border bg-card/95 px-3 py-1.5 shadow-md transition-opacity duration-300 ${
             isActive
               ? "opacity-100"
-              : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
+              : isDimmed
+                ? "opacity-0"
+                : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
           }`}
           style={{ textAlign: labelLeft ? "right" : "left" }}
         >
@@ -101,6 +101,8 @@ export function WorldMap() {
   const pathname = usePathname();
   const focus = resolveFocus(pathname);
   const isWorld = focus.activeAreaSlug === null;
+  const activeArea = focus.activeAreaSlug ? getArea(focus.activeAreaSlug) : undefined;
+  const detailImage = activeArea?.image;
 
   return (
     <div className="parchment-texture relative h-full w-full overflow-hidden">
@@ -112,62 +114,20 @@ export function WorldMap() {
           transformOrigin: "center",
         }}
       >
-        {/* Taustan kompassikehät (placeholder lopullisen karttakuvan tilalla) */}
-        <svg
-          className="absolute inset-0 h-full w-full"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          {/* Yhteysviivat keskuksesta jokaiseen alueeseen */}
-          {AREAS.map((area) => (
-            <line
-              key={area.id}
-              x1="50"
-              y1="50"
-              x2={area.hotspot.x}
-              y2={area.hotspot.y}
-              stroke="var(--gold)"
-              strokeWidth="0.25"
-              strokeDasharray="1 1.4"
-              opacity="0.5"
-            />
-          ))}
-        </svg>
+        {/* Maailmakartta */}
+        <img
+          src="/world/world-map.jpg"
+          alt="Janopen maailmankartta"
+          className="absolute inset-0 h-full w-full object-cover"
+          draggable={false}
+        />
 
-        {/* Koristeelliset kompassikehät keskellä */}
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          aria-hidden="true"
-        >
-          {[520, 380, 250].map((size) => (
-            <div
-              key={size}
-              className="absolute rounded-full border border-gold/20"
-              style={{
-                width: size,
-                height: size,
-                left: -size / 2,
-                top: -size / 2,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Keskuksen Janope-hub */}
+        {/* Keskuksen klikattava hub (kartan kultainen solmu) */}
         <Link
           href="/"
           aria-label="Palaa koko maailmaan"
-          className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center"
-        >
-          <Compass className="h-10 w-10 text-foreground" strokeWidth={1} />
-          <span className="font-display mt-1 text-2xl font-700 tracking-[0.14em] text-foreground">
-            JANOPE
-          </span>
-          <span className="mt-1 max-w-[200px] text-xs italic text-muted-foreground">
-            {WORLD_TAGLINE}
-          </span>
-        </Link>
+          className="absolute left-1/2 top-[45%] z-10 h-[12%] w-[12%] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        />
 
         {/* Alueiden hotspotit */}
         {AREAS.map((area) => (
@@ -179,6 +139,18 @@ export function WorldMap() {
           />
         ))}
       </div>
+
+      {/* Alueen tarkka kuva – ristiinhäivytys kun alueeseen on zoomattu */}
+      {detailImage && (
+        <img
+          src={detailImage || "/placeholder.svg"}
+          alt={`${activeArea?.name} – yksityiskohtainen kartta`}
+          className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+            isWorld ? "opacity-0" : "opacity-100"
+          }`}
+          draggable={false}
+        />
+      )}
 
       {/* Paluu koko maailmaan -painike (näkyy kun ollaan alueella) */}
       {!isWorld && (
