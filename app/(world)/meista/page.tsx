@@ -30,7 +30,7 @@ export default function MeistaPage() {
           identiteetin, turvallisuuden, datan ja alustapalvelut.
         </p>
         <p className="leading-relaxed">
-          Yhdistämme yhteisöt, omaisuuden, liikkumisen, paikallisen elämän ja
+          Yhdistämme yhteisöt, omaisuuden, liikkumisen, lähielämän ja
           kestävyyden tulevaisuuden yhdeksi turvalliseksi ja luotettavaksi
           ekosysteemiksi. Uusia paikkoja syntyy tarpeista, ja ekosysteemi
           laajenee yhdessä käyttäjien kanssa.

@@ -15,7 +15,7 @@ export default function EtusivuPage() {
           Digitaalisia paikkoja, joissa ihmiset voivat kohdata, hallita, löytää ja kasvaa.
         </h1>
         <p className="text-lg leading-relaxed text-muted-foreground">
-          Janope yhdistää yhteisöt, omaisuuden, liikkumisen, paikallisen elämän ja
+          Janope yhdistää yhteisöt, omaisuuden, liikkumisen, lähielämän ja
           kestävyyden tulevaisuuden yhdeksi turvalliseksi ja luotettavaksi
           ekosysteemiksi.
         </p>
