@@ -48,7 +48,7 @@ function Hotspot({
     <Link
       href={`/alue/${area.slug}`}
       aria-label={`${area.name} – ${area.tagline}`}
-      className="group absolute z-10"
+      className="group pointer-events-auto absolute z-10"
       style={{
         left: `${area.hotspot.x}%`,
         top: `${area.hotspot.y}%`,
@@ -102,40 +102,48 @@ export function WorldMap() {
   const focus = resolveFocus(pathname);
   const isWorld = focus.activeAreaSlug === null;
 
+  const zoomTransform = {
+    transform: `scale(${focus.scale}) translate(${50 - focus.x}%, ${50 - focus.y}%)`,
+    transformOrigin: "center" as const,
+  };
+
   return (
-    <div className="parchment-texture relative aspect-[1382/921] max-h-full w-full max-w-full overflow-hidden rounded-xl border border-border/60 shadow-sm">
-      {/* Zoomattava kartta-alusta */}
-      <div
-        className="map-zoom absolute inset-0"
-        style={{
-          transform: `scale(${focus.scale}) translate(${50 - focus.x}%, ${50 - focus.y}%)`,
-          transformOrigin: "center",
-        }}
-      >
-        {/* Maailmakartta */}
-        <img
-          src="/world/world-map.jpg"
-          alt="Janopen maailmankartta"
-          className="absolute inset-0 h-full w-full object-contain"
-          draggable={false}
-        />
-
-        {/* Keskuksen klikattava hub (kartan kultainen solmu) */}
-        <Link
-          href="/"
-          aria-label="Palaa koko maailmaan"
-          className="absolute left-1/2 top-[45%] z-10 h-[12%] w-[12%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        />
-
-        {/* Alueiden hotspotit */}
-        {AREAS.map((area) => (
-          <Hotspot
-            key={area.id}
-            area={area}
-            activeAreaSlug={focus.activeAreaSlug}
-            scale={focus.scale}
+    <div className="relative aspect-[1382/921] max-h-full w-full max-w-full">
+      {/* Kuvakerros: rajattu pyöristettyyn kehykseen */}
+      <div className="parchment-texture absolute inset-0 overflow-hidden rounded-xl border border-border/60 shadow-sm">
+        <div className="map-zoom absolute inset-0" style={zoomTransform}>
+          <img
+            src="/world/world-map.jpg"
+            alt="Janopen maailmankartta"
+            className="absolute inset-0 h-full w-full object-contain"
+            draggable={false}
           />
-        ))}
+        </div>
+      </div>
+
+      {/* Hotspot-kerros: EI rajattu, jotta reunanapit eivät leikkaudu */}
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="map-zoom pointer-events-none absolute inset-0"
+          style={zoomTransform}
+        >
+          {/* Keskuksen klikattava hub (kartan kultainen solmu) */}
+          <Link
+            href="/"
+            aria-label="Palaa koko maailmaan"
+            className="pointer-events-auto absolute left-1/2 top-[45%] z-10 h-[12%] w-[12%] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          />
+
+          {/* Alueiden hotspotit */}
+          {AREAS.map((area) => (
+            <Hotspot
+              key={area.id}
+              area={area}
+              activeAreaSlug={focus.activeAreaSlug}
+              scale={focus.scale}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Paluu koko maailmaan -painike (näkyy kun ollaan alueella) */}
