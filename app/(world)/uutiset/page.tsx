@@ -14,6 +14,7 @@ export default function UutisetPage() {
       <PanelBack href="/" label="Takaisin maailmaan" />
 
       <EmblemHeading
+        logo
         icon="Newspaper"
         accentVar="--gold"
         kicker="Uutiset"

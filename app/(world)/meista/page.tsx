@@ -15,6 +15,7 @@ export default function MeistaPage() {
       <PanelBack href="/" label="Takaisin maailmaan" />
 
       <EmblemHeading
+        logo
         icon="Compass"
         accentVar="--gold"
         kicker="Meistä"

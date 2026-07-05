@@ -21,6 +21,7 @@ export default function YhteystiedotPage() {
       <PanelBack href="/" label="Takaisin maailmaan" />
 
       <EmblemHeading
+        logo
         icon="Mail"
         accentVar="--gold"
         kicker="Yhteystiedot"

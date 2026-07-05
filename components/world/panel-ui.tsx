@@ -27,22 +27,33 @@ export function EmblemHeading({
   kicker,
   title,
   tagline,
+  logo,
 }: {
   icon: string;
   accentVar: string;
   kicker: string;
   title: string;
   tagline?: string;
+  /** Näytä Janope-brändilogo geneerisen ikonin sijaan (brändisivut) */
+  logo?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-4">
-        <span
-          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border-2 border-card/70 shadow-md"
-          style={{ backgroundColor: `var(${accentVar})` }}
-        >
-          <WorldIcon name={icon} className="h-7 w-7 text-card" />
-        </span>
+        {logo ? (
+          <img
+            src="/world/janope-compass.png"
+            alt="Janope"
+            className="h-14 w-14 flex-shrink-0 object-contain"
+          />
+        ) : (
+          <span
+            className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border-2 border-card/70 shadow-md"
+            style={{ backgroundColor: `var(${accentVar})` }}
+          >
+            <WorldIcon name={icon} className="h-7 w-7 text-card" />
+          </span>
+        )}
         <div className="flex flex-col">
           <span className="map-kicker text-[10px] text-muted-foreground">
             {kicker}
