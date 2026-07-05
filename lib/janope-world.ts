@@ -144,7 +144,7 @@ export const AREAS: Area[] = [
     ],
     icon: "Zap",
     accentVar: "--area-mobility",
-    hotspot: { x: 18, y: 47 },
+    hotspot: { x: 24, y: 47 },
     focus: { x: 18, y: 47, scale: 2 },
     buildingIds: ["voltteri", "skuuttila"],
   },
