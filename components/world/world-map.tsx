@@ -101,8 +101,6 @@ export function WorldMap() {
   const pathname = usePathname();
   const focus = resolveFocus(pathname);
   const isWorld = focus.activeAreaSlug === null;
-  const activeArea = focus.activeAreaSlug ? getArea(focus.activeAreaSlug) : undefined;
-  const detailImage = activeArea?.image;
 
   return (
     <div className="parchment-texture relative h-full w-full overflow-hidden">
