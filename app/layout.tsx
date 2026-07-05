@@ -21,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Janope – Digitaalisia paikkoja, joilla on merkitystä",
   description:
-    "Janope on yhteinen maailma digitaalisia paikkoja varten. Yksi perusta, monta merkityksellistä ympäristöä: yhteisöt, omaisuus, liikkuminen, paikallinen elämä, kestävyys ja löytäminen.",
+    "Janope on yhteinen maailma digitaalisia paikkoja varten. Yksi perusta, viisi merkityksellistä aluetta: yhteisöt, omaisuus, liikkuminen, lähielämä ja kestävyys.",
   keywords: [
     "Janope",
     "digitaaliset alustat",

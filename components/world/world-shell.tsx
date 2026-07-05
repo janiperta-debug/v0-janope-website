@@ -14,16 +14,16 @@ import { WorldStatsBar } from "./world-stats-bar";
  */
 export function WorldShell({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-dvh flex-col overflow-hidden bg-background">
+    <div className="flex flex-col bg-background lg:h-dvh lg:overflow-hidden">
       <SiteHeader />
 
-      <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
-        {/* Vasen paneeli: vaihtuva sisältö */}
-        <div className="order-2 flex min-h-0 w-full flex-col overflow-y-auto border-border lg:order-1 lg:w-[420px] lg:flex-shrink-0 lg:border-r xl:w-[460px]">
+      <div className="flex flex-col lg:min-h-0 lg:flex-1 lg:flex-row">
+        {/* Vasen paneeli: vaihtuva sisältö (mobiilissa kartan alla, vierii sivun mukana) */}
+        <div className="order-2 flex w-full flex-col border-border lg:order-1 lg:min-h-0 lg:w-[420px] lg:flex-shrink-0 lg:overflow-y-auto lg:border-r xl:w-[460px]">
           <div className="flex-1 p-5 sm:p-6 lg:p-8">{children}</div>
         </div>
 
-        {/* Oikea puoli: pysyvä maailmakartta */}
+        {/* Oikea puoli: maailmakartta (mobiilissa ylälohko, työpöydällä pysyvä paneeli) */}
         <div className="order-1 h-[42vh] w-full flex-shrink-0 lg:order-2 lg:h-auto lg:flex-1">
           <WorldMap />
         </div>
