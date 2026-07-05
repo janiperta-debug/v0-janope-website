@@ -121,8 +121,13 @@ export function WorldMap() {
         </div>
       </div>
 
-      {/* Hotspot-kerros: EI rajattu, jotta reunanapit eivät leikkaudu */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* Hotspot-kerros: maailmanäkymässä rajaamaton (reunanapit näkyvät kokonaan),
+          alueeseen zoomatessa rajattu kehykseen ettei muiden alueiden napit vuoda ulos */}
+      <div
+        className={`pointer-events-none absolute inset-0 ${
+          isWorld ? "" : "overflow-hidden rounded-xl"
+        }`}
+      >
         <div
           className="map-zoom pointer-events-none absolute inset-0"
           style={zoomTransform}
