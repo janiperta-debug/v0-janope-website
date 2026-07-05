@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import { Mail, Phone, Globe } from "lucide-react";
 import { Panel, PanelBack, EmblemHeading } from "@/components/world/panel-ui";
 import { ContactForm } from "@/components/world/contact-form";
 
@@ -11,8 +11,7 @@ export const metadata: Metadata = {
 
 const CONTACT_DETAILS = [
   { icon: Mail, label: "Sähköposti", value: "info@janope.fi", href: "mailto:info@janope.fi" },
-  { icon: Phone, label: "Puhelin", value: "+358 40 123 4567", href: "tel:+358401234567" },
-  { icon: MapPin, label: "Osoite", value: "Janopen aukio 1, 00100 Helsinki, Suomi" },
+  { icon: Phone, label: "Puhelin", value: "+358 400 982177", href: "tel:+358400982177" },
   { icon: Globe, label: "Verkkosivu", value: "www.janope.fi", href: "https://www.janope.fi" },
 ];
 
