@@ -138,18 +138,6 @@ export function WorldMap() {
         ))}
       </div>
 
-      {/* Alueen tarkka kuva – ristiinhäivytys kun alueeseen on zoomattu */}
-      {detailImage && (
-        <img
-          src={detailImage || "/placeholder.svg"}
-          alt={`${activeArea?.name} – yksityiskohtainen kartta`}
-          className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-            isWorld ? "opacity-0" : "opacity-100"
-          }`}
-          draggable={false}
-        />
-      )}
-
       {/* Paluu koko maailmaan -painike (näkyy kun ollaan alueella) */}
       {!isWorld && (
         <Link

@@ -80,8 +80,6 @@ export interface Area {
   icon: string;
   /** CSS-muuttujan nimi alueen aksenttivärille (ks. globals.css) */
   accentVar: string;
-  /** Alueen oma yksityiskohtainen karttakuva (valinnainen; lisätään sitä mukaa kun grafiikat valmistuvat) */
-  image?: string;
   /** Sijainti maailmakartalla (%) */
   hotspot: MapPoint;
   /** Zoom-fokus kun alue on valittu */
@@ -106,7 +104,6 @@ export const AREAS: Area[] = [
     ],
     icon: "Users",
     accentVar: "--area-communities",
-    image: "/world/area-yhteisojen-alue.jpg",
     hotspot: { x: 27, y: 16 },
     focus: { x: 27, y: 16, scale: 1.9 },
     buildingIds: ["gametable", "gamedesk"],
@@ -127,7 +124,6 @@ export const AREAS: Area[] = [
     ],
     icon: "Landmark",
     accentVar: "--area-property",
-    image: "/world/area-omaisuuden-alue.jpg",
     hotspot: { x: 77, y: 14 },
     focus: { x: 77, y: 14, scale: 2 },
     buildingIds: ["finnvesta"],
@@ -148,7 +144,6 @@ export const AREAS: Area[] = [
     ],
     icon: "Zap",
     accentVar: "--area-mobility",
-    image: "/world/area-liikkumisen-alue.jpg",
     hotspot: { x: 18, y: 47 },
     focus: { x: 18, y: 47, scale: 2 },
     buildingIds: ["voltteri", "skuuttila"],
@@ -169,7 +164,6 @@ export const AREAS: Area[] = [
     ],
     icon: "Home",
     accentVar: "--area-local",
-    image: "/world/area-lahielaman-alue.jpg",
     hotspot: { x: 80, y: 58 },
     focus: { x: 80, y: 58, scale: 2 },
     buildingIds: ["lahella", "loytoretki"],
@@ -190,7 +184,6 @@ export const AREAS: Area[] = [
     ],
     icon: "Leaf",
     accentVar: "--area-sustainability",
-    image: "/world/area-kestavyyden-alue.jpg",
     hotspot: { x: 46, y: 76 },
     focus: { x: 46, y: 76, scale: 2 },
     buildingIds: ["finnverdis"],
