@@ -116,7 +116,7 @@ export function WorldMap() {
         <img
           src="/world/world-map.jpg"
           alt="Janopen maailmankartta"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-contain"
           draggable={false}
         />
 
