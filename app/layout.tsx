@@ -1,34 +1,50 @@
-import React from "react"
+import React from "react";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { CookieBanner } from "@/components/cookie-banner";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  weight: ["400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
-  title: "Janope - Ohjelmistoratkaisuja yhteisöille ja organisaatioille",
+  title: "Janope – Digitaalisia paikkoja, joilla on merkitystä",
   description:
-    "Rakennamme digitaalisia alustoja jotka yhdistävät ihmisiä, dataa ja yhteisöjä. Pihapiiri, ChargeHub, GameDesk ja räätälöidyt ohjelmistoratkaisut.",
+    "Janope on yhteinen maailma digitaalisia paikkoja varten. Yksi perusta, viisi merkityksellistä aluetta: yhteisöt, omaisuus, liikkuminen, lähielämä ja kestävyys.",
   keywords: [
     "Janope",
-    "ohjelmistokehitys",
     "digitaaliset alustat",
+    "ohjelmistokehitys",
     "yhteisöt",
-    "Pihapiiri",
-    "ChargeHub",
-    "GameDesk",
+    "FinnVesta",
+    "GameTable",
+    "Voltteri",
+    "Lähellä",
+    "FinnVerdis",
   ],
   authors: [{ name: "Janope" }],
   icons: {
     icon: "/janope-logo.jpg",
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a1128",
+  themeColor: "#2a2018",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -37,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fi">
-      <body className={`${inter.className} antialiased`}>
+    <html lang="fi" className="bg-background">
+      <body className={`${cinzel.variable} ${cormorant.variable} antialiased`}>
         {children}
         <CookieBanner />
         <Analytics />

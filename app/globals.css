@@ -4,118 +4,100 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff; /* Preserved */
-  --foreground: #0a1128; /* Preserved */
-  --card: #ffffff; /* Preserved */
-  --card-foreground: #0a1128; /* Preserved */
-  --popover: #ffffff; /* Preserved */
-  --popover-foreground: #0a1128; /* Preserved */
-  --primary: #00d4ff; /* Preserved */
-  --primary-foreground: #0a1128; /* Preserved */
-  --secondary: #0088ff; /* Preserved */
-  --secondary-foreground: #ffffff; /* Preserved */
-  --muted: #f8f9fa; /* Preserved */
-  --muted-foreground: #8b9dc3; /* Preserved */
-  --accent: #1a2847; /* Preserved */
-  --accent-foreground: #ffffff; /* Preserved */
-  --destructive: oklch(0.577 0.245 27.325); /* Preserved */
-  --destructive-foreground: oklch(0.577 0.245 27.325); /* Preserved */
-  --border: #e5e7eb; /* Preserved */
-  --input: #e5e7eb; /* Preserved */
-  --ring: #00d4ff; /* Preserved */
-  --chart-1: oklch(0.646 0.222 41.116); /* Preserved */
-  --chart-2: oklch(0.6 0.118 184.704); /* Preserved */
-  --chart-3: oklch(0.398 0.07 227.392); /* Preserved */
-  --chart-4: oklch(0.828 0.189 84.429); /* Preserved */
-  --chart-5: oklch(0.769 0.188 70.08); /* Preserved */
-  --radius: 0.625rem; /* Preserved */
-  --dark-bg: #0a1128; /* Preserved custom variable */
-  --dark: #1a2847; /* Preserved custom variable */
-  --gray: #8b9dc3; /* Preserved custom variable */
-  --sidebar: #0a1128; /* Preserved */
-  --sidebar-foreground: #ffffff; /* Preserved */
-  --sidebar-primary: #00d4ff; /* Preserved */
-  --sidebar-primary-foreground: #0a1128; /* Preserved */
-  --sidebar-accent: #1a2847; /* Preserved */
-  --sidebar-accent-foreground: #ffffff; /* Preserved */
-  --sidebar-border: #1a2847; /* Preserved */
-  --sidebar-ring: #00d4ff; /* Preserved */
-}
+  /* Parchment / aged-map palette */
+  --background: #e6d7b8; /* aged map parchment */
+  --foreground: #33281a; /* deep ink brown */
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --card: #f2e9d4; /* lighter parchment panel */
+  --card-foreground: #33281a;
+  --popover: #f2e9d4;
+  --popover-foreground: #33281a;
+
+  /* Primary = dark slate/navy used on the strong CTA buttons */
+  --primary: #22333f;
+  --primary-foreground: #f2e9d4;
+
+  --secondary: #d8c8a2; /* tan */
+  --secondary-foreground: #33281a;
+
+  --muted: #ddceac;
+  --muted-foreground: #6f6146;
+
+  --accent: #e9dcc0;
+  --accent-foreground: #33281a;
+
+  --destructive: #8a2f24;
+  --destructive-foreground: #f2e9d4;
+
+  --border: #c9b78d; /* tan border / hairline */
+  --input: #c9b78d;
+  --ring: #a9812f;
+
+  --radius: 0.5rem;
+
+  /* Gold accents */
+  --gold: #a9812f;
+  --gold-bright: #c9a227;
+
+  /* Map atmosphere */
+  --map-water: #7d8a6a;
+  --map-land: #d8c8a0;
+  --map-ink: #4a3a24;
+
+  /* Area accent colors (categorical, one per world region) */
+  --area-communities: #6e3230;
+  --area-property: #3f5138;
+  --area-local: #2f4257;
+  --area-sustainability: #4c5a2b;
+  --area-mobility: #22333f;
+  --area-light-mobility: #38414c;
+  --area-discovery: #6a5326;
 }
 
 @theme inline {
-  --font-sans: "Inter", sans-serif; /* Preserved */
-  --font-mono: ui-monospace, monospace; /* Preserved */
-  --color-background: #ffffff; /* Preserved */
-  --color-foreground: #0a1128; /* Preserved */
-  --color-card: #ffffff; /* Preserved */
-  --color-card-foreground: #0a1128; /* Preserved */
-  --color-popover: #ffffff; /* Preserved */
-  --color-popover-foreground: #0a1128; /* Preserved */
-  --color-primary: #00d4ff; /* Preserved */
-  --color-primary-foreground: #0a1128; /* Preserved */
-  --color-secondary: #0088ff; /* Preserved */
-  --color-secondary-foreground: #ffffff; /* Preserved */
-  --color-muted: #f8f9fa; /* Preserved */
-  --color-muted-foreground: #8b9dc3; /* Preserved */
-  --color-accent: #1a2847; /* Preserved */
-  --color-accent-foreground: #ffffff; /* Preserved */
-  --color-destructive: #ef4444; /* Preserved */
-  --color-destructive-foreground: #ef4444; /* Preserved */
-  --color-border: #e5e7eb; /* Preserved */
-  --color-input: #e5e7eb; /* Preserved */
-  --color-ring: #00d4ff; /* Preserved */
-  --color-chart-1: #f97316; /* Preserved */
-  --color-chart-2: #14b8a6; /* Preserved */
-  --color-chart-3: #3b82f6; /* Preserved */
-  --color-chart-4: #eab308; /* Preserved */
-  --color-chart-5: #f59e0b; /* Preserved */
-  --radius-sm: 0.375rem; /* Preserved */
-  --radius-md: 0.5rem; /* Preserved */
-  --radius-lg: 0.625rem; /* Preserved */
-  --radius-xl: 1rem; /* Preserved */
-  --color-sidebar: #0a1128; /* Preserved */
-  --color-sidebar-foreground: #ffffff; /* Preserved */
-  --color-sidebar-primary: #00d4ff; /* Preserved */
-  --color-sidebar-primary-foreground: #0a1128; /* Preserved */
-  --color-sidebar-accent: #1a2847; /* Preserved */
-  --color-sidebar-accent-foreground: #ffffff; /* Preserved */
-  --color-sidebar-border: #1a2847; /* Preserved */
-  --color-sidebar-ring: #00d4ff; /* Preserved */
+  --font-display: var(--font-cinzel);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-cormorant);
+  --font-mono: ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-map-water: var(--map-water);
+  --color-map-land: var(--map-land);
+  --color-map-ink: var(--map-ink);
+
+  --color-area-communities: var(--area-communities);
+  --color-area-property: var(--area-property);
+  --color-area-local: var(--area-local);
+  --color-area-sustainability: var(--area-sustainability);
+  --color-area-mobility: var(--area-mobility);
+  --color-area-light-mobility: var(--area-light-mobility);
+  --color-area-discovery: var(--area-discovery);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 8px);
 }
 
 @layer base {
@@ -125,21 +107,73 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-family: var(--font-serif), Georgia, serif;
   }
   html {
     scroll-behavior: smooth;
   }
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-  }
-  to {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display), Georgia, serif;
   }
 }
 
-.animate-glow {
-  animation: glow 2s ease-in-out infinite alternate;
+/* Aged parchment paper texture, layered subtly under content */
+.parchment-texture {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(120, 90, 40, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(90, 70, 30, 0.07), transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(120, 90, 40, 0.09), transparent 50%);
+}
+
+/* Thin decorative gold hairline used to frame panels */
+.gold-frame {
+  box-shadow:
+    inset 0 0 0 1px var(--gold),
+    inset 0 0 0 3px var(--card);
+}
+
+/* Uppercase letter-spaced label used across the map UI */
+.map-kicker {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Zoom transform easing for the world map (GPU-accelerated transform only) */
+.map-zoom {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-zoom {
+    transition: none;
+  }
+}
+
+@keyframes marker-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(169, 129, 47, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(169, 129, 47, 0);
+  }
+}
+
+.marker-pulse {
+  animation: marker-pulse 2.6s ease-in-out infinite;
+}
+
+/* Hide scrollbar for the panel while keeping scroll functionality */
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+.panel-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.panel-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--gold);
+  border-radius: 3px;
 }
