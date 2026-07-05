@@ -402,20 +402,6 @@ export const VALUES: ValueItem[] = [
   },
 ];
 
-export interface StatItem {
-  icon: string;
-  value: string;
-  label: string;
-}
-
-export const STATS: StatItem[] = [
-  { icon: "Users", value: "500 000+", label: "käyttäjää alustoillamme" },
-  { icon: "LayoutGrid", value: "5", label: "digitaalista aluetta" },
-  { icon: "Globe", value: "Rakennettu Suomessa", label: "suomalaisiin arvoihin ja laatuun perustuen" },
-  { icon: "ShieldCheck", value: "Turvallinen ja luotettava", label: "yksityisyys, turvallisuus ja laatu by design" },
-  { icon: "Network", value: "Rakennettu kasvamaan", label: "ekosysteemi laajenee käyttäjien kanssa" },
-];
-
 export const WORLD_TAGLINE = "Digitaalisia paikkoja, joilla on merkitystä.";
 
 export interface NewsItem {

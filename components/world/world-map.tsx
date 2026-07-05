@@ -103,7 +103,7 @@ export function WorldMap() {
   const isWorld = focus.activeAreaSlug === null;
 
   return (
-    <div className="parchment-texture relative h-full w-full overflow-hidden">
+    <div className="parchment-texture relative aspect-[1382/921] max-h-full w-full max-w-full overflow-hidden rounded-xl border border-border/60 shadow-sm">
       {/* Zoomattava kartta-alusta */}
       <div
         className="map-zoom absolute inset-0"

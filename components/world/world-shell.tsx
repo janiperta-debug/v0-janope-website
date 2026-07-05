@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { SiteHeader } from "./site-header";
 import { WorldMap } from "./world-map";
-import { WorldStatsBar } from "./world-stats-bar";
+import { WorldFooter } from "./world-stats-bar";
 
 /**
  * Pysyvä "Janopen maailma" -kuori.
@@ -23,13 +23,14 @@ export function WorldShell({ children }: { children: ReactNode }) {
           <div className="flex-1 p-5 sm:p-6 lg:p-8">{children}</div>
         </div>
 
-        {/* Oikea puoli: maailmakartta (mobiilissa ylälohko, työpöydällä pysyvä paneeli) */}
-        <div className="order-1 h-[42vh] w-full flex-shrink-0 lg:order-2 lg:h-auto lg:flex-1">
+        {/* Oikea puoli: maailmakartta (mobiilissa ylälohko, työpöydällä pysyvä paneeli).
+            Keskitetään ja näytetään kokonaan kuvasuhteen mukaisena. */}
+        <div className="order-1 flex w-full flex-shrink-0 items-center justify-center p-2 sm:p-3 lg:order-2 lg:h-auto lg:flex-1 lg:p-4">
           <WorldMap />
         </div>
       </div>
 
-      <WorldStatsBar />
+      <WorldFooter />
     </div>
   );
 }
