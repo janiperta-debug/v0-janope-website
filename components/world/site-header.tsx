@@ -33,9 +33,11 @@ export function SiteHeader() {
             className="h-10 w-10 flex-shrink-0 object-contain"
           />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-2xl font-700 tracking-[0.14em] text-foreground sm:text-3xl">
-              JANOPE
-            </span>
+            <img
+              src="/world/janope-wordmark.png"
+              alt="JANOPE"
+              className="h-5 w-auto object-contain sm:h-6"
+            />
             <span className="mt-1 hidden text-xs text-muted-foreground sm:block">
               {WORLD_TAGLINE}
             </span>
