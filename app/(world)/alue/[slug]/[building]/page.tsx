@@ -88,7 +88,11 @@ export default async function RakennusPage({
 
       {/* CTA */}
       {building.link ? (
-        <PrimaryLink href={building.link} label={building.linkText} external />
+        <PrimaryLink
+          href={building.link}
+          label={building.linkText}
+          external={building.link.startsWith("http")}
+        />
       ) : (
         <span className="map-kicker inline-flex w-fit items-center rounded-lg border border-dashed border-border px-6 py-4 text-xs text-muted-foreground">
           {building.linkText}
