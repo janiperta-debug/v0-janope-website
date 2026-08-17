@@ -177,3 +177,76 @@
   background-color: var(--gold);
   border-radius: 3px;
 }
+/* =========================================================
+   FinnVesta product theme
+   ========================================================= */
+
+.finnvesta-theme {
+  --background: #0b1220;
+  --foreground: #f1f5f9;
+
+  --card: #111b2b;
+  --card-foreground: #f1f5f9;
+
+  --popover: #111b2b;
+  --popover-foreground: #f1f5f9;
+
+  --primary: #c9a24a;
+  --primary-foreground: #101722;
+
+  --secondary: #1a2637;
+  --secondary-foreground: #e2e8f0;
+
+  --muted: #172235;
+  --muted-foreground: #94a3b8;
+
+  --accent: #1d2b3e;
+  --accent-foreground: #f1f5f9;
+
+  --destructive: #a94442;
+  --destructive-foreground: #ffffff;
+
+  --border: #263448;
+  --input: #263448;
+  --ring: #c9a24a;
+
+  background-color: #0b1220;
+  color: #f1f5f9;
+}
+
+/* FinnVesta landing uses one continuous dark background */
+.finnvesta-theme main,
+.finnvesta-theme section {
+  background-color: #0b1220;
+}
+
+/* Keep cards visually separated from the background */
+.finnvesta-theme .bg-card {
+  background-color: #111b2b;
+}
+
+.finnvesta-theme .bg-secondary {
+  background-color: #1a2637;
+}
+
+.finnvesta-theme .bg-muted {
+  background-color: #172235;
+}
+
+/* FinnVesta text hierarchy */
+.finnvesta-theme .text-foreground {
+  color: #f1f5f9;
+}
+
+.finnvesta-theme .text-muted-foreground {
+  color: #94a3b8;
+}
+
+.finnvesta-theme .text-primary {
+  color: #c9a24a;
+}
+
+/* FinnVesta borders */
+.finnvesta-theme .border-border {
+  border-color: #263448;
+}
