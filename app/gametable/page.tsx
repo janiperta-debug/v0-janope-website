@@ -1,9 +1,12 @@
-export const metadata = {
-  title: "GameTable | Janope",
-  description: "GameTable – paikka, jossa lautapelaajat kohtaavat.",
-};
+"use client"
 
-// Tuotteen landing-sivu. Sisältö siirretään tähän olemassa olevasta landingista.
+import { I18nProvider } from "@/lib/gametable-i18n"
+import { LandingPage } from "@/components/gametable/landing/landing-page"
+
 export default function GameTablePage() {
-  return <main className="min-h-screen bg-background" />;
+  return (
+    <I18nProvider>
+      <LandingPage />
+    </I18nProvider>
+  )
 }
