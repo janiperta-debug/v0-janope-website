@@ -250,3 +250,134 @@
 .finnvesta-theme .border-border {
   border-color: #263448;
 }
+/* =========================================================
+   GameDesk product theme
+   ========================================================= */
+
+.gamedesk-theme {
+  --gd-bg: #07090c;
+  --gd-bg2: #0b0e12;
+  --gd-surface: #111518;
+  --gd-surface2: #171c21;
+  --gd-surface3: #1e2530;
+
+  --gd-ink: #edf2f7;
+  --gd-ink2: #a8b8c8;
+  --gd-ink3: #556070;
+
+  --gd-gold: #c9953a;
+  --gd-gold2: #e8c060;
+  --gd-gold-f: rgba(201, 149, 58, 0.12);
+  --gd-gold-f2: rgba(201, 149, 58, 0.22);
+
+  --gd-accent: #00d4e8;
+  --gd-accent2: #00a8b8;
+  --gd-accent-f: rgba(0, 212, 232, 0.08);
+  --gd-accent-f2: rgba(0, 212, 232, 0.16);
+
+  --gd-border: rgba(237, 242, 247, 0.07);
+  --gd-border2: rgba(237, 242, 247, 0.13);
+
+  --gd-online: #00c880;
+  --gd-away: #e8b864;
+
+  /* Tailwind semantic colors inside GameDesk */
+  --background: #07090c;
+  --foreground: #edf2f7;
+
+  --card: #111518;
+  --card-foreground: #edf2f7;
+
+  --popover: #111518;
+  --popover-foreground: #edf2f7;
+
+  --primary: #c9953a;
+  --primary-foreground: #07090c;
+
+  --secondary: #171c21;
+  --secondary-foreground: #edf2f7;
+
+  --muted: #171c21;
+  --muted-foreground: #a8b8c8;
+
+  --accent: #00d4e8;
+  --accent-foreground: #07090c;
+
+  --destructive: #e84040;
+  --destructive-foreground: #edf2f7;
+
+  --border: rgba(237, 242, 247, 0.07);
+  --input: rgba(237, 242, 247, 0.13);
+  --ring: #00d4e8;
+
+  background-color: var(--gd-bg);
+  color: var(--gd-ink);
+}
+
+/* GameDesk sections */
+.gamedesk-theme main,
+.gamedesk-theme section {
+  background-color: var(--gd-bg);
+}
+
+/* GameDesk cards */
+.gamedesk-theme .bg-card {
+  background-color: var(--gd-surface);
+}
+
+.gamedesk-theme .bg-secondary {
+  background-color: var(--gd-surface2);
+}
+
+.gamedesk-theme .bg-muted {
+  background-color: var(--gd-surface2);
+}
+
+/* GameDesk text hierarchy */
+.gamedesk-theme .text-foreground {
+  color: var(--gd-ink);
+}
+
+.gamedesk-theme .text-muted-foreground {
+  color: var(--gd-ink2);
+}
+
+.gamedesk-theme .text-primary {
+  color: var(--gd-gold);
+}
+
+/* GameDesk borders */
+.gamedesk-theme .border-border {
+  border-color: var(--gd-border);
+}
+
+/* GameDesk scrollbar */
+.gamedesk-theme::-webkit-scrollbar {
+  width: 4px;
+}
+
+.gamedesk-theme::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gamedesk-theme::-webkit-scrollbar-thumb {
+  background: var(--gd-surface3);
+  border-radius: 100px;
+}
+
+/* GameDesk reveal animation */
+@keyframes gd-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gamedesk-theme .animate-fade-up {
+  animation: gd-fade-up 0.8s forwards;
+}
