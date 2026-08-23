@@ -65,7 +65,7 @@ function Hotspot({
         }}
       >
         <span
-          className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-lg transition-all duration-300 ${
+          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-lg transition-all duration-300 ${
             isActive
               ? "border-gold-bright marker-pulse scale-110"
               : "border-card/80"
