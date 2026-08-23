@@ -124,7 +124,7 @@ export const AREAS: Area[] = [
     ],
     icon: "Landmark",
     accentVar: "--area-property",
-    hotspot: { x: 53, y: 35 },
+    hotspot: { x: 53, y: 31 },
     focus: { x: 77, y: 14, scale: 2 },
     buildingIds: ["finnvesta"],
   },
