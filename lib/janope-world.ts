@@ -91,8 +91,8 @@ export const AREAS: Area[] = [
   {
     id: "yhteisojen",
     slug: "yhteisojen-alue",
-    kicker: "Yhteisöjen alue",
-    name: "Yhteisöjen alue",
+    kicker: "Pohjoinen alue",
+    name: "Pohjoinen alue",
     tagline: "Paikka, jossa ihmiset kokoontuvat.",
     description:
       "Rakennamme paikkoja, joissa yhteisöt syntyvät ja kasvavat. Pelaajat, harrastajat ja naapurit löytävät toisensa ja tekevät yhdessä enemmän.",
@@ -111,8 +111,8 @@ export const AREAS: Area[] = [
   {
     id: "omaisuuden",
     slug: "omaisuuden-alue",
-    kicker: "Omaisuuden alue",
-    name: "Omaisuuden alue",
+    kicker: "Keskusta",
+    name: "Keskusta",
     tagline: "Paikka, jossa tieto ja omaisuus kohtaavat.",
     description:
       "Kiinteistöjen ja omaisuuden hallinta perustuu jatkuvaan, ajantasaiseen tietoon — ei arvauksiin. Täällä data muuttuu päätöksiksi.",
@@ -131,8 +131,8 @@ export const AREAS: Area[] = [
   {
     id: "liikkumisen",
     slug: "liikkumisen-alue",
-    kicker: "Liikkumisen alue",
-    name: "Liikkumisen alue",
+    kicker: "Läntinen alue",
+    name: "Läntinen alue",
     tagline: "Paikka, jossa liikkuminen on sujuvaa ja kestävää.",
     description:
       "Rakennamme älykkäämpiä ja kestävämpiä tapoja liikkua — autolla ja kevyesti. Sähköinen lataus ja ketterät kaupunkiratkaisut kokoontuvat samaan paikkaan ja luovat perustan sujuvalle arjelle.",
@@ -151,8 +151,8 @@ export const AREAS: Area[] = [
   {
     id: "lahielaman",
     slug: "lahielaman-alue",
-    kicker: "Lähielämän alue",
-    name: "Lähielämän alue",
+    kicker: "Itäinen alue",
+    name: "Itäinen alue",
     tagline: "Paikka naapurustolle ja arjen löydöille.",
     description:
       "Lähialue on täynnä apua, seuraa, palveluita ja mahdollisuuksia — kun ne vain löytää. Teemme naapurustosta helpommin lähestyttävän ja tuomme oikeat löydöt näkyviin ilman turhaa etsimistä.",
@@ -171,8 +171,8 @@ export const AREAS: Area[] = [
   {
     id: "kestavyyden",
     slug: "kestavyyden-alue",
-    kicker: "Kestävyyden alue",
-    name: "Kestävyyden alue",
+    kicker: "Eteläinen alue",
+    name: "Eteläinen alue",
     tagline: "Paikka, jossa data ja työkalut rakentavat kestävää tulevaisuutta.",
     description:
       "Kestävä tulevaisuus rakennetaan näkyväksi. Autamme organisaatioita seuraamaan, viestimään ja edistämään ympäristötavoitteitaan.",
