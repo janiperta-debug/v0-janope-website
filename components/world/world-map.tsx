@@ -41,21 +41,20 @@ function Hotspot({
 }) {
   const isActive = activeAreaSlug === area.slug;
   const isDimmed = activeAreaSlug !== null && !isActive;
+
   // Sijoita nimilappu kartan reunasta poispäin
   const labelLeft = area.hotspot.x > 58;
 
   return (
-    <Link
-      href={`/alue/${area.slug}`}
-      aria-label={`${area.name} – ${area.tagline}`}
-      className="group pointer-events-auto absolute z-10"
+    <div
+      className="group pointer-events-none absolute z-10"
       style={{
         left: `${area.hotspot.x}%`,
         top: `${area.hotspot.y}%`,
         transform: "translate(-50%, -50%)",
       }}
     >
-      {/* Vastaskaalaus pitää merkin samankokoisena zoomista riippumatta */}
+      {/* Hotspot-nappi on ainoa klikattava osa */}
       <div
         className="map-zoom flex items-center gap-2"
         style={{
@@ -64,8 +63,10 @@ function Hotspot({
           flexDirection: labelLeft ? "row-reverse" : "row",
         }}
       >
-        <span
-          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-lg transition-all duration-300 ${
+        <Link
+          href={`/alue/${area.slug}`}
+          aria-label={`${area.name} – ${area.tagline}`}
+          className={`pointer-events-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-lg transition-all duration-300 ${
             isActive
               ? "border-gold-bright marker-pulse scale-110"
               : "border-card/80"
@@ -73,8 +74,9 @@ function Hotspot({
           style={{ backgroundColor: `var(${area.accentVar})` }}
         >
           <WorldIcon name={area.icon} className="h-5 w-5 text-card" />
-        </span>
+        </Link>
 
+        {/* Nimikilpi on vain visuaalinen – ei ole klikattava */}
         <span
           className={`pointer-events-none flex max-w-[180px] flex-col rounded-lg border border-border bg-card/95 px-3 py-1.5 shadow-md transition-opacity duration-300 ${
             isActive
@@ -93,7 +95,7 @@ function Hotspot({
           </span>
         </span>
       </div>
-    </Link>
+    </div>
   );
 }
 
