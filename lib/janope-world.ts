@@ -105,7 +105,7 @@ export const AREAS: Area[] = [
     icon: "Users",
     accentVar: "--area-communities",
     hotspot: { x: 47, y: 29 },
-    focus: { x: 27, y: 16, scale: 1.9 },
+    focus: { x: 47, y: 29, scale: 1.9 },
     buildingIds: ["gametable", "gamedesk"],
   },
   {
@@ -125,7 +125,7 @@ export const AREAS: Area[] = [
     icon: "Landmark",
     accentVar: "--area-property",
     hotspot: { x: 53, y: 47 },
-    focus: { x: 77, y: 14, scale: 2 },
+    focus: { x: 53, y: 47, scale: 2 },
     buildingIds: ["finnvesta"],
   },
   {
@@ -145,7 +145,7 @@ export const AREAS: Area[] = [
     icon: "Zap",
     accentVar: "--area-mobility",
     hotspot: { x: 35, y: 49 },
-    focus: { x: 18, y: 47, scale: 2 },
+    focus: { x: 35, y: 49, scale: 2 },
     buildingIds: ["voltteri", "skuuttila"],
   },
   {
@@ -165,7 +165,7 @@ export const AREAS: Area[] = [
     icon: "Home",
     accentVar: "--area-local",
     hotspot: { x: 61, y: 50 },
-    focus: { x: 80, y: 58, scale: 2 },
+    focus: { x: 61, y: 50, scale: 2 },
     buildingIds: ["lahella", "loytoretki"],
   },
   {
@@ -184,8 +184,8 @@ export const AREAS: Area[] = [
     ],
     icon: "Leaf",
     accentVar: "--area-sustainability",
-    hotspot: { x: 48, y: 66 },
-    focus: { x: 46, y: 76, scale: 2 },
+    hotspot: { x: 49, y: 66 },
+    focus: { x: 49, y: 66, scale: 2 },
     buildingIds: ["finnverdis"],
   },
 ];
