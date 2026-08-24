@@ -92,7 +92,6 @@ export const AREAS: Area[] = [
   {
     id: "yhteisojen",
     slug: "yhteisojen-alue",
-    kicker: "Pohjoinen alue",
     name: "Pohjoinen alue",
     tagline: "Paikka, jossa ihmiset kokoontuvat.",
     description:
