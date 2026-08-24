@@ -49,12 +49,10 @@ export default async function AluePage({
       <PanelBack href="/" label="Takaisin maailmaan" />
 
       <EmblemHeading
-        icon={area.icon}
-        accentVar={area.accentVar}
-        kicker={area.kicker}
-        title={area.name}
-        tagline={area.tagline}
-      />
+  emblem={area.emblem}
+  title={area.name}
+  tagline={area.tagline}
+/>
 
       <p className="leading-relaxed text-muted-foreground">{area.description}</p>
 
