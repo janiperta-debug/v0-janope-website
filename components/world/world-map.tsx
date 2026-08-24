@@ -64,17 +64,18 @@ function Hotspot({
         }}
       >
         <Link
-          href={`/alue/${area.slug}`}
-          aria-label={`${area.name} – ${area.tagline}`}
-          className={`pointer-events-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border-2 shadow-lg transition-all duration-300 ${
-            isActive
-              ? "border-gold-bright marker-pulse scale-110"
-              : "border-card/80"
-          } ${isDimmed ? "opacity-40" : "opacity-100"}`}
-          style={{ backgroundColor: `var(${area.accentVar})` }}
-        >
-          <WorldIcon name={area.icon} className="h-5 w-5 text-card" />
-        </Link>
+  href={`/alue/${area.slug}`}
+  aria-label={`${area.name} – ${area.tagline}`}
+  className={`pointer-events-auto flex h-16 w-16 flex-shrink-0 items-center justify-center transition-all duration-300 ${
+    isActive ? "marker-pulse scale-110" : ""
+  } ${isDimmed ? "opacity-40" : "opacity-100"}`}
+>
+  <img
+    src={area.emblem}
+    alt=""
+    className="h-full w-full object-contain drop-shadow-lg"
+  />
+</Link>
 
         {/* Nimikilpi on vain visuaalinen – ei ole klikattava */}
         <span
