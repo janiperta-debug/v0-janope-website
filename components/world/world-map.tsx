@@ -27,7 +27,7 @@ function resolveFocus(pathname: string): Focus {
       };
     }
   }
-  return { x: 50, y: 45, scale: 1, activeAreaSlug: null };
+  return { x: 50, y: 48, scale: 1, activeAreaSlug: null };
 }
 
 function Hotspot({
