@@ -113,7 +113,6 @@ export const AREAS: Area[] = [
   {
     id: "omaisuuden",
     slug: "omaisuuden-alue",
-    kicker: "Keskusta",
     name: "Keskusta",
     tagline: "Paikka, jossa tieto ja omaisuus kohtaavat.",
     description:
@@ -134,7 +133,6 @@ export const AREAS: Area[] = [
   {
     id: "liikkumisen",
     slug: "liikkumisen-alue",
-    kicker: "Läntinen alue",
     name: "Läntinen alue",
     tagline: "Paikka, jossa liikkuminen on sujuvaa ja kestävää.",
     description:
@@ -155,7 +153,6 @@ export const AREAS: Area[] = [
   {
     id: "lahielaman",
     slug: "lahielaman-alue",
-    kicker: "Itäinen alue",
     name: "Itäinen alue",
     tagline: "Paikka naapurustolle ja arjen löydöille.",
     description:
@@ -176,7 +173,6 @@ export const AREAS: Area[] = [
   {
     id: "kestavyyden",
     slug: "kestavyyden-alue",
-    kicker: "Eteläinen alue",
     name: "Eteläinen alue",
     tagline: "Paikka, jossa data ja työkalut rakentavat kestävää tulevaisuutta.",
     description:
