@@ -79,6 +79,7 @@ export interface Area {
   highlights: string[];
   icon: string;
   /** CSS-muuttujan nimi alueen aksenttivärille (ks. globals.css) */
+  emblem: string;
   accentVar: string;
   /** Sijainti maailmakartalla (%) */
   hotspot: MapPoint;
@@ -103,6 +104,7 @@ export const AREAS: Area[] = [
       "Turvallinen vuorovaikutus",
     ],
     icon: "Users",
+    emblem: "/world/emblems/pohjoinen.png",
     accentVar: "--area-communities",
     hotspot: { x: 47, y: 29 },
     focus: { x: 47, y: 29, scale: 1.9 },
@@ -123,6 +125,7 @@ export const AREAS: Area[] = [
       "Kustannustehokkuus",
     ],
     icon: "Landmark",
+    emblem: "/world/emblems/keskusta.png"
     accentVar: "--area-property",
     hotspot: { x: 53, y: 47 },
     focus: { x: 53, y: 47, scale: 2 },
@@ -143,6 +146,7 @@ export const AREAS: Area[] = [
       "Kestävät liikenneratkaisut",
     ],
     icon: "Zap",
+    emblem: "/world/emblems/lantinen.png"
     accentVar: "--area-mobility",
     hotspot: { x: 35, y: 49 },
     focus: { x: 35, y: 49, scale: 2 },
@@ -163,6 +167,7 @@ export const AREAS: Area[] = [
       "Turvallinen yhteydenotto",
     ],
     icon: "Home",
+    emblem: "/world/emblems/itainen.png"
     accentVar: "--area-local",
     hotspot: { x: 61, y: 50 },
     focus: { x: 61, y: 50, scale: 2 },
@@ -183,6 +188,7 @@ export const AREAS: Area[] = [
       "Kansalaisten osallistaminen",
     ],
     icon: "Leaf",
+    emblem: "/world/emblems/etelainen.png"
     accentVar: "--area-sustainability",
     hotspot: { x: 49, y: 66 },
     focus: { x: 49, y: 66, scale: 2 },
