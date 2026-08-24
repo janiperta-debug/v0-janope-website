@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { STATUS_META, type BuildStatus } from "@/lib/janope-world";
-import { WorldIcon } from "./world-icon";
 
 /** Vasemman paneelin sisäinen kehys: tasainen pystyväli ja leveysrajoitus. */
 export function Panel({ children }: { children: React.ReactNode }) {
@@ -20,21 +19,17 @@ export function PanelBack({ href, label }: { href: string; label: string }) {
   );
 }
 
-/** Ikonimerkki + yläotsikko + otsikko */
+/** Alueen tunnus + nimi + lyhyt kuvaus */
 export function EmblemHeading({
-  icon,
-  accentVar,
-  kicker,
+  emblem,
   title,
   tagline,
   logo,
 }: {
-  icon: string;
-  accentVar: string;
-  kicker: string;
+  emblem?: string;
   title: string;
   tagline?: string;
-  /** Näytä Janope-brändilogo geneerisen ikonin sijaan (brändisivut) */
+  /** Näytä Janope-brändilogo geneerisen alue-tunnuksen sijaan */
   logo?: boolean;
 }) {
   return (
@@ -46,23 +41,21 @@ export function EmblemHeading({
             alt="Janope"
             className="h-14 w-14 flex-shrink-0 object-contain"
           />
-        ) : (
-          <span
-            className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border-2 border-card/70 shadow-md"
-            style={{ backgroundColor: `var(${accentVar})` }}
-          >
-            <WorldIcon name={icon} className="h-7 w-7 text-card" />
-          </span>
-        )}
+        ) : emblem ? (
+          <img
+            src={emblem}
+            alt=""
+            className="h-14 w-14 flex-shrink-0 object-contain"
+          />
+        ) : null}
+
         <div className="flex flex-col">
-          <span className="map-kicker text-[10px] text-muted-foreground">
-            {kicker}
-          </span>
           <h1 className="font-display text-2xl leading-tight text-foreground sm:text-3xl">
             {title}
           </h1>
         </div>
       </div>
+
       {tagline && (
         <p className="text-lg italic leading-relaxed text-muted-foreground">
           {tagline}
@@ -74,6 +67,7 @@ export function EmblemHeading({
 
 export function StatusBadge({ status }: { status: BuildStatus }) {
   const meta = STATUS_META[status];
+
   return (
     <span
       className={`map-kicker inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] ${meta.className}`}
