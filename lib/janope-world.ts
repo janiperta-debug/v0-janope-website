@@ -133,7 +133,7 @@ export const AREAS: Area[] = [
     name: "Läntinen alue",
     tagline: "Kaupunki liikkeessä, aina johonkin suuntaan.",
     description:
-      Läntisellä alueella mikään ei tunnu pysähtyvän pitkäksi aikaa. Täällä on tilaa kokeilla, rakentaa, vaihtaa suuntaa ja aloittaa alusta. Päivisin alue on täynnä liikettä, iltaisin se saa uuden rytmin. Jotkut tulevat tänne työn vuoksi, toiset tekemään ja kolmannet kulkevat vain läpi – mutta jokainen jättää jälkensä kaupunginosaan.",
+      "Läntisellä alueella mikään ei tunnu pysähtyvän pitkäksi aikaa. Täällä on tilaa kokeilla, rakentaa, vaihtaa suuntaa ja aloittaa alusta. Päivisin alue on täynnä liikettä, iltaisin se saa uuden rytmin. Jotkut tulevat tänne työn vuoksi, toiset tekemään ja kolmannet kulkevat vain läpi – mutta jokainen jättää jälkensä kaupunginosaan.",
     highlights: [
       "Tilaa uusille ajatuksille",
       "Liikettä ja tekemistä",
