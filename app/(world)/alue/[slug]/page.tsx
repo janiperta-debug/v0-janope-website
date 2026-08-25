@@ -71,13 +71,13 @@ export default async function AluePage({
                 className="group flex items-center gap-4 rounded-xl border border-border bg-card/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-md"
               >
                 <span
-                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg"
-                  style={{ backgroundColor: `var(${area.accentVar})` }}
+                 className="group flex items-center gap-4 rounded-xl border border-border bg-card/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+style={{ borderColor: `color-mix(in srgb, var(${area.accentVar}) 35%, transparent)` }}
                 >
                   <img
   src={building.logo}
   alt=""
-  className="h-8 w-8 object-contain"
+  className="h-11 w-11 flex-shrink-0 object-contain"
 />
                 </span>
                 <div className="flex flex-1 flex-col gap-1">
