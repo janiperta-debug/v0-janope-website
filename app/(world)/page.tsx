@@ -11,28 +11,36 @@ export default function EtusivuPage() {
         <span className="map-kicker text-[10px] text-muted-foreground">
           Janope – yhteinen maailmamme
         </span>
-        <h1 className="font-display text-3xl leading-tight text-foreground sm:text-4xl text-balance">
-  Rakennamme yhteyksiä, joilla on merkitystä.
-</h1>
 
-<p className="text-lg italic leading-relaxed text-muted-foreground">
-  Yhdistämme ihmiset, tiedon ja palvelut.
-</p>
+        <h1 className="font-display text-3xl leading-tight text-foreground sm:text-4xl text-balance">
+          Rakennamme yhteyksiä, joilla on merkitystä.
+        </h1>
+
+        <p className="text-lg italic leading-relaxed text-muted-foreground">
+          Yhdistämme ihmiset, tiedon ja palvelut.
+        </p>
       </div>
 
       {/* Arvot */}
       <div className="flex flex-col gap-4">
-        <span className="map-kicker text-[10px] text-muted-foreground">Arvomme</span>
+        <span className="map-kicker text-[10px] text-muted-foreground">
+          Arvomme
+        </span>
+
         <ul className="flex flex-col gap-4">
           {VALUES.map((value) => (
             <li key={value.title} className="flex items-start gap-3">
-              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-secondary">
-                <WorldIcon name={value.icon} className="h-4 w-4 text-gold" />
-              </span>
+              <img
+                src="/world/value-symbol.png"
+                alt=""
+                className="h-9 w-9 flex-shrink-0 object-contain"
+              />
+
               <div className="flex flex-col">
                 <span className="map-kicker text-[10px] text-foreground">
                   {value.title}
                 </span>
+
                 <span className="leading-relaxed text-muted-foreground">
                   {value.text}
                 </span>
@@ -45,16 +53,22 @@ export default function EtusivuPage() {
       {/* Alueiden pikalista */}
       <div className="flex flex-col gap-3 rounded-xl border border-border bg-card/60 p-5">
         <div className="flex items-center gap-3">
-          <Compass className="h-7 w-7 flex-shrink-0 text-gold" strokeWidth={1.25} />
+          <Compass
+            className="h-7 w-7 flex-shrink-0 text-gold"
+            strokeWidth={1.25}
+          />
+
           <p className="map-kicker text-[10px] leading-relaxed text-foreground">
             Yhteinen perusta. Monia paikkoja.
             <br />
             <span className="text-gold">Rajattomasti mahdollisuuksia.</span>
           </p>
         </div>
+
         <p className="text-sm leading-relaxed text-muted-foreground">
           Valitse alue kartalta tai listasta tutkiaksesi Janopen maailmaa.
         </p>
+
         <ul className="flex flex-col">
           {AREAS.map((area) => (
             <li key={area.id}>
@@ -66,8 +80,12 @@ export default function EtusivuPage() {
                   className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
                   style={{ backgroundColor: `var(${area.accentVar})` }}
                 >
-                  <WorldIcon name={area.icon} className="h-4 w-4 text-card" />
+                  <WorldIcon
+                    name={area.icon}
+                    className="h-4 w-4 text-card"
+                  />
                 </span>
+
                 <span className="flex-1 leading-tight text-foreground transition-colors group-hover:text-gold">
                   {area.name}
                 </span>
@@ -78,6 +96,7 @@ export default function EtusivuPage() {
       </div>
 
       <GhostLink href="/meista" label="Lue lisää Janopesta" />
+
       <p className="sr-only">{WORLD_TAGLINE}</p>
     </Panel>
   );
