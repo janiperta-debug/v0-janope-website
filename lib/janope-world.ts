@@ -68,8 +68,6 @@ export interface Area {
   id: string;
   slug: string;
   /** Yläotsikko kartalla, esim. "YHTEISÖJEN ALUE" */
-  kicker: string;
-  /** Alueen nimi, esim. "Yhteisöjen alue" */
   name: string;
   /** Lyhyt lause joka näkyy kartan hotspot-kortissa */
   tagline: string;
