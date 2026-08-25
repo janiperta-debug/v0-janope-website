@@ -380,28 +380,24 @@ export interface ValueItem {
 
 export const VALUES: ValueItem[] = [
   {
-    icon: "Share2",
     title: "Yhdistävä",
     text: "Kaikki tuotteemme vahvistavat ihmisten, tiedon tai palveluiden välisiä yhteyksiä.",
   },
   {
-    icon: "ShieldCheck",
     title: "Pitkäikäinen",
     text: "Suunnittelemme ratkaisuja vuosiksi, emme kampanjoiksi.",
   },
   {
-    icon: "Target",
     title: "Merkityksellinen",
     text: "Jokainen tuote ratkaisee todellisen ongelman.",
   },
   {
-    icon: "Leaf",
     title: "Kestävä",
     text: "Rakennamme vastuullisesti niin teknisesti kuin liiketoiminnallisesti.",
   },
 ];
 
-export const WORLD_TAGLINE = "Digitaalisia paikkoja, joilla on merkitystä.";
+export const WORLD_TAGLINE = "Yhdistämme ihmiset, tiedon ja palvelut.";
 
 export interface NewsItem {
   category: string;
