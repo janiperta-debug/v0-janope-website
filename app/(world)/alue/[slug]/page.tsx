@@ -69,10 +69,7 @@ export default async function AluePage({
             <li key={building.id}>
               <Link
                 href={`/alue/${area.slug}/${building.slug}`}
-                className="group flex items-center gap-4 rounded-xl border bg-card/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-                style={{
-                  borderColor: `color-mix(in srgb, var(${area.accentVar}) 45%, transparent)`,
-                }}
+                className="group flex items-center gap-4 rounded-xl border-2 border-gold/50 bg-card/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:shadow-md"
               >
                 <img
                   src={building.logo}
