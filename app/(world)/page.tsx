@@ -12,13 +12,12 @@ export default function EtusivuPage() {
           Janope – yhteinen maailmamme
         </span>
         <h1 className="font-display text-3xl leading-tight text-foreground sm:text-4xl text-balance">
-          Digitaalisia paikkoja, joissa ihmiset voivat kohdata, hallita, löytää ja kasvaa.
-        </h1>
-        <p className="text-lg leading-relaxed text-muted-foreground">
-          Janope yhdistää yhteisöt, omaisuuden, liikkumisen, lähielämän ja
-          kestävyyden tulevaisuuden yhdeksi turvalliseksi ja luotettavaksi
-          ekosysteemiksi.
-        </p>
+  Rakennamme yhteyksiä, joilla on merkitystä.
+</h1>
+
+<p className="text-lg italic leading-relaxed text-muted-foreground">
+  Yhdistämme ihmiset, tiedon ja palvelut.
+</p>
       </div>
 
       {/* Arvot */}
