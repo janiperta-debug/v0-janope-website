@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { Compass } from "lucide-react";
 import { Panel, GhostLink } from "@/components/world/panel-ui";
-import { WorldIcon } from "@/components/world/world-icon";
-import { AREAS, VALUES, WORLD_TAGLINE } from "@/lib/janope-world";
+import {
+  AREAS,
+  VALUES,
+  WORLD_TAGLINE,
+  getBuildingsForArea,
+} from "@/lib/janope-world";
 
 export default function EtusivuPage() {
   return (
@@ -70,28 +74,46 @@ export default function EtusivuPage() {
         </p>
 
         <ul className="flex flex-col">
-          {AREAS.map((area) => (
-            <li key={area.id}>
-              <Link
-                href={`/alue/${area.slug}`}
-                className="group flex items-center gap-3 border-b border-border/50 py-2.5 last:border-0"
-              >
-                <span
-                  className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
-                  style={{ backgroundColor: `var(${area.accentVar})` }}
-                >
-                  <WorldIcon
-                    name={area.icon}
-                    className="h-4 w-4 text-card"
-                  />
-                </span>
+          {AREAS.map((area) => {
+            const buildings = getBuildingsForArea(area.id);
 
-                <span className="flex-1 leading-tight text-foreground transition-colors group-hover:text-gold">
-                  {area.name}
-                </span>
-              </Link>
-            </li>
-          ))}
+            return (
+              <li key={area.id}>
+                <Link
+                  href={`/alue/${area.slug}`}
+                  className="group flex items-center gap-3 border-b border-border/50 py-3 last:border-0"
+                >
+                  <img
+                    src={area.emblem}
+                    alt=""
+                    className="h-10 w-10 flex-shrink-0 object-contain"
+                  />
+
+                  <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+                    <span className="leading-tight text-foreground transition-colors group-hover:text-gold">
+                      {area.name}
+                    </span>
+
+                    {buildings.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {buildings.map((building) => (
+                          <span
+                            key={building.id}
+                            className="rounded-full border px-2.5 py-0.5 text-[9px] text-muted-foreground"
+                            style={{
+                              borderColor: `color-mix(in srgb, var(${area.accentVar}) 45%, transparent)`,
+                            }}
+                          >
+                            {building.name}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
