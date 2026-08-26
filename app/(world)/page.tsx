@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Compass } from "lucide-react";
 import { Panel, GhostLink } from "@/components/world/panel-ui";
 import {
   AREAS,
@@ -57,9 +56,10 @@ export default function EtusivuPage() {
       {/* Alueiden pikalista */}
       <div className="flex flex-col gap-3 rounded-xl border border-border bg-card/60 p-5">
         <div className="flex items-center gap-3">
-          <Compass
-            className="h-7 w-7 flex-shrink-0 text-gold"
-            strokeWidth={1.25}
+          <img
+            src="/world/value-symbol.png"
+            alt=""
+            className="h-7 w-7 flex-shrink-0 object-contain"
           />
 
           <p className="map-kicker text-[10px] leading-relaxed text-foreground">
