@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Panel, GhostLink } from "@/components/world/panel-ui";
 import {
   AREAS,
@@ -24,7 +25,6 @@ export default function EtusivuPage() {
         </p>
       </div>
 
-      {/* Arvot */}
       <div className="flex flex-col gap-4">
         <span className="map-kicker text-[10px] text-muted-foreground">
           Arvomme
@@ -53,7 +53,25 @@ export default function EtusivuPage() {
         </ul>
       </div>
 
-      {/* Alueiden pikalista */}
+      <Link
+        href="/viara"
+        className="group relative overflow-hidden rounded-xl border border-cyan-500/30 bg-gradient-to-br from-[#0d2231] to-[#102c40] p-5 text-slate-100 transition-all hover:-translate-y-0.5 hover:border-cyan-400/50"
+      >
+        <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan-400/10 blur-2xl" />
+        <div className="relative flex items-center justify-between gap-4">
+          <div>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              Uusi paikka Janopen maailmassa
+            </span>
+            <h2 className="mt-2 text-2xl font-semibold text-white">Viara</h2>
+            <p className="mt-1 leading-relaxed text-slate-400">
+              Työ, joka näkyy. Kiinteistöjen ja ulkoalueiden ylläpidon digitaalinen toimintaympäristö.
+            </p>
+          </div>
+          <ArrowRight className="h-5 w-5 flex-shrink-0 text-cyan-300 transition-transform group-hover:translate-x-1" />
+        </div>
+      </Link>
+
       <div className="flex flex-col gap-3 rounded-xl border border-border bg-card/60 p-5">
         <div className="flex items-center gap-3">
           <img
