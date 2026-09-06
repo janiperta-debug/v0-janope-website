@@ -26,7 +26,7 @@ export const VIARA_BUILDING: Building = {
     "Asukasnäkymä ja QR-koodit",
     "Hoitopäiväkirjat ja raportit",
   ],
-  link: "https://viara-tawny.vercel.app",
+  link: "/viara",
   linkText: "Avaa Viara",
   logo: "https://raw.githubusercontent.com/janiperta-debug/Viara/main/public/viara-logo.png",
   icon: "MapPin",
