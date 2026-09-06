@@ -8,6 +8,7 @@ import { WORLD_TAGLINE } from "@/lib/janope-world";
 
 const NAV = [
   { href: "/", label: "Etusivu" },
+  { href: "/viara", label: "Viara" },
   { href: "/meista", label: "Meistä" },
   { href: "/uutiset", label: "Uutiset" },
   { href: "/yhteystiedot", label: "Yhteystiedot" },
@@ -25,7 +26,6 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-card/85 backdrop-blur-md">
       <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
-        {/* Brand */}
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img
             src="/world/janope-compass.png"
@@ -44,7 +44,6 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => {
             const active = isActive(pathname, item.href);
@@ -67,7 +66,6 @@ export function SiteHeader() {
           })}
         </nav>
 
-        {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -79,7 +77,6 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile nav drawer */}
       {open && (
         <nav className="border-t border-border bg-card px-4 py-2 md:hidden">
           {NAV.map((item) => {
