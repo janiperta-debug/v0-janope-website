@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     "ohjelmistokehitys",
     "yhteisöt",
     "FinnVesta",
+    "Viara",
     "GameTable",
     "Voltteri",
     "Lähellä",
