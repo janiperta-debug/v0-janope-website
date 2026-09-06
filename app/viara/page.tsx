@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArrowRight, FileText, MapPin, QrCode, Route, ShieldCheck } from "lucide-react";
 
 export const metadata = {
@@ -26,7 +25,7 @@ export default function ViaraPage() {
       <section className="border-b border-border/70 bg-card/75">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:py-24">
           <div>
-            <Image src="https://raw.githubusercontent.com/janiperta-debug/Viara/main/public/viara-logo.png" alt="Viara" width={560} height={180} priority unoptimized className="logo-blend h-auto w-64 sm:w-80" />
+            <img src="https://raw.githubusercontent.com/janiperta-debug/Viara/main/public/viara-logo.png" alt="Viara" width={560} height={180} className="logo-blend h-auto w-64 sm:w-80" />
             <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-primary">Työnjohto · kenttä · asukas</p>
             <h1 className="mt-4 max-w-3xl font-heading text-5xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl">Työ, joka näkyy.</h1>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">Viara tekee kiinteistöjen ja ulkoalueiden ylläpidosta selkeää – työnjohdosta kentälle ja aina asukkaalle asti.</p>
