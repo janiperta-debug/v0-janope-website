@@ -8,7 +8,6 @@ import { WORLD_TAGLINE } from "@/lib/janope-world";
 
 const NAV = [
   { href: "/", label: "Etusivu" },
-  { href: "/viara", label: "Viara" },
   { href: "/meista", label: "Meistä" },
   { href: "/uutiset", label: "Uutiset" },
   { href: "/yhteystiedot", label: "Yhteystiedot" },
