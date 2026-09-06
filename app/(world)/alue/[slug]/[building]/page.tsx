@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import type { Metadata } from "next";
 import { Panel, PanelBack, EmblemHeading, FeatureList, StatusBadge, PrimaryLink, GhostLink } from "@/components/world/panel-ui";
 import { BUILDINGS, getArea, getAreaById } from "@/lib/janope-world";
@@ -32,7 +31,7 @@ export default async function RakennusPage({ params }: { params: Promise<{ slug:
       <StatusBadge status={building.status} />
       <div className="flex items-start gap-4">
         <span className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-card">
-          <Image src={building.logo || "/placeholder.svg"} alt={`${building.name} logo`} width={64} height={64} className="h-auto w-auto object-contain" unoptimized={building.logo.startsWith("http")} />
+          <img src={building.logo || "/placeholder.svg"} alt={`${building.name} logo`} width={64} height={64} className="h-auto max-h-14 w-auto max-w-14 object-contain" />
         </span>
         <p className="leading-relaxed text-muted-foreground">{building.description}</p>
       </div>
