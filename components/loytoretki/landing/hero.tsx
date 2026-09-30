@@ -12,7 +12,7 @@ export function Hero() {
         <div className="max-w-2xl">
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brass/40 bg-[oklch(0.16_0.03_55_/_0.4)] px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-brass backdrop-blur-sm">Löydä enemmän. Etsi vähemmän.</span>
           <h1 className="text-balance font-serif text-5xl font-semibold leading-[0.98] text-background sm:text-6xl md:text-7xl">Löydä enemmän.<br />Etsi vähemmän.</h1>
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-background/85 sm:text-xl">Löytöretki auttaa löytämään paikkoja, joissa etsimäsi voisi olla — ja asioita, joita et vielä tiennyt etsiväsi.</p>
+          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-[#f2ead9]/90 sm:text-xl">Löytöretki auttaa löytämään paikkoja, joissa etsimäsi voisi olla — ja asioita, joita et vielä tiennyt etsiväsi.</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="#liity" className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-forest px-7 text-base font-semibold text-forest-foreground shadow-lg shadow-black/20 ring-1 ring-brass/30 transition-transform hover:-translate-y-0.5">Tutustu Löytöretkeen <ArrowRight className="h-5 w-5" /></a>
             <a href="#miten" className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full border border-brass/50 bg-[oklch(0.16_0.03_55_/_0.35)] px-7 text-base font-semibold text-background backdrop-blur-sm transition-colors hover:bg-[oklch(0.16_0.03_55_/_0.55)]"><Play className="h-4 w-4 fill-current" /> Miten se toimii?</a>
