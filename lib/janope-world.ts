@@ -267,7 +267,7 @@ export const BUILDINGS: Building[] = [
     ],
     link: "/lahella",
     linkText: "Katso Lähellä",
-    logo: "/products/pihapiiri_logo.png",
+    logo: "/products/lahella/lahella_logo.png",
     icon: "Home",
   },
   {
