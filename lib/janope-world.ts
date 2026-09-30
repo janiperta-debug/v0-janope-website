@@ -267,7 +267,7 @@ export const BUILDINGS: Building[] = [
     ],
     link: "/lahella",
     linkText: "Katso Lähellä",
-    logo: "/products/lahella/lahella_logo.png",
+    logo: "https://raw.githubusercontent.com/janiperta-debug/lahio-appi/main/public/images/lahella_logo.png",
     icon: "Home",
   },
   {
