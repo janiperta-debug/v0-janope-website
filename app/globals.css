@@ -470,3 +470,79 @@
   background-image: radial-gradient(rgba(70, 55, 30, 0.055) 0.7px, transparent 0.7px);
   background-size: 5px 5px;
 }
+
+
+/* =========================================================
+   Lähellä product theme
+   ========================================================= */
+.lahella-theme {
+  --background: #fdf8f3;
+  --foreground: #2d2419;
+  --card: #ffffff;
+  --card-foreground: #2d2419;
+  --popover: #ffffff;
+  --popover-foreground: #2d2419;
+  --primary: #e8734a;
+  --primary-foreground: #ffffff;
+  --secondary: #f0e6d8;
+  --secondary-foreground: #2d2419;
+  --muted: #faf5ef;
+  --muted-foreground: #6b5a4a;
+  --accent: rgba(122,170,138,0.1);
+  --accent-foreground: #7aaa8a;
+  --destructive: #e8734a;
+  --destructive-foreground: #ffffff;
+  --border: rgba(45,36,25,0.08);
+  --input: rgba(45,36,25,0.08);
+  --ring: #e8734a;
+  --terracotta: #e8734a;
+  --terracotta-faint: rgba(232,115,74,0.08);
+  --sage: #7aaa8a;
+  --sage-faint: rgba(122,170,138,0.1);
+  --sand: #f0e6d8;
+  --sand2: #e8d9c6;
+  --text-primary: #2d2419;
+  --text-secondary: #6b5a4a;
+  --text-muted: #a8917a;
+  --font-sans: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+  --font-serif: var(--font-fraunces), 'Fraunces', serif;
+  background-color: #fdf8f3;
+  color: #2d2419;
+}
+
+.lahella-theme main,
+.lahella-theme section { background-color: var(--background); }
+
+.lahella-theme .bg-card { background-color: var(--card); }
+.lahella-theme .bg-secondary { background-color: var(--secondary); }
+.lahella-theme .bg-muted { background-color: var(--muted); }
+.lahella-theme .bg-lahella-bg { background-color: var(--background); }
+.lahella-theme .text-foreground { color: var(--foreground); }
+.lahella-theme .text-muted-foreground { color: var(--muted-foreground); }
+.lahella-theme .text-primary { color: var(--primary); }
+.lahella-theme .text-lahella-text { color: var(--text-primary); }
+.lahella-theme .text-lahella-text2 { color: var(--text-secondary); }
+.lahella-theme .text-lahella-muted { color: var(--text-muted); }
+.lahella-theme .border-border { border-color: var(--border); }
+.lahella-theme .bg-terracotta { background-color: var(--terracotta); }
+.lahella-theme .text-terracotta { color: var(--terracotta); }
+.lahella-theme .bg-terracotta-faint { background-color: var(--terracotta-faint); }
+.lahella-theme .bg-sage { background-color: var(--sage); }
+.lahella-theme .text-sage { color: var(--sage); }
+.lahella-theme .bg-sage-faint { background-color: var(--sage-faint); }
+.lahella-theme .bg-sand { background-color: var(--sand); }
+.lahella-theme .text-sand { color: var(--sand); }
+.lahella-theme .text-sand2 { color: var(--sand2); }
+.lahella-theme .border-sage { border-color: var(--sage); }
+.lahella-theme .border-sand2 { border-color: var(--sand2); }
+.lahella-theme .font-serif { font-family: var(--font-fraunces), 'Fraunces', Georgia, serif; }
+.lahella-theme .font-sans { font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif; }
+
+@keyframes lahella-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes lahella-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -20px); }
+}
