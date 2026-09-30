@@ -418,3 +418,55 @@
     }
   }
 }
+
+
+/* Löytöretki — landing palette */
+.loytoretki-theme {
+  --background: 42 35% 89%;
+  --foreground: 35 27% 19%;
+  --card: 42 32% 94%;
+  --card-foreground: 35 27% 19%;
+  --popover: 42 32% 94%;
+  --popover-foreground: 35 27% 19%;
+  --primary: 152 28% 25%;
+  --primary-foreground: 42 35% 94%;
+  --secondary: 42 25% 84%;
+  --secondary-foreground: 35 27% 22%;
+  --muted: 42 22% 84%;
+  --muted-foreground: 35 15% 38%;
+  --accent: 40 48% 53%;
+  --accent-foreground: 35 30% 15%;
+  --border: 38 22% 72%;
+  --input: 38 22% 72%;
+  --ring: 40 48% 53%;
+  --brass: #b18a4a;
+  --brass-foreground: #251d12;
+  --forest: #234936;
+  --forest-foreground: #f2ead9;
+  --clay: #a96b48;
+}
+
+.loytoretki-theme .text-background { color: hsl(var(--background)); }
+.loytoretki-theme .bg-background { background-color: hsl(var(--background)); }
+.loytoretki-theme .text-foreground { color: hsl(var(--foreground)); }
+.loytoretki-theme .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+.loytoretki-theme .bg-secondary { background-color: hsl(var(--secondary)); }
+.loytoretki-theme .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
+.loytoretki-theme .bg-card { background-color: hsl(var(--card)); }
+.loytoretki-theme .text-card-foreground { color: hsl(var(--card-foreground)); }
+.loytoretki-theme .border-border { border-color: hsl(var(--border)); }
+
+.loytoretki-theme .bg-forest { background-color: var(--forest); }
+.loytoretki-theme .text-forest { color: var(--forest); }
+.loytoretki-theme .text-forest-foreground { color: var(--forest-foreground); }
+.loytoretki-theme .bg-brass { background-color: var(--brass); }
+.loytoretki-theme .text-brass { color: var(--brass); }
+.loytoretki-theme .text-brass-foreground { color: var(--brass-foreground); }
+.loytoretki-theme .text-clay { color: var(--clay); }
+
+.loytoretki-theme .reveal { will-change: opacity, transform; }
+
+.loytoretki-theme .paper-grain {
+  background-image: radial-gradient(rgba(70, 55, 30, 0.055) 0.7px, transparent 0.7px);
+  background-size: 5px 5px;
+}
