@@ -276,7 +276,7 @@ export const BUILDINGS: Building[] = [
     areaId: "kestavyyden",
     name: "FinnVerdis",
     tagline: "Kunnan ympäristöviestintä näkyväksi.",
-    status: "tuotannossa",
+    status: "julkaistu",
     description:
       "Modernisoi kunnan ympäristöviestintää. Keskitetty alusta joka tuo läpinäkyvyyttä ja motivoi kansalaisia.",
     features: [
