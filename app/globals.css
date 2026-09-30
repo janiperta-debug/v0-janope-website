@@ -619,3 +619,87 @@
   --color-border-volt: var(--border-volt);
   --color-border2: var(--border2);
 }
+
+
+/* =========================================================
+   Skuuttila product theme
+   ========================================================= */
+.skuuttila-theme {
+  --background: #0D0D0D;
+  --foreground: #FAFAF8;
+  --card: #1A1A1A;
+  --card-foreground: #FAFAF8;
+  --popover: #1A1A1A;
+  --popover-foreground: #FAFAF8;
+  --primary: #FF5C00;
+  --primary-foreground: #0D0D0D;
+  --secondary: #2E2E2E;
+  --secondary-foreground: #FAFAF8;
+  --muted: #2E2E2E;
+  --muted-foreground: #888;
+  --accent: #FF5C00;
+  --accent-foreground: #0D0D0D;
+  --destructive: #FF3366;
+  --destructive-foreground: #FAFAF8;
+  --border: #2E2E2E;
+  --input: #2E2E2E;
+  --ring: #FF5C00;
+  --orange: #FF5C00;
+  --orange-light: #FF7A2E;
+  --orange-dark: #CC4900;
+  --black: #0D0D0D;
+  --white: #FAFAF8;
+  --gray: #1A1A1A;
+  --gray-mid: #2E2E2E;
+  --gray-light: #3A3A3A;
+  --text-muted: #888;
+  --tier: #00B4FF;
+  --bolt: #34D186;
+  --voi: #FF3366;
+  --lime: #00CC44;
+  --dott: #5C5CFF;
+  background: #0D0D0D;
+  color: #FAFAF8;
+}
+.skuuttila-theme .bg-background { background-color: var(--background); }
+.skuuttila-theme .bg-gray { background-color: var(--gray); }
+.skuuttila-theme .bg-gray-mid { background-color: var(--gray-mid); }
+.skuuttila-theme .bg-gray-light { background-color: var(--gray-light); }
+.skuuttila-theme .bg-orange { background-color: var(--orange); }
+.skuuttila-theme .bg-orange\/10 { background-color: rgba(255,92,0,0.1); }
+.skuuttila-theme .text-orange { color: var(--orange); }
+.skuuttila-theme .text-orange-light { color: var(--orange-light); }
+.skuuttila-theme .text-text-muted { color: var(--text-muted); }
+.skuuttila-theme .text-foreground { color: var(--foreground); }
+.skuuttila-theme .border-gray-mid { border-color: var(--gray-mid); }
+.skuuttila-theme .border-orange\/15 { border-color: rgba(255,92,0,0.15); }
+.skuuttila-theme .border-orange\/30 { border-color: rgba(255,92,0,0.3); }
+.skuuttila-theme .bg-lime\/10 { background-color: rgba(0,204,68,0.1); }
+.skuuttila-theme .bg-lime\/20 { background-color: rgba(0,204,68,0.2); }
+.skuuttila-theme .border-lime\/30 { border-color: rgba(0,204,68,0.3); }
+.skuuttila-theme .text-lime { color: var(--lime); }
+.skuuttila-theme .text-voi { color: var(--voi); }
+.skuuttila-theme .bg-voi\/10 { background-color: rgba(255,51,102,0.1); }
+.skuuttila-theme .border-voi { border-color: var(--voi); }
+.skuuttila-theme .font-syne,
+.skuuttila-theme [class*="font-\\[family-name:var(--font-syne)\\]"] {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+}
+@keyframes skuuttila-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@theme inline {
+  --color-orange: var(--orange);
+  --color-orange-light: var(--orange-light);
+  --color-orange-dark: var(--orange-dark);
+  --color-gray: var(--gray);
+  --color-gray-mid: var(--gray-mid);
+  --color-gray-light: var(--gray-light);
+  --color-text-muted: var(--text-muted);
+  --color-tier: var(--tier);
+  --color-bolt: var(--bolt);
+  --color-voi: var(--voi);
+  --color-lime: var(--lime);
+  --color-dott: var(--dott);
+}
