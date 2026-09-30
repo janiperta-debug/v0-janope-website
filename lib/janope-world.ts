@@ -410,6 +410,30 @@ export interface NewsItem {
 export const NEWS: NewsItem[] = [
   {
     category: "Uutinen",
+    date: "Syyskuu 2026",
+    title: "Viara avattu – digitaalinen toimintaympäristö kiinteistöjen ja ulkoalueiden ylläpitoon",
+    excerpt:
+      "Viara on avattu osaksi Janopen maailmaa. Sovellus on valmis pohja asiakaskohtaisille ratkaisuille, joissa ylläpidon tarpeet ja toimintatavat voidaan rakentaa juuri asiakkaan ympärille.",
+    slug: "viara-avattu",
+  },
+  {
+    category: "Uutinen",
+    date: "Syyskuu 2026",
+    title: "Löytöretki avattu – kirpputorien löydöt yhteen näkymään",
+    excerpt:
+      "Löytöretki tuo fyysisten kirpputorien tuotteet haettavaksi yhteen palveluun ja tekee lähialueen löytämisestä helpompaa.",
+    slug: "loytoretki-avattu",
+  },
+  {
+    category: "Uudistus",
+    date: "Syyskuu 2026",
+    title: "GameTable uudistui – tapahtumat saivat kokonaan uuden ilmeen",
+    excerpt:
+      "GameTable on ottanut suuren askeleen eteenpäin. Peli-iltojen rinnalle tulivat turnaukset, liigat ja kampanjat sekä uusi tapa rakentaa ja osallistua tapahtumiin.",
+    slug: "gametable-uudistus",
+  },
+  {
+    category: "Uutinen",
     date: "15.5.2025",
     title: "Voltteri etenee – sähköisen liikkumisen alusta rakenteilla",
     excerpt:
