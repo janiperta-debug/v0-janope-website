@@ -1,9 +1,24 @@
+import { Navbar } from "@/components/skuuttila/navbar"
+import { Hero } from "@/components/skuuttila/hero"
+import { Operators } from "@/components/skuuttila/operators"
+import { ValueProps } from "@/components/skuuttila/value-props"
+import { Waitlist } from "@/components/skuuttila/waitlist"
+import { Footer } from "@/components/skuuttila/footer"
+
 export const metadata = {
   title: "Skuuttila | Janope",
-  description: "Skuuttila – kevyen liikkumisen hub ja reitit.",
-};
+  description: "Skuuttila – kaikki vuokraskuutit yhdessä sovelluksessa.",
+}
 
-// Tuotteen landing-sivu. Sisältö siirretään tähän olemassa olevasta landingista.
 export default function SkuuttilaPage() {
-  return <main className="min-h-screen bg-background" />;
+  return (
+    <main className="skuuttila-theme min-h-screen bg-background overflow-x-hidden">
+      <Navbar />
+      <Hero />
+      <Operators />
+      <ValueProps />
+      <Waitlist />
+      <Footer />
+    </main>
+  )
 }
