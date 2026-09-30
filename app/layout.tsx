@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Cormorant_Garamond } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { CookieBanner } from "@/components/cookie-banner";
 import "./globals.css";
@@ -9,6 +9,18 @@ const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
   weight: ["400", "500", "600", "700"],
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
@@ -55,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi" className="bg-background">
-      <body className={`${cinzel.variable} ${cormorant.variable} antialiased`}>
+      <body className={`${cinzel.variable} ${cormorant.variable} ${plusJakarta.variable} ${fraunces.variable} antialiased`}>
         {children}
         <CookieBanner />
         <Analytics />
