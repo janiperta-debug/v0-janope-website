@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function LoytoretkiPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="loytoretki-theme min-h-screen bg-background text-foreground">
       <SiteNav />
       <main>
         <Hero />
