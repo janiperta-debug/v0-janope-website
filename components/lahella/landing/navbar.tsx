@@ -14,7 +14,7 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 lg:px-12 bg-lahella-bg/85 backdrop-blur-xl border-b border-border">
       <div className="flex items-center gap-4">
         <Link href="#top" className="flex items-center gap-2">
-          <Image src="/products/lahella/lahella_logo.png" alt="Lähellä logo" width={36} height={36} className="rounded-full" />
+          <Image src="https://raw.githubusercontent.com/janiperta-debug/lahio-appi/main/public/images/lahella_logo.png" alt="Lähellä logo" width={36} height={36} className="rounded-full" />
           <span className="font-serif font-semibold text-xl text-terracotta tracking-tight">Lähellä</span>
         </Link>
         <Link href="/" className="hidden sm:inline text-xs text-lahella-muted hover:text-lahella-text transition-colors">
