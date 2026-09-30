@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Panel, GhostLink } from "@/components/world/panel-ui";
 import { AREAS, VALUES, WORLD_TAGLINE } from "@/lib/janope-world";
 import { getBuildingsForAreaWithViara } from "@/lib/janope-viara";
@@ -28,17 +27,6 @@ export default function EtusivuPage() {
         </ul>
       </div>
 
-      <Link href="/viara" className="group flex items-center gap-4 rounded-xl border border-border bg-card/70 p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
-        <span className="flex h-14 w-20 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-white p-2">
-          <img src="https://raw.githubusercontent.com/janiperta-debug/Viara/main/public/viara-logo.png" alt="Viara" className="h-auto max-h-10 w-full object-contain" />
-        </span>
-        <div className="min-w-0 flex-1">
-          <span className="map-kicker text-[10px] text-primary">Uusi paikka Janopen maailmassa</span>
-          <h2 className="mt-1 text-xl font-semibold text-foreground">Viara</h2>
-          <p className="mt-1 leading-relaxed text-muted-foreground">Työ, joka näkyy. Kiinteistöjen ja ulkoalueiden ylläpidon digitaalinen toimintaympäristö.</p>
-        </div>
-        <ArrowRight className="h-5 w-5 flex-shrink-0 text-primary transition-transform group-hover:translate-x-1" />
-      </Link>
 
       <div className="flex flex-col gap-3 rounded-xl border border-border bg-card/60 p-5">
         <div className="flex items-center gap-3">
