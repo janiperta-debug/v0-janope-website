@@ -336,7 +336,7 @@ export const BUILDINGS: Building[] = [
     areaId: "lahielaman",
     name: "Löytöretki",
     tagline: "Reaaliaikainen tuotehaku kirpputoreilta.",
-    status: "rakenteilla",
+    status: "julkaistu",
     description:
       "Reaaliaikainen tuotehaku fyysisiltä kirpputoreilta. Löydä aarteesi lähialueen kirpputoreilta ilman kierroksia hyllyltä hyllylle.",
     features: [
