@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Panel, PanelBack, EmblemHeading } from "@/components/world/panel-ui";
-import { WorldIcon } from "@/components/world/world-icon";
 import { VALUES, WORLD_TAGLINE } from "@/lib/janope-world";
 
 export const metadata: Metadata = {
@@ -43,9 +42,7 @@ export default function MeistaPage() {
         <div className="flex flex-col gap-5">
           {VALUES.map((value) => (
             <div key={value.title} className="flex items-start gap-4">
-              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-secondary/60">
-                <WorldIcon name={value.icon} className="h-5 w-5 text-gold" />
-              </span>
+              <img src="/world/value-symbol.png" alt="" className="h-11 w-11 flex-shrink-0 object-contain" />
               <div className="flex flex-col gap-1">
                 <h3 className="font-display text-lg leading-tight text-foreground">
                   {value.title}
@@ -61,7 +58,7 @@ export default function MeistaPage() {
 
       <div className="rounded-xl border border-border bg-secondary/40 p-5">
         <div className="flex items-center gap-4">
-          <WorldIcon name="Compass" className="h-9 w-9 flex-shrink-0 text-gold" />
+          <img src="/world/value-symbol.png" alt="" className="h-9 w-9 flex-shrink-0 object-contain" />
           <p className="font-display text-lg leading-snug text-foreground">
             Yhteinen perusta. Monia paikkoja.{" "}
             <span className="text-gold">Rajattomasti mahdollisuuksia.</span>
