@@ -603,3 +603,19 @@
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* Voltteri Tailwind utility tokens */
+@theme inline {
+  --color-volt: var(--volt);
+  --color-volt-dim: var(--volt-dim);
+  --color-volt-faint: var(--volt-faint);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface2);
+  --color-surface3: var(--surface3);
+  --color-ev-blue: var(--blue);
+  --color-ev-red: var(--red);
+  --color-muted2: var(--muted2);
+  --color-border-volt: var(--border-volt);
+  --color-border2: var(--border2);
+}
