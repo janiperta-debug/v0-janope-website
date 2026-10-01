@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSiteLocale, localizeNews, SITE_TEXT } from "@/lib/site-i18n";
 import { Panel, PanelBack, EmblemHeading } from "@/components/world/panel-ui";
 import { NEWS } from "@/lib/janope-world";
 
@@ -8,10 +9,10 @@ export const metadata: Metadata = {
     "Ajankohtaisia kuulumisia Janopesta ja digitaalisten paikkojen rakentamisesta.",
 };
 
-export default function UutisetPage() {
+export default async function UutisetPage() {\n  const locale = await getSiteLocale();\n  const t = SITE_TEXT[locale];
   return (
     <Panel>
-      <PanelBack href="/" label="Takaisin maailmaan" />
+      <PanelBack href="/" label={t.backWorld} />
 
       <EmblemHeading
         logo
@@ -23,7 +24,7 @@ export default function UutisetPage() {
       />
 
       <div className="flex flex-col">
-        {NEWS.map((item, index) => (
+        {NEWS.map((rawItem, index) => { const item = localizeNews(rawItem, locale); return (
           <article
             key={item.slug}
             className={`flex flex-col gap-2 py-5 ${
