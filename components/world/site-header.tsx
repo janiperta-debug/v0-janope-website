@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -10,7 +10,7 @@ import { WORLD_TAGLINE } from "@/lib/janope-world";
 function LanguageSwitcher() {
   const router = useRouter();
   const [locale, setLocale] = useState<"fi" | "en">("fi");
-  useState(() => { try { const saved = document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1]; if (saved === "en") setLocale("en"); } catch {} });
+  useEffect(() => { const saved = document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1]; if (saved === "en") setLocale("en"); }, []);
   const change = (next: "fi" | "en") => { document.cookie = `janope-locale=${next}; path=/; max-age=31536000; samesite=lax`; setLocale(next); router.refresh(); };
   return <div className="flex items-center gap-1 rounded-full border border-border p-1" aria-label="Language"><button type="button" onClick={() => change("fi")} className={`rounded-full px-2 py-1 text-[10px] font-medium ${locale === "fi" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>FI</button><button type="button" onClick={() => change("en")} className={`rounded-full px-2 py-1 text-[10px] font-medium ${locale === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>EN</button></div>;
 }
@@ -22,7 +22,7 @@ const NAV = [
   { href: "/yhteystiedot", label: "Yhteystiedot" },
 ];
 
-function localeLabels() {\n  const value = typeof document !== "undefined" && document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1] === "en";\n  return value ? { "/": "Home", "/meista": "About", "/uutiset": "News", "/yhteystiedot": "Contact" } : { "/": "Etusivu", "/meista": "Meistä", "/uutiset": "Uutiset", "/yhteystiedot": "Yhteystiedot" };\n}\n\nfunction isActive(pathname: string, href: string) {
+function localeLabels(locale: "fi" | "en") {\n  return locale === "en" ? { "/": "Home", "/meista": "About", "/uutiset": "News", "/yhteystiedot": "Contact" } : { "/": "Etusivu", "/meista": "Meistä", "/uutiset": "Uutiset", "/yhteystiedot": "Yhteystiedot" };\n}\n\nfunction isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname.startsWith(href);
 }
