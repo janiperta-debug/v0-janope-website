@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { STATUS_META, type BuildStatus } from "@/lib/janope-world";
+import type { SiteLocale } from "@/lib/site-i18n";
 
 /** Vasemman paneelin sisäinen kehys: tasainen pystyväli ja leveysrajoitus. */
 export function Panel({ children }: { children: React.ReactNode }) {
@@ -65,14 +66,14 @@ export function EmblemHeading({
   );
 }
 
-export function StatusBadge({ status }: { status: BuildStatus }) {
+export function StatusBadge({ status, locale = "fi" }: { status: BuildStatus; locale?: SiteLocale }) {
   const meta = STATUS_META[status];
 
   return (
     <span
       className={`map-kicker inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] ${meta.className}`}
     >
-      {meta.label}
+      {locale === "en" ? ({ julkaistu: "Open", tuotannossa: "In production", rakenteilla: "Under construction" } as const)[status] : meta.label}
     </span>
   );
 }
