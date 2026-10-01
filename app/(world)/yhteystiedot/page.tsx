@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSiteLocale, SITE_TEXT } from "@/lib/site-i18n";
 import { Mail, Phone, Globe } from "lucide-react";
 import { Panel, PanelBack, EmblemHeading } from "@/components/world/panel-ui";
 import { ContactForm } from "@/components/world/contact-form";
@@ -15,10 +16,10 @@ const CONTACT_DETAILS = [
   { icon: Globe, label: "Verkkosivu", value: "www.janope.fi", href: "https://www.janope.fi" },
 ];
 
-export default function YhteystiedotPage() {
+export default async function YhteystiedotPage() {\n  const locale = await getSiteLocale();\n  const t = SITE_TEXT[locale];
   return (
     <Panel>
-      <PanelBack href="/" label="Takaisin maailmaan" />
+      <PanelBack href="/" label={t.backWorld} />
 
       <EmblemHeading
         logo
