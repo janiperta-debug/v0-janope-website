@@ -43,7 +43,7 @@ export default async function AluePage({ params }: { params: Promise<{ slug: str
                 <div className="flex flex-1 flex-col gap-1">
                   <div className="flex items-center gap-2">
                     <span className="font-display text-lg leading-none text-foreground transition-colors group-hover:text-gold">{building.name}</span>
-                    <StatusBadge status={building.status} />
+                    <StatusBadge status={building.status} locale={locale} />
                   </div>
                   <span className="text-sm leading-snug text-muted-foreground">{building.tagline}</span>
                 </div>
