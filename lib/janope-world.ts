@@ -105,7 +105,7 @@ export const AREAS: Area[] = [
     accentVar: "--area-communities",
     hotspot: { x: 47, y: 29 },
     focus: { x: 47, y: 29, scale: 1.9 },
-    buildingIds: ["gametable", "gamedesk"],
+    buildingIds: ["gametable"],
   },
   {
     id: "omaisuuden",
@@ -145,7 +145,7 @@ export const AREAS: Area[] = [
     accentVar: "--area-mobility",
     hotspot: { x: 35, y: 49 },
     focus: { x: 35, y: 49, scale: 2 },
-    buildingIds: ["voltteri", "skuuttila"],
+    buildingIds: ["gamedesk"],
   },
   {
     id: "lahielaman",
@@ -213,7 +213,7 @@ export const BUILDINGS: Building[] = [
   {
     id: "gamedesk",
     slug: "gamedesk",
-    areaId: "yhteisojen",
+    areaId: "liikkumisen",
     name: "GameDesk",
     tagline: "Pelaajan oma kirjasto ja edistyminen.",
     status: "rakenteilla",
