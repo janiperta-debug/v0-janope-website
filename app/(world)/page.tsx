@@ -1,26 +1,27 @@
 import Link from "next/link";
+import { getSiteLocale, localizeArea, localizeValue, SITE_TEXT } from "@/lib/site-i18n";
 import { Panel, GhostLink } from "@/components/world/panel-ui";
 import { AREAS, VALUES, WORLD_TAGLINE } from "@/lib/janope-world";
 import { getBuildingsForAreaWithViara } from "@/lib/janope-viara";
 
-export default function EtusivuPage() {
+export default async function EtusivuPage() {\n  const locale = await getSiteLocale();\n  const t = SITE_TEXT[locale];
   return (
     <Panel>
       <div className="flex flex-col gap-4">
-        <span className="map-kicker text-[10px] text-muted-foreground">Janope – yhteinen maailmamme</span>
-        <h1 className="font-display text-3xl leading-tight text-foreground sm:text-4xl text-balance">Rakennamme yhteyksiä, joilla on merkitystä.</h1>
-        <p className="text-lg italic leading-relaxed text-muted-foreground">Yhdistämme ihmiset, tiedon ja palvelut.</p>
+        <span className="map-kicker text-[10px] text-muted-foreground">{t.worldKicker}</span>
+        <h1 className="font-display text-3xl leading-tight text-foreground sm:text-4xl text-balance">{t.homeTitle}</h1>
+        <p className="text-lg italic leading-relaxed text-muted-foreground">{t.homeLead}</p>
       </div>
 
       <div className="flex flex-col gap-4">
-        <span className="map-kicker text-[10px] text-muted-foreground">Arvomme</span>
+        <span className="map-kicker text-[10px] text-muted-foreground">{t.values}</span>
         <ul className="flex flex-col gap-4">
-          {VALUES.map((value) => (
+          {VALUES.map((value) => { const v = localizeValue(value, locale); return (
             <li key={value.title} className="flex items-start gap-3">
               <img src="/world/value-symbol.png" alt="" className="h-9 w-9 flex-shrink-0 object-contain" />
               <div className="flex flex-col">
-                <span className="map-kicker text-[10px] text-foreground">{value.title}</span>
-                <span className="leading-relaxed text-muted-foreground">{value.text}</span>
+                <span className="map-kicker text-[10px] text-foreground">{v.title}</span>
+                <span className="leading-relaxed text-muted-foreground">{v.text}</span>
               </div>
             </li>
           ))}
@@ -31,9 +32,9 @@ export default function EtusivuPage() {
       <div className="flex flex-col gap-3 rounded-xl border border-border bg-card/60 p-5">
         <div className="flex items-center gap-3">
           <img src="/world/value-symbol.png" alt="" className="h-7 w-7 flex-shrink-0 object-contain" />
-          <p className="map-kicker text-[10px] leading-relaxed text-foreground">Yhteinen perusta. Monia paikkoja.<br /><span className="text-gold">Rajattomasti mahdollisuuksia.</span></p>
+          <p className="map-kicker text-[10px] leading-relaxed text-foreground">{t.commonBase}<br /><span className="text-gold">{t.endless}</span></p>
         </div>
-        <p className="text-sm leading-relaxed text-muted-foreground">Valitse alue kartalta tai listasta tutkiaksesi Janopen maailmaa.</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{t.chooseArea}<p>
         <ul className="flex flex-col">
           {AREAS.map((area) => {
             const buildings = getBuildingsForAreaWithViara(area.id);
@@ -52,7 +53,7 @@ export default function EtusivuPage() {
         </ul>
       </div>
 
-      <GhostLink href="/meista" label="Lue lisää Janopesta" />
+      <GhostLink href="/meista" label={t.more} />
       <p className="sr-only">{WORLD_TAGLINE}</p>
     </Panel>
   );
