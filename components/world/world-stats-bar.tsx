@@ -1,18 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const LEGAL_LINKS = [
   { href: "/tietosuoja", fi: "Tietosuojaseloste", en: "Privacy policy" },
   { href: "/kayttoehdot", fi: "Käyttöehdot", en: "Terms of use" },
   { href: "/evasteet", fi: "Evästekäytäntö", en: "Cookie policy" },
-  { href: "/saavutettavuus", fi: "Saavutettavuusseloste", en: "Accessibility" },
+  { href: "/saavutettavuus", fi: "Saavutettavuusseloste", en: "Accessibility statement" },
 ];
 
+function getLocale(): "fi" | "en" {
+  if (typeof document === "undefined") return "fi";
+  return document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1] === "en" ? "en" : "fi";
+}
+
 export function WorldFooter() {
-  const [locale, setLocale] = useState<"fi" | "en">("fi");
-  useEffect(() => { const saved = document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1]; if (saved === "en") setLocale("en"); }, []);
+  const [locale] = useState<"fi" | "en">(getLocale);
 
   return (
     <footer className="border-t border-border bg-card/60">
