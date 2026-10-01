@@ -4,7 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { WORLD_TAGLINE } from "@/lib/janope-world";
+
+function LanguageSwitcher() {
+  const router = useRouter();
+  const [locale, setLocale] = useState<"fi" | "en">("fi");
+  useState(() => { try { const saved = document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1]; if (saved === "en") setLocale("en"); } catch {} });
+  const change = (next: "fi" | "en") => { document.cookie = `janope-locale=${next}; path=/; max-age=31536000; samesite=lax`; setLocale(next); router.refresh(); };
+  return <div className="flex items-center gap-1 rounded-full border border-border p-1" aria-label="Language"><button type="button" onClick={() => change("fi")} className={`rounded-full px-2 py-1 text-[10px] font-medium ${locale === "fi" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>FI</button><button type="button" onClick={() => change("en")} className={`rounded-full px-2 py-1 text-[10px] font-medium ${locale === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>EN</button></div>;
+}
 
 const NAV = [
   { href: "/", label: "Etusivu" },
@@ -13,7 +22,7 @@ const NAV = [
   { href: "/yhteystiedot", label: "Yhteystiedot" },
 ];
 
-function isActive(pathname: string, href: string) {
+function localeLabels() {\n  const value = typeof document !== "undefined" && document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1] === "en";\n  return value ? { "/": "Home", "/meista": "About", "/uutiset": "News", "/yhteystiedot": "Contact" } : { "/": "Etusivu", "/meista": "Meistä", "/uutiset": "Uutiset", "/yhteystiedot": "Yhteystiedot" };\n}\n\nfunction isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname.startsWith(href);
 }
@@ -43,7 +52,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <div className="flex items-center gap-4">\n        <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -56,7 +65,7 @@ export function SiteHeader() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {item.label}
+                {labels[item.href]}
                 {active && (
                   <span className="absolute -bottom-1.5 left-0 h-px w-full bg-gold" />
                 )}
@@ -89,7 +98,7 @@ export function SiteHeader() {
                   active ? "text-gold" : "text-foreground"
                 }`}
               >
-                {item.label}
+                {labels[item.href]}
               </Link>
             );
           })}
