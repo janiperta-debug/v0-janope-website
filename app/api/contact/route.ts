@@ -4,11 +4,12 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const { name, email, organization, message } = await request.json();
+    const { name, email, organization, message, locale } = await request.json();
+    const en = locale === "en";
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Nimi, sähköposti ja viesti ovat pakollisia kenttiä." },
+        { error: en ? "Name, email and message are required." : "Nimi, sähköposti ja viesti ovat pakollisia kenttiä." },
         { status: 400 }
       );
     }
@@ -16,16 +17,27 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: "Janope Yhteydenotto <onboarding@resend.dev>",
       to: "info@janope.fi",
-      subject: `Yhteydenotto: ${name}${organization ? ` (${organization})` : ""}`,
+      subject: en
+        ? `Contact request: ${name}${organization ? ` (${organization})` : ""}`
+        : `Yhteydenotto: ${name}${organization ? ` (${organization})` : ""}`,
       replyTo: email,
-      text: `Nimi: ${name}\nSähköposti: ${email}\nOrganisaatio: ${organization || "Ei ilmoitettu"}\n\nViesti:\n${message}`,
+      text: en
+        ? `Name: ${name}\nEmail: ${email}\nSubject: ${organization || "Not provided"}\n\nMessage:\n${message}`
+        : `Nimi: ${name}\nSähköposti: ${email}\nOrganisaatio: ${organization || "Ei ilmoitettu"}\n\nViesti:\n${message}`,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);
+    const en = (() => {
+      try {
+        return false;
+      } catch {
+        return false;
+      }
+    })();
     return NextResponse.json(
-      { error: "Viestin lähetys epäonnistui. Yritä uudelleen." },
+      { error: en ? "Message could not be sent. Please try again." : "Viestin lähetys epäonnistui. Yritä uudelleen." },
       { status: 500 }
     );
   }
