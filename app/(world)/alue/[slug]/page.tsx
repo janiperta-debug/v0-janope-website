@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { getSiteLocale, localizeArea, localizeBuilding, SITE_TEXT } from "@/lib/site-i18n";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Panel, PanelBack, EmblemHeading, FeatureList, StatusBadge } from "@/components/world/panel-ui";
@@ -18,16 +19,16 @@ export default async function AluePage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const area = getArea(slug);
   if (!area) notFound();
-  const buildings = getBuildingsForAreaWithViara(area.id);
+  const locale = await getSiteLocale();\n  const t = SITE_TEXT[locale];\n  const localizedArea = localizeArea(area, locale);\n  const buildings = getBuildingsForAreaWithViara(area.id).map((building) => localizeBuilding(building, locale));
 
   return (
     <Panel>
-      <PanelBack href="/" label="Takaisin maailmaan" />
-      <EmblemHeading emblem={area.emblem} title={area.name} tagline={area.tagline} />
-      <p className="leading-relaxed text-muted-foreground">{area.description}</p>
-      <FeatureList items={area.highlights} />
+      <PanelBack href="/" label={t.backWorld} />
+      <EmblemHeading emblem={area.emblem} title={localizedArea.name} tagline={localizedArea.tagline} />
+      <p className="leading-relaxed text-muted-foreground">{localizedArea.description}</p>
+      <FeatureList items={localizedArea.highlights} />
       <div className="flex flex-col gap-3">
-        <span className="map-kicker text-[10px] text-muted-foreground">{buildings.length > 1 ? "Alueen rakennukset" : "Alueen rakennus"}</span>
+        <span className="map-kicker text-[10px] text-muted-foreground">{buildings.length > 1 ? t.buildings : t.building}</span>
         <ul className="flex flex-col gap-3">
           {buildings.map((building) => (
             <li key={building.id}>
