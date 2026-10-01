@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSiteLocale, localizeValue, SITE_TEXT } from "@/lib/site-i18n";
 import { Panel, PanelBack, EmblemHeading } from "@/components/world/panel-ui";
 import { VALUES, WORLD_TAGLINE } from "@/lib/janope-world";
 
@@ -8,10 +9,10 @@ export const metadata: Metadata = {
     "Janope rakentaa digitaalisia paikkoja, joilla on merkitystä. Yksi yhteinen perusta, monta merkityksellistä paikkaa.",
 };
 
-export default function MeistaPage() {
+export default async function MeistaPage() {\n  const locale = await getSiteLocale();\n  const t = SITE_TEXT[locale];
   return (
     <Panel>
-      <PanelBack href="/" label="Takaisin maailmaan" />
+      <PanelBack href="/" label={t.backWorld} />
 
       <EmblemHeading
         logo
@@ -38,17 +39,17 @@ export default function MeistaPage() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="map-kicker text-[11px] text-muted-foreground">Arvomme</h2>
+        <h2 className="map-kicker text-[11px] text-muted-foreground">{t.values}</h2>
         <div className="flex flex-col gap-5">
-          {VALUES.map((value) => (
-            <div key={value.title} className="flex items-start gap-4">
+          {VALUES.map((value) => { const v = localizeValue(value, locale); return (
+            <div key={v.title} className="flex items-start gap-4">
               <img src="/world/value-symbol.png" alt="" className="h-11 w-11 flex-shrink-0 object-contain" />
               <div className="flex flex-col gap-1">
                 <h3 className="font-display text-lg leading-tight text-foreground">
                   {value.title}
                 </h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  {value.text}
+                  {v.text}
                 </p>
               </div>
             </div>
