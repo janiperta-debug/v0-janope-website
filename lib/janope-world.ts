@@ -393,14 +393,6 @@ export const NEWS: NewsItem[] = [
     slug: "gametable-uudistus",
   },
   {
-    category: "Uutinen",
-    date: "15.5.2025",
-    title: "Voltteri etenee – sähköisen liikkumisen alusta rakenteilla",
-    excerpt:
-      "Liikkumisen alueen ydin, Voltteri, kokoaa latausverkot yhteen näkymään. Kehitys etenee kohti ensimmäistä julkaisua.",
-    slug: "voltteri-etenee",
-  },
-  {
     category: "Artikkeli",
     date: "9.5.2025",
     title: "Kestävä kehitys käytännössä: FinnVerdis-hubin valmistelu käynnissä",
