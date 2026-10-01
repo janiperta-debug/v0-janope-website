@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";\nimport { useEffect, useState } from "react";
 import { Compass } from "lucide-react";
 import { AREAS, getArea, type Area } from "@/lib/janope-world";
-import { WorldIcon } from "./world-icon";
+import { WorldIcon } from "./world-icon";\nimport { localizeArea, type SiteLocale } from "@/lib/site-i18n";
 
 interface Focus {
   x: number;
