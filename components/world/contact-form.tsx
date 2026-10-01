@@ -6,10 +6,40 @@ import { Check } from "lucide-react";
 const fieldClass =
   "w-full rounded-lg border border-border bg-card/70 px-4 py-3 text-base text-foreground transition-all placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20";
 
+function getLocale(): "fi" | "en" {
+  if (typeof document === "undefined") return "fi";
+  return document.cookie.match(/(?:^|; )janope-locale=([^;]+)/)?.[1] === "en" ? "en" : "fi";
+}
+
 export function ContactForm() {
+  const [locale] = useState<"fi" | "en">(getLocale);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const t = locale === "en"
+    ? {
+        name: "Name *",
+        email: "Email *",
+        subject: "Subject",
+        message: "Message *",
+        sending: "Sending…",
+        submit: "Send message →",
+        thanks: "Thank you for your message!",
+        reply: "We will get back to you as soon as possible.",
+        fallbackError: "Message could not be sent. Please try again.",
+      }
+    : {
+        name: "Nimi *",
+        email: "Sähköposti *",
+        subject: "Aihe",
+        message: "Viesti *",
+        sending: "Lähetetään…",
+        submit: "Lähetä viesti →",
+        thanks: "Kiitos viestistäsi!",
+        reply: "Otamme sinuun yhteyttä mahdollisimman pian.",
+        fallbackError: "Viestin lähetys epäonnistui. Yritä uudelleen.",
+      };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,16 +63,12 @@ export function ContactForm() {
 
       if (!res.ok) {
         const result = await res.json();
-        throw new Error(result.error || "Viestin lähetys epäonnistui.");
+        throw new Error(result.error || t.fallbackError);
       }
 
       setIsSubmitted(true);
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Viestin lähetys epäonnistui. Yritä uudelleen."
-      );
+      setError(err instanceof Error ? err.message : t.fallbackError);
     } finally {
       setIsSubmitting(false);
     }
@@ -54,12 +80,8 @@ export function ContactForm() {
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-area-sustainability">
           <Check className="h-7 w-7 text-card" />
         </span>
-        <h3 className="font-display text-xl text-foreground">
-          Kiitos viestistäsi!
-        </h3>
-        <p className="text-muted-foreground">
-          Otamme sinuun yhteyttä mahdollisimman pian.
-        </p>
+        <h3 className="font-display text-xl text-foreground">{t.thanks}</h3>
+        <p className="text-muted-foreground">{t.reply}</p>
       </div>
     );
   }
@@ -67,40 +89,23 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div className="flex flex-col gap-2">
-        <label htmlFor="name" className="map-kicker text-[10px] text-muted-foreground">
-          Nimi *
-        </label>
+        <label htmlFor="name" className="map-kicker text-[10px] text-muted-foreground">{t.name}</label>
         <input type="text" id="name" name="name" required className={fieldClass} />
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="map-kicker text-[10px] text-muted-foreground">
-          Sähköposti *
-        </label>
+        <label htmlFor="email" className="map-kicker text-[10px] text-muted-foreground">{t.email}</label>
         <input type="email" id="email" name="email" required className={fieldClass} />
       </div>
 
       <div className="flex flex-col gap-2">
-        <label
-          htmlFor="organization"
-          className="map-kicker text-[10px] text-muted-foreground"
-        >
-          Aihe
-        </label>
+        <label htmlFor="organization" className="map-kicker text-[10px] text-muted-foreground">{t.subject}</label>
         <input type="text" id="organization" name="organization" className={fieldClass} />
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="map-kicker text-[10px] text-muted-foreground">
-          Viesti *
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          className={`${fieldClass} resize-y`}
-        />
+        <label htmlFor="message" className="map-kicker text-[10px] text-muted-foreground">{t.message}</label>
+        <textarea id="message" name="message" required rows={5} className={`${fieldClass} resize-y`} />
       </div>
 
       {error && (
@@ -114,7 +119,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         className="map-kicker mt-1 inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-6 py-4 text-xs text-primary-foreground shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
       >
-        {isSubmitting ? "Lähetetään…" : "Lähetä viesti →"}
+        {isSubmitting ? t.sending : t.submit}
       </button>
     </form>
   );
