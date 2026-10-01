@@ -37,7 +37,7 @@ export function SiteHeader() {
           <img src="/world/janope-compass.png" alt="Janope" className="h-10 w-10 flex-shrink-0 object-contain" />
           <span className="flex flex-col leading-none">
             <img src="/world/janope-wordmark.png" alt="JANOPE" className="h-5 w-auto object-contain sm:h-6" />
-            <span className="mt-1 hidden text-xs text-muted-foreground sm:block">{WORLD_TAGLINE}</span>
+            <span className="mt-1 hidden text-xs text-muted-foreground sm:block">{locale === "en" ? "Connecting people, information and services." : WORLD_TAGLINE}</span>
           </span>
         </Link>
 
