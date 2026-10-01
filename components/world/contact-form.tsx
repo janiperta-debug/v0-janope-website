@@ -19,23 +19,15 @@ export function ContactForm() {
 
   const t = locale === "en"
     ? {
-        name: "Name *",
-        email: "Email *",
-        subject: "Subject",
-        message: "Message *",
-        sending: "Sending…",
-        submit: "Send message →",
+        name: "Name *", email: "Email *", subject: "Subject", message: "Message *",
+        sending: "Sending…", submit: "Send message →",
         thanks: "Thank you for your message!",
         reply: "We will get back to you as soon as possible.",
         fallbackError: "Message could not be sent. Please try again.",
       }
     : {
-        name: "Nimi *",
-        email: "Sähköposti *",
-        subject: "Aihe",
-        message: "Viesti *",
-        sending: "Lähetetään…",
-        submit: "Lähetä viesti →",
+        name: "Nimi *", email: "Sähköposti *", subject: "Aihe", message: "Viesti *",
+        sending: "Lähetetään…", submit: "Lähetä viesti →",
         thanks: "Kiitos viestistäsi!",
         reply: "Otamme sinuun yhteyttä mahdollisimman pian.",
         fallbackError: "Viestin lähetys epäonnistui. Yritä uudelleen.",
@@ -52,6 +44,7 @@ export function ContactForm() {
       email: formData.get("email"),
       organization: formData.get("organization"),
       message: formData.get("message"),
+      locale,
     };
 
     try {
@@ -92,33 +85,22 @@ export function ContactForm() {
         <label htmlFor="name" className="map-kicker text-[10px] text-muted-foreground">{t.name}</label>
         <input type="text" id="name" name="name" required className={fieldClass} />
       </div>
-
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="map-kicker text-[10px] text-muted-foreground">{t.email}</label>
         <input type="email" id="email" name="email" required className={fieldClass} />
       </div>
-
       <div className="flex flex-col gap-2">
         <label htmlFor="organization" className="map-kicker text-[10px] text-muted-foreground">{t.subject}</label>
         <input type="text" id="organization" name="organization" className={fieldClass} />
       </div>
-
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="map-kicker text-[10px] text-muted-foreground">{t.message}</label>
         <textarea id="message" name="message" required rows={5} className={`${fieldClass} resize-y`} />
       </div>
-
       {error && (
-        <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
-          {error}
-        </div>
+        <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">{error}</div>
       )}
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="map-kicker mt-1 inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-6 py-4 text-xs text-primary-foreground shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
-      >
+      <button type="submit" disabled={isSubmitting} className="map-kicker mt-1 inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-6 py-4 text-xs text-primary-foreground shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0">
         {isSubmitting ? t.sending : t.submit}
       </button>
     </form>
