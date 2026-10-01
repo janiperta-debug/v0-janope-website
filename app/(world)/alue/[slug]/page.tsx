@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { getSiteLocale, localizeArea, localizeBuilding, SITE_TEXT } from "@/lib/site-i18n";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Panel, PanelBack, EmblemHeading, FeatureList, StatusBadge } from "@/components/world/panel-ui";
 import { AREAS, getArea } from "@/lib/janope-world";
 import { getBuildingsForAreaWithViara } from "@/lib/janope-viara";
+import { getSiteLocale, localizeArea, localizeBuilding, SITE_TEXT } from "@/lib/site-i18n";
 
 export function generateStaticParams() { return AREAS.map((area) => ({ slug: area.slug })); }
 
@@ -19,7 +19,11 @@ export default async function AluePage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const area = getArea(slug);
   if (!area) notFound();
-  const locale = await getSiteLocale();\n  const t = SITE_TEXT[locale];\n  const localizedArea = localizeArea(area, locale);\n  const buildings = getBuildingsForAreaWithViara(area.id).map((building) => localizeBuilding(building, locale));
+
+  const locale = await getSiteLocale();
+  const t = SITE_TEXT[locale];
+  const localizedArea = localizeArea(area, locale);
+  const buildings = getBuildingsForAreaWithViara(area.id).map((building) => localizeBuilding(building, locale));
 
   return (
     <Panel>
@@ -37,7 +41,10 @@ export default async function AluePage({ params }: { params: Promise<{ slug: str
                   <img src={building.logo || "/placeholder.svg"} alt={`${building.name} logo`} className="h-auto max-h-9 w-auto max-w-9 object-contain" />
                 </span>
                 <div className="flex flex-1 flex-col gap-1">
-                  <div className="flex items-center gap-2"><span className="font-display text-lg leading-none text-foreground transition-colors group-hover:text-gold">{building.name}</span><StatusBadge status={building.status} /></div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-display text-lg leading-none text-foreground transition-colors group-hover:text-gold">{building.name}</span>
+                    <StatusBadge status={building.status} />
+                  </div>
                   <span className="text-sm leading-snug text-muted-foreground">{building.tagline}</span>
                 </div>
               </Link>
