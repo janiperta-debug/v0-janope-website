@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     "FinnVesta",
     "Viara",
     "GameTable",
-    "Voltteri",
     "Lähellä",
     "FinnVerdis",
   ],
