@@ -34,7 +34,7 @@ export default async function RakennusPage({ params }: { params: Promise<{ slug:
     <Panel>
       <PanelBack href={`/alue/${area.slug}`} label={`${t.back} ${localizedArea.name}`} />
       <EmblemHeading title={localizedBuilding.name} tagline={localizedBuilding.tagline} />
-      <StatusBadge status={building.status} />
+      <StatusBadge status={building.status} locale={locale} />
       <div className="flex items-start gap-4">
         <span className="flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-card">
           <img src={building.logo || "/placeholder.svg"} alt={`${building.name} logo`} width={64} height={64} className="h-auto max-h-14 w-auto max-w-14 object-contain" />
