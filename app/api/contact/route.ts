@@ -2,10 +2,12 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  let en = false;
+
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, organization, message, locale } = await request.json();
-    const en = locale === "en";
+    en = locale === "en";
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -29,13 +31,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);
-    const en = (() => {
-      try {
-        return false;
-      } catch {
-        return false;
-      }
-    })();
     return NextResponse.json(
       { error: en ? "Message could not be sent. Please try again." : "Viestin lähetys epäonnistui. Yritä uudelleen." },
       { status: 500 }
