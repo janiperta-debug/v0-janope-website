@@ -256,7 +256,7 @@ export const BUILDINGS: Building[] = [
     areaId: "lahielaman",
     name: "Lähellä",
     tagline: "Naapuruston apu ja seura yhdessä paikassa.",
-    status: "tuotannossa",
+    status: "julkaistu",
     description:
       "Sovellus naapurustoavun etsimiseen ja tarjoamiseen. Löydä leikkikavereita lapsille, vapaaehtoisia apuun tai mukavia hetkiä lähialueeltasi.",
     features: [
