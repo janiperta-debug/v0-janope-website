@@ -3,31 +3,31 @@ import { ArrowRight, Check, Layers3, UsersRound, Workflow, BarChart3 } from "luc
 import { getSiteLocale } from "@/lib/site-i18n";
 
 export const metadata = {
-  title: "Workplace | Janope",
+  title: "Samstila | Janope",
   description:
-    "Workplace on yrityksen oma digitaalinen työtila, joka kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan.",
+    "Samstila on yrityksen oma digitaalinen työtila, joka kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan.",
 };
 
 const copy = {
   fi: {
     back: "← Janope",
-    kicker: "JANOPE WORKPLACE",
+    kicker: "JANOPE SAMSTILA",
     title: "Yrityksen oma digitaalinen työtila.",
     lead:
-      "Workplace kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan – selkeästi ja juuri yrityksesi tarpeisiin.",
-    primary: "Tutustu Workplaceen",
+      "Samstila kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan – selkeästi ja juuri yrityksesi tarpeisiin.",
+    primary: "Tutustu Samstilaen",
     secondary: "Ota yhteyttä",
     introKicker: "Yksi työtila. Oma tapa toimia.",
     introTitle: "Kaikki tärkeä samassa paikassa.",
     intro:
-      "Workplace auttaa pitämään yrityksen arjen koossa. Sen ympärille voidaan rakentaa juuri ne näkymät ja toiminnot, joita organisaatio oikeasti tarvitsee.",
+      "Samstila auttaa pitämään yrityksen arjen koossa. Sen ympärille voidaan rakentaa juuri ne näkymät ja toiminnot, joita organisaatio oikeasti tarvitsee.",
     cards: [
       ["Ihmiset", "Pidä asiakkaat, yhteyshenkilöt ja käyttäjät yhdessä näkymässä.", UsersRound],
       ["Työ", "Hallinnoi tehtäviä, projekteja ja päivittäistä tekemistä.", Workflow],
       ["Tieto", "Kokoa raportit, viestintä ja muu olennainen tieto samaan työtilaan.", BarChart3],
-      ["Oma rakenne", "Workplace mukautuu yrityksen toimintatapaan eikä päinvastoin.", Layers3],
+      ["Oma rakenne", "Samstila mukautuu yrityksen toimintatapaan eikä päinvastoin.", Layers3],
     ],
-    flowKicker: "Miten Workplace toimii?",
+    flowKicker: "Miten Samstila toimii?",
     flowTitle: "Yksi paikka, josta työ lähtee liikkeelle.",
     steps: [
       ["01", "Keskus", "Näe yhdellä silmäyksellä, mitä juuri nyt tapahtuu ja mihin kannattaa kiinnittää huomiota."],
@@ -35,35 +35,35 @@ const copy = {
       ["03", "Toiminta", "Tee työ samassa ympäristössä ja pidä tieto siellä, missä sitä tarvitaan."],
     ],
     demoKicker: "Interaktiivinen demo",
-    demoTitle: "Tutustu Workplaceen käytännössä.",
+    demoTitle: "Tutustu Samstilaen käytännössä.",
     demoText:
-      "Oikea Workplace on jo käytössä Janopeella. Rakennamme parhaillaan siitä verkkosivulle rajattua demo-versiota, jossa pääset tutkimaan työtilaa itse.",
+      "Oikea Samstila on jo käytössä Janopeella. Rakennamme parhaillaan siitä verkkosivulle rajattua demo-versiota, jossa pääset tutkimaan työtilaa itse.",
     demoButton: "Demo tulossa",
-    ctaKicker: "Rakennetaan oma Workplace",
+    ctaKicker: "Rakennetaan oma Samstila",
     ctaTitle: "Työtila, joka sopii teidän tapaamme tehdä työtä.",
     ctaText:
-      "Workplace ei ole yksi valmis käyttöliittymä kaikille. Se voidaan rakentaa yrityksen omien tarpeiden, prosessien ja käyttäjien ympärille.",
-    ctaButton: "Keskustele Workplacesta",
+      "Samstila ei ole yksi valmis käyttöliittymä kaikille. Se voidaan rakentaa yrityksen omien tarpeiden, prosessien ja käyttäjien ympärille.",
+    ctaButton: "Keskustele Samstilasta",
   },
   en: {
     back: "← Janope",
-    kicker: "JANOPE WORKPLACE",
+    kicker: "JANOPE SAMSTILA",
     title: "Your company's own digital workspace.",
     lead:
-      "Workplace brings people, customers, tasks and important processes together in one place – clearly and around the way your company works.",
-    primary: "Explore Workplace",
+      "Samstila brings people, customers, tasks and important processes together in one place – clearly and around the way your company works.",
+    primary: "Explore Samstila",
     secondary: "Get in touch",
     introKicker: "One workspace. Your way of working.",
     introTitle: "Everything important, in one place.",
     intro:
-      "Workplace keeps everyday work together. It can be shaped around the views and functions an organisation actually needs.",
+      "Samstila keeps everyday work together. It can be shaped around the views and functions an organisation actually needs.",
     cards: [
       ["People", "Keep customers, contacts and users together in one view.", UsersRound],
       ["Work", "Manage tasks, projects and everyday operations.", Workflow],
       ["Information", "Bring reports, communication and other important information together.", BarChart3],
-      ["Your structure", "Workplace adapts to the company instead of the other way around.", Layers3],
+      ["Your structure", "Samstila adapts to the company instead of the other way around.", Layers3],
     ],
-    flowKicker: "How Workplace works",
+    flowKicker: "How Samstila works",
     flowTitle: "One place to start the work.",
     steps: [
       ["01", "Central view", "See at a glance what is happening now and what needs attention."],
@@ -71,19 +71,19 @@ const copy = {
       ["03", "Action", "Do the work in the same environment and keep information where it is needed."],
     ],
     demoKicker: "Interactive demo",
-    demoTitle: "Experience Workplace in practice.",
+    demoTitle: "Experience Samstila in practice.",
     demoText:
-      "A real Workplace is already in use at Janope. We are preparing a public demo version so you can explore the workspace yourself.",
+      "A real Samstila is already in use at Janope. We are preparing a public demo version so you can explore the workspace yourself.",
     demoButton: "Demo coming soon",
-    ctaKicker: "Build your own Workplace",
+    ctaKicker: "Build your own Samstila",
     ctaTitle: "A workspace that fits the way you work.",
     ctaText:
-      "Workplace is not one fixed interface for everyone. It can be shaped around your company's needs, processes and users.",
-    ctaButton: "Talk about Workplace",
+      "Samstila is not one fixed interface for everyone. It can be shaped around your company's needs, processes and users.",
+    ctaButton: "Talk about Samstila",
   },
 } as const;
 
-export default async function WorkplacePage() {
+export default async function SamstilaPage() {
   const locale = await getSiteLocale();
   const t = copy[locale];
 
@@ -92,7 +92,7 @@ export default async function WorkplacePage() {
       <nav className="border-b border-[#5a4228] bg-[#21150d]/95">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
           <Link href="/" className="text-sm text-[#b8aa9b] transition hover:text-[#eee4d6]">{t.back}</Link>
-          <div className="font-display text-sm tracking-[0.28em] text-[#d8b45c]">WORKPLACE</div>
+          <div className="font-display text-sm tracking-[0.28em] text-[#d8b45c]">SAMSTILA</div>
           <a href="#yhteys" className="rounded-full border border-[#80613a] bg-[#2b1d12] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#e4d7c7] shadow-[inset_0_1px_0_rgba(232,201,132,.18),0_3px_9px_rgba(0,0,0,.35)] transition hover:border-[#d8b45c] hover:text-[#f0e4d2]">
             {t.secondary}
           </a>
@@ -117,7 +117,7 @@ export default async function WorkplacePage() {
           <div className="rounded-[1.75rem] border border-[#765733] bg-[#2b1d12]/90 p-4 shadow-[0_8px_24px_rgba(0,0,0,.45),inset_0_1px_0_rgba(232,201,132,.16)]">
             <div className="rounded-2xl border border-[#62482d] bg-[linear-gradient(180deg,#302216,#21150d)] p-5 shadow-[inset_0_1px_0_rgba(232,201,132,.12),inset_0_-1px_0_rgba(0,0,0,.5)] sm:p-6">
               <div className="flex items-center justify-between border-b border-[#523a24] pb-5">
-                <div><p className="text-[10px] uppercase tracking-[0.22em] text-[#8f806f]">WORKPLACE</p><p className="mt-1 text-xl font-semibold">Keskus</p></div>
+                <div><p className="text-[10px] uppercase tracking-[0.22em] text-[#8f806f]">SAMSTILA</p><p className="mt-1 text-xl font-semibold">Keskus</p></div>
                 <span className="h-2.5 w-2.5 rounded-full bg-[#8bb66b] shadow-[0_0_8px_rgba(139,182,107,.55)]" />
               </div>
               <div className="mt-5 grid grid-cols-2 gap-3">
@@ -195,7 +195,7 @@ export default async function WorkplacePage() {
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.ctaTitle}</h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/55">{t.ctaText}</p>
           </div>
-          <a href="mailto:info@janope.fi?subject=Workplace%20esittely" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#c9a24a] px-6 py-3.5 text-sm font-semibold text-[#0b0f13] transition hover:-translate-y-0.5">
+          <a href="mailto:info@janope.fi?subject=Samstila%20esittely" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#c9a24a] px-6 py-3.5 text-sm font-semibold text-[#0b0f13] transition hover:-translate-y-0.5">
             {t.ctaButton}<ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -203,7 +203,7 @@ export default async function WorkplacePage() {
 
       <footer className="border-t border-[#5a4228] px-5 py-8 sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 text-sm text-[#817365] sm:flex-row sm:items-center sm:justify-between">
-          <span>Workplace · Janope</span>
+          <span>Samstila · Janope</span>
           <Link href="/" className="transition hover:text-white/70">{t.back}</Link>
         </div>
       </footer>
