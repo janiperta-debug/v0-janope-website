@@ -253,7 +253,7 @@ export const BUILDINGS: Building[] = [
   {
     id: "workplace",
     slug: "workplace",
-    areaId: "omaisuuden",
+    areaId: "kestavyyden",
     name: "Workplace",
     tagline: "Yrityksen oma digitaalinen työtila.",
     status: "julkaistu",
