@@ -254,7 +254,7 @@ export const BUILDINGS: Building[] = [
     id: "workplace",
     slug: "workplace",
     areaId: "kestavyyden",
-    name: "Workplace",
+    name: "Samstila",
     tagline: "Yrityksen oma digitaalinen työtila.",
     status: "julkaistu",
     description:
@@ -266,7 +266,7 @@ export const BUILDINGS: Building[] = [
       "Viestintä, raportointi ja muut yrityksen tarvitsemat kokonaisuudet",
     ],
     link: "/workplace",
-    linkText: "Katso Workplace",
+    linkText: "Katso Samstila",
     logo: "",
     icon: "BriefcaseBusiness",
   },
