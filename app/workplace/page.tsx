@@ -15,7 +15,7 @@ const copy = {
     title: "Yrityksen oma digitaalinen työtila.",
     lead:
       "Samstila kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan – selkeästi ja juuri yrityksesi tarpeisiin.",
-    primary: "Tutustu Samstilaen",
+    primary: "Tutustu Samstilaan",
     secondary: "Ota yhteyttä",
     introKicker: "Yksi työtila. Oma tapa toimia.",
     introTitle: "Kaikki tärkeä samassa paikassa.",
@@ -35,7 +35,7 @@ const copy = {
       ["03", "Toiminta", "Tee työ samassa ympäristössä ja pidä tieto siellä, missä sitä tarvitaan."],
     ],
     demoKicker: "Interaktiivinen demo",
-    demoTitle: "Tutustu Samstilaen käytännössä.",
+    demoTitle: "Tutustu Samstilaan käytännössä.",
     demoText:
       "Oikea Samstila on jo käytössä Janopeella. Rakennamme parhaillaan siitä verkkosivulle rajattua demo-versiota, jossa pääset tutkimaan työtilaa itse.",
     demoButton: "Demo tulossa",
