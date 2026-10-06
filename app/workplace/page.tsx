@@ -1,0 +1,212 @@
+import Link from "next/link";
+import { ArrowRight, Check, Layers3, UsersRound, Workflow, BarChart3 } from "lucide-react";
+import { getSiteLocale } from "@/lib/site-i18n";
+
+export const metadata = {
+  title: "Workplace | Janope",
+  description:
+    "Workplace on yrityksen oma digitaalinen työtila, joka kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan.",
+};
+
+const copy = {
+  fi: {
+    back: "← Janope",
+    kicker: "JANOPE WORKPLACE",
+    title: "Yrityksen oma digitaalinen työtila.",
+    lead:
+      "Workplace kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan – selkeästi ja juuri yrityksesi tarpeisiin.",
+    primary: "Tutustu Workplaceen",
+    secondary: "Ota yhteyttä",
+    introKicker: "Yksi työtila. Oma tapa toimia.",
+    introTitle: "Kaikki tärkeä samassa paikassa.",
+    intro:
+      "Workplace auttaa pitämään yrityksen arjen koossa. Sen ympärille voidaan rakentaa juuri ne näkymät ja toiminnot, joita organisaatio oikeasti tarvitsee.",
+    cards: [
+      ["Ihmiset", "Pidä asiakkaat, yhteyshenkilöt ja käyttäjät yhdessä näkymässä.", UsersRound],
+      ["Työ", "Hallinnoi tehtäviä, projekteja ja päivittäistä tekemistä.", Workflow],
+      ["Tieto", "Kokoa raportit, viestintä ja muu olennainen tieto samaan työtilaan.", BarChart3],
+      ["Oma rakenne", "Workplace mukautuu yrityksen toimintatapaan eikä päinvastoin.", Layers3],
+    ],
+    flowKicker: "Miten Workplace toimii?",
+    flowTitle: "Yksi paikka, josta työ lähtee liikkeelle.",
+    steps: [
+      ["01", "Keskus", "Näe yhdellä silmäyksellä, mitä juuri nyt tapahtuu ja mihin kannattaa kiinnittää huomiota."],
+      ["02", "Työtilat", "Siirry asiakkaisiin, projekteihin, tehtäviin, viestintään tai muihin yrityksesi tarvitsemiin kokonaisuuksiin."],
+      ["03", "Toiminta", "Tee työ samassa ympäristössä ja pidä tieto siellä, missä sitä tarvitaan."],
+    ],
+    demoKicker: "Interaktiivinen demo",
+    demoTitle: "Tutustu Workplaceen käytännössä.",
+    demoText:
+      "Oikea Workplace on jo käytössä Janopeella. Rakennamme parhaillaan siitä verkkosivulle rajattua demo-versiota, jossa pääset tutkimaan työtilaa itse.",
+    demoButton: "Demo tulossa",
+    ctaKicker: "Rakennetaan oma Workplace",
+    ctaTitle: "Työtila, joka sopii teidän tapaamme tehdä työtä.",
+    ctaText:
+      "Workplace ei ole yksi valmis käyttöliittymä kaikille. Se voidaan rakentaa yrityksen omien tarpeiden, prosessien ja käyttäjien ympärille.",
+    ctaButton: "Keskustele Workplacesta",
+  },
+  en: {
+    back: "← Janope",
+    kicker: "JANOPE WORKPLACE",
+    title: "Your company's own digital workspace.",
+    lead:
+      "Workplace brings people, customers, tasks and important processes together in one place – clearly and around the way your company works.",
+    primary: "Explore Workplace",
+    secondary: "Get in touch",
+    introKicker: "One workspace. Your way of working.",
+    introTitle: "Everything important, in one place.",
+    intro:
+      "Workplace keeps everyday work together. It can be shaped around the views and functions an organisation actually needs.",
+    cards: [
+      ["People", "Keep customers, contacts and users together in one view.", UsersRound],
+      ["Work", "Manage tasks, projects and everyday operations.", Workflow],
+      ["Information", "Bring reports, communication and other important information together.", BarChart3],
+      ["Your structure", "Workplace adapts to the company instead of the other way around.", Layers3],
+    ],
+    flowKicker: "How Workplace works",
+    flowTitle: "One place to start the work.",
+    steps: [
+      ["01", "Central view", "See at a glance what is happening now and what needs attention."],
+      ["02", "Work areas", "Move into customers, projects, tasks, communication or other areas your company needs."],
+      ["03", "Action", "Do the work in the same environment and keep information where it is needed."],
+    ],
+    demoKicker: "Interactive demo",
+    demoTitle: "Experience Workplace in practice.",
+    demoText:
+      "A real Workplace is already in use at Janope. We are preparing a public demo version so you can explore the workspace yourself.",
+    demoButton: "Demo coming soon",
+    ctaKicker: "Build your own Workplace",
+    ctaTitle: "A workspace that fits the way you work.",
+    ctaText:
+      "Workplace is not one fixed interface for everyone. It can be shaped around your company's needs, processes and users.",
+    ctaButton: "Talk about Workplace",
+  },
+} as const;
+
+export default async function WorkplacePage() {
+  const locale = await getSiteLocale();
+  const t = copy[locale];
+
+  return (
+    <main className="min-h-screen bg-[#0b0f13] text-[#eef2f4]">
+      <nav className="border-b border-white/10 bg-[#0b0f13]/95">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+          <Link href="/" className="text-sm text-white/60 transition hover:text-white">{t.back}</Link>
+          <div className="font-display text-sm tracking-[0.28em] text-white">WORKPLACE</div>
+          <a href="#yhteys" className="rounded-full border border-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/80 transition hover:border-white/30 hover:text-white">
+            {t.secondary}
+          </a>
+        </div>
+      </nav>
+
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_35%,rgba(180,145,75,.16),transparent_34%),linear-gradient(135deg,#0b0f13_0%,#121921_55%,#0b0f13_100%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:py-28">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c9a24a]">{t.kicker}</p>
+            <h1 className="mt-5 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">{t.title}</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/60 sm:text-xl">{t.lead}</p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="#demo" className="inline-flex items-center gap-2 rounded-xl bg-[#c9a24a] px-6 py-3.5 text-sm font-semibold text-[#0b0f13] transition hover:-translate-y-0.5">
+                {t.primary}<ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#yhteys" className="inline-flex items-center rounded-xl border border-white/15 px-6 py-3.5 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:text-white">{t.secondary}</a>
+            </div>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-4 shadow-2xl">
+            <div className="rounded-2xl border border-white/10 bg-[#10161c] p-5 sm:p-6">
+              <div className="flex items-center justify-between border-b border-white/10 pb-5">
+                <div><p className="text-[10px] uppercase tracking-[0.22em] text-white/35">WORKPLACE</p><p className="mt-1 text-xl font-semibold">Keskus</p></div>
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                {[["12", "Asiakasta"], ["8", "Projektia"], ["17", "Tehtävää"], ["4", "Tänään"]].map(([value, label]) => (
+                  <div key={label} className="rounded-xl border border-white/8 bg-white/[0.025] p-4">
+                    <p className="text-2xl font-semibold">{value}</p><p className="mt-1 text-xs text-white/40">{label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 rounded-xl border border-white/8 bg-white/[0.025] p-4">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-[#c9a24a]">Tänään</p>
+                <div className="mt-3 space-y-2">
+                  {["Asiakasprojekti etenee", "2 tehtävää odottaa", "Uusi yhteyshenkilö lisätty"].map((item) => (
+                    <div key={item} className="flex items-center gap-3 text-sm text-white/65"><span className="h-1.5 w-1.5 rounded-full bg-[#c9a24a]" />{item}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c9a24a]">{t.introKicker}</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.introTitle}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/55">{t.intro}</p>
+          </div>
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {t.cards.map(([title, text, Icon]) => (
+              <article key={title} className="rounded-2xl border border-white/10 bg-white/[0.025] p-6">
+                <Icon className="h-5 w-5 text-[#c9a24a]" />
+                <h3 className="mt-6 text-lg font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/50">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-white/10 bg-[#10161c] py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c9a24a]">{t.flowKicker}</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.flowTitle}</h2>
+          </div>
+          <div className="mt-12 grid gap-0 overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-3">
+            {t.steps.map(([number, title, text]) => (
+              <article key={number} className="border-b border-white/10 p-7 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
+                <span className="text-xs font-semibold tracking-[0.2em] text-[#c9a24a]">{number}</span>
+                <h3 className="mt-6 text-xl font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/50">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" className="py-20 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+          <div className="rounded-[2rem] border border-[#c9a24a]/25 bg-[radial-gradient(circle_at_50%_0%,rgba(201,162,74,.13),transparent_45%),#10161c] p-8 text-center sm:p-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c9a24a]">{t.demoKicker}</p>
+            <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.demoTitle}</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">{t.demoText}</p>
+            <span className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white/45">{t.demoButton}</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="yhteys" className="border-t border-white/10 py-20 sm:py-24">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:px-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c9a24a]">{t.ctaKicker}</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.ctaTitle}</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/55">{t.ctaText}</p>
+          </div>
+          <a href="mailto:info@janope.fi?subject=Workplace%20esittely" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#c9a24a] px-6 py-3.5 text-sm font-semibold text-[#0b0f13] transition hover:-translate-y-0.5">
+            {t.ctaButton}<ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 px-5 py-8 sm:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 text-sm text-white/35 sm:flex-row sm:items-center sm:justify-between">
+          <span>Workplace · Janope</span>
+          <Link href="/" className="transition hover:text-white/70">{t.back}</Link>
+        </div>
+      </footer>
+    </main>
+  );
+}
