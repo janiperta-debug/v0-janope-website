@@ -125,7 +125,7 @@ export const AREAS: Area[] = [
     accentVar: "--area-property",
     hotspot: { x: 53, y: 47 },
     focus: { x: 53, y: 47, scale: 2 },
-    buildingIds: ["finnvesta"],
+    buildingIds: ["finnvesta", "workplace"],
   },
   {
     id: "liikkumisen",
@@ -249,6 +249,26 @@ export const BUILDINGS: Building[] = [
     linkText: "Katso FinnVesta",
     logo: "/products/finnvesta_logo.png",
     icon: "Landmark",
+  },
+  {
+    id: "workplace",
+    slug: "workplace",
+    areaId: "omaisuuden",
+    name: "Workplace",
+    tagline: "Yrityksen oma digitaalinen työtila.",
+    status: "julkaistu",
+    description:
+      "Työtila, joka kokoaa ihmiset, asiakkaat, tehtävät ja tärkeät prosessit yhteen paikkaan ja mukautuu yrityksen tapaan toimia.",
+    features: [
+      "Keskitetty työtila",
+      "Asiakkaat ja yhteyshenkilöt",
+      "Tehtävät ja projektit",
+      "Viestintä, raportointi ja muut yrityksen tarvitsemat kokonaisuudet",
+    ],
+    link: "/workplace",
+    linkText: "Katso Workplace",
+    logo: "",
+    icon: "BriefcaseBusiness",
   },
   {
     id: "lahella",
