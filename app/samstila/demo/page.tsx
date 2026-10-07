@@ -61,14 +61,60 @@ function Panel({ title, children, action }: { title?: string; children: React.Re
   );
 }
 
-function Rotary({ label, value }: { label: string; value: string }) {
+function Rotary({ label, positions, value, onChange }: { label: string; positions: string[]; value: number; onChange: (index: number) => void }) {
+  const span = 100;
+  const rotation = positions.length > 1 ? -span / 2 + (span / (positions.length - 1)) * value : 0;
   return (
-    <div className="flex items-center gap-3 rounded border border-[#4d3a28] bg-[#1b120b] p-3">
-      <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#584631] bg-[radial-gradient(circle_at_38%_28%,#665642,#201810_72%)] shadow-[inset_0_2px_5px_rgba(0,0,0,.75),0_2px_5px_rgba(0,0,0,.45)]">
-        <span className="absolute top-1 h-3.5 w-1 rounded-full bg-[#e0bf61] shadow-[0_0_7px_rgba(224,191,97,.45)]" />
-        <span className="h-5 w-5 rounded-full border border-[#4d3a28] bg-[#282017]" />
+    <div className="flex flex-col items-center gap-3">
+      <div className="grid w-full grid-cols-3 gap-2">
+        {positions.map((position, index) => (
+          <button key={position} type="button" onClick={() => onChange(index)}
+            className={`rounded-lg border border-[#4d3a28] px-2 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] transition ${index === value ? "border-[#806238] text-[#e2c66e] bg-[#2a1b10]" : "text-[#796958] hover:text-[#c9b99f]"}`}>
+            {position}
+          </button>
+        ))}
       </div>
-      <div><p className="text-[9px] uppercase tracking-[0.16em] text-[#796958]">{label}</p><p className="mt-1 font-serif text-lg text-[#dfc77e]">{value}</p></div>
+      <button type="button" aria-label={`${label}: ${positions[value]}`} onClick={() => onChange((value + 1) % positions.length)}
+        className="bevel-metal relative flex h-20 w-20 items-center justify-center rounded-full border border-[#584631] shadow-[0_5px_12px_rgba(0,0,0,.38)]"
+        style={{ background: "radial-gradient(circle at 40% 30%, #665642, #201810 78%)" }}>
+        <span className="absolute h-full w-full rounded-full transition-transform duration-300" style={{ transform: `rotate(${rotation}deg)` }}>
+          <span className="absolute left-1/2 top-1.5 h-5 w-1.5 -translate-x-1/2 rounded-full bg-[#e0bf61] shadow-[0_0_8px_rgba(224,191,97,.5)]" />
+        </span>
+        <span className="h-7 w-7 rounded-full border border-[#4d3a28] bg-[#282017]" />
+      </button>
+      <div className="text-center">
+        <p className="text-[9px] uppercase tracking-[0.16em] text-[#796958]">{label}</p>
+        <p className="mt-1 font-serif text-lg text-[#dfc77e]">{positions[value]}</p>
+      </div>
+    </div>
+  );
+}
+
+function Gauge({ value, label, status = "ok" }: { value: number; label: string; status?: "ok" | "warn" | "alert" }) {
+  const clamped = Math.max(0, Math.min(100, value));
+  const cx = 50, cy = 54, r = 38;
+  const angle = (180 * (1 - clamped / 100) * Math.PI) / 180;
+  const nx = cx + (r - 6) * Math.cos(angle);
+  const ny = cy - (r - 6) * Math.sin(angle);
+  const statusColor = status === "alert" ? "#b65b43" : status === "warn" ? "#d1a348" : "#78965c";
+  const ticks = Array.from({ length: 11 }, (_, i) => {
+    const a = (180 * (1 - i / 10) * Math.PI) / 180;
+    const outer = r, inner = i % 5 === 0 ? r - 8 : r - 4;
+    return { x1: cx + outer * Math.cos(a), y1: cy - outer * Math.sin(a), x2: cx + inner * Math.cos(a), y2: cy - inner * Math.sin(a), major: i % 5 === 0 };
+  });
+  return (
+    <div className="flex flex-col items-center">
+      <svg viewBox="0 0 100 64" width="150" height="96" role="img" aria-label={`${label}: ${clamped}%`}>
+        <defs><radialGradient id={`samstila-gauge-${label.replace(/[^a-z0-9]/gi, "")}`} cx="50%" cy="70%" r="80%"><stop offset="0%" stopColor="#f0e4bd" /><stop offset="70%" stopColor="#d9c88d" /><stop offset="100%" stopColor="#b99a55" /></radialGradient></defs>
+        <path d={`M ${cx-r-5} ${cy} A ${r+5} ${r+5} 0 0 1 ${cx+r+5} ${cy}`} fill="none" stroke="#9c7131" strokeWidth="4" strokeLinecap="round" />
+        <path d={`M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy} Z`} fill={`url(#samstila-gauge-${label.replace(/[^a-z0-9]/gi, "")})`} />
+        <path d={`M ${cx+r*Math.cos(36*Math.PI/180)} ${cy-r*Math.sin(36*Math.PI/180)} A ${r} ${r} 0 0 1 ${cx+r} ${cy}`} fill="none" stroke={statusColor} strokeWidth="3" opacity=".85" />
+        {ticks.map((t, i) => <line key={i} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="#40372c" strokeWidth={t.major ? 1.2 : .6} />)}
+        <line x1={cx} y1={cy} x2={nx} y2={ny} stroke="#382b24" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx={cx} cy={cy} r="3.4" fill="#76562e" stroke="#30251e" strokeWidth="1" />
+      </svg>
+      <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#796958]">{label}</span>
+      <span className="mt-1 font-serif text-2xl text-[#dfc77e]">{clamped}%</span>
     </div>
   );
 }
@@ -76,6 +122,8 @@ function Rotary({ label, value }: { label: string; value: string }) {
 export default function SamstilaDemoPage() {
   const [view, setView] = useState<View>("center");
   const [mobileNav, setMobileNav] = useState(false);
+  const [overviewMode, setOverviewMode] = useState(1);
+  const [capacity, setCapacity] = useState(72);
 
   const title = nav.find(([id]) => id === view)?.[1] ?? "Keskus";
 
@@ -139,8 +187,19 @@ export default function SamstilaDemoPage() {
                     {["2 asiakkuutta odottaa yhteydenottoa","Aava Kiinteistöjen tarjous odottaa lähetystä","Kuukausiraportti valmistunut"].map((x,i) => <button key={x} onClick={() => setView(i === 0 ? "customers" : "work")} className="group flex w-full items-center gap-3 rounded border border-[#443323] bg-[#1c130c] p-3 text-left hover:border-[#76572f]"><span className={`h-2 w-2 rounded-full ${i === 1 ? "bg-[#d1a348] shadow-[0_0_7px_rgba(209,163,72,.6)]" : "bg-[#78965c]"}`} /><span className="flex-1 text-sm text-[#b9aa98]">{x}</span><ChevronRight className="h-4 w-4 text-[#635444] group-hover:text-[#c9a24a]" /></button>)}
                   </div>
                 </Panel>
-                <Panel title="Työtila">
-                  <div className="space-y-3"><Rotary label="Näkymä" value="Normaali" /><Rotary label="Kapasiteetti" value="72 %" /></div>
+                <Panel title="Keskuksen hallinta">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <Rotary label="Näkymä" positions={["Fokus", "Normaali", "Yleiskuva"]} value={overviewMode} onChange={setOverviewMode} />
+                      <p className="mt-2 text-center text-xs text-[#857565]">{["Tämän päivän ja myöhässä olevat", "Seuraavat 14 päivää", "Kaikki suunnitellut asiat"][overviewMode]}</p>
+                    </div>
+                    <div className="rounded border border-[#433224] bg-[#1b120b] p-3">
+                      <Gauge value={capacity} label="Työtilan kapasiteetti" status={capacity >= 85 ? "alert" : capacity >= 65 ? "warn" : "ok"} />
+                      <input aria-label="Demo-kapasiteetti" type="range" min="0" max="100" value={capacity} onChange={e => setCapacity(Number(e.target.value))}
+                        className="mt-2 w-full accent-[#d1a348]" />
+                      <p className="mt-2 text-center text-[9px] uppercase tracking-[0.14em] text-[#6f5e4d]">Vedä mittarin arvoa demossa</p>
+                    </div>
+                  </div>
                 </Panel>
               </div>
               <Panel title="Viimeisimmät tapahtumat" action={<button onClick={() => setView("communications")} className="text-xs text-[#9b7a42]">Avaa viestintä →</button>}>
