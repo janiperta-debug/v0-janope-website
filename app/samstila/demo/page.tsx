@@ -83,6 +83,7 @@ export default function SamstilaDemoPage() {
     <main className="min-h-screen bg-[#20160f] text-[#e9dfd0]">
       <header className="sticky top-0 z-30 border-b border-[#4e3925] bg-[#21160e]/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1500px] items-center gap-4 px-4 sm:px-6">
+          <Link href="/workplace" className="flex h-9 items-center gap-2 rounded border border-[#59452f] px-3 text-[10px] uppercase tracking-[0.14em] text-[#a98b57] transition hover:border-[#806238] hover:text-[#dfc36b]" aria-label="Takaisin Samstilan esittelyyn"><span className="text-base leading-none">←</span><span className="hidden sm:inline">Takaisin</span></Link>
           <button onClick={() => setMobileNav(!mobileNav)} className="rounded border border-[#59452f] p-2 text-[#c9a85a] lg:hidden" aria-label="Valikko">
             {mobileNav ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
