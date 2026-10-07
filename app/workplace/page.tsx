@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, Layers3, UsersRound, Workflow, BarChart3 } from "lucide-react";
-import SamstilaDemo from "@/components/samstila-demo";
 import { getSiteLocale } from "@/lib/site-i18n";
 
 export const metadata = {
@@ -38,8 +37,8 @@ const copy = {
     demoKicker: "Interaktiivinen demo",
     demoTitle: "Tutustu Samstilaan käytännössä.",
     demoText:
-      "Tämä on yksi esimerkki siitä, miltä Samstila voi näyttää. Kokeile näkymiä ja vaihda työtilan eri osien välillä.",
-    demoButton: "Avaa näkymä",
+      "Tutustu Samstilaan oikeana työtilana. Demo käyttää esimerkkitietoja, mutta käyttöliittymä toimii kuin varsinainen sovellus.",
+    demoButton: "Kokeile demoa",
     ctaKicker: "Rakennetaan oma Samstila",
     ctaTitle: "Työtila, joka sopii teidän tapaamme tehdä työtä.",
     ctaText:
@@ -74,8 +73,8 @@ const copy = {
     demoKicker: "Interactive demo",
     demoTitle: "Experience Samstila in practice.",
     demoText:
-      "This is one example of what a Samstila can look like. Explore the views and move between the different parts of the workspace.",
-    demoButton: "Open view",
+      "Explore Samstila as a real workspace. The demo uses sample data, but the interface works like the actual application.",
+    demoButton: "Try the demo",
     ctaKicker: "Build your own Samstila",
     ctaTitle: "A workspace that fits the way you work.",
     ctaText:
@@ -180,13 +179,13 @@ export default async function SamstilaPage() {
 
       <section id="demo" className="py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-5 sm:px-8">
-          <div className="rounded-[2rem] border border-[#c9a24a]/25 bg-[radial-gradient(circle_at_50%_0%,rgba(201,162,74,.13),transparent_45%),#10161c] p-5 sm:p-8">
-            <div className="mb-8 text-center sm:mb-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c9a24a]">{t.demoKicker}</p>
-              <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.demoTitle}</h2>
-              <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">{t.demoText}</p>
-            </div>
-            <SamstilaDemo locale={locale} />
+          <div className="rounded-[2rem] border border-[#c9a24a]/25 bg-[radial-gradient(circle_at_50%_0%,rgba(201,162,74,.13),transparent_45%),#10161c] p-8 text-center sm:p-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#c9a24a]">{t.demoKicker}</p>
+            <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">{t.demoTitle}</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/55">{t.demoText}</p>
+            <a href="/samstila/demo" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#c9a24a] px-6 py-3.5 text-sm font-semibold text-[#21150d] transition hover:-translate-y-0.5">
+              {t.demoButton}<ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
