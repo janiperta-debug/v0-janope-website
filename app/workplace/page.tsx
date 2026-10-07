@@ -107,7 +107,7 @@ export default async function SamstilaPage() {
             <h1 className="mt-5 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">{t.title}</h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#c8bbad] sm:text-xl">{t.lead}</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#demo" className="inline-flex items-center gap-2 rounded-xl bg-[#d8b45c] px-6 py-3.5 text-sm font-semibold text-[#21150d] transition hover:-translate-y-0.5">
+              <a href="/samstila/demo" className="inline-flex items-center gap-2 rounded-xl bg-[#d8b45c] px-6 py-3.5 text-sm font-semibold text-[#21150d] transition hover:-translate-y-0.5">
                 {t.primary}<ArrowRight className="h-4 w-4" />
               </a>
               <a href="#yhteys" className="inline-flex items-center rounded-xl border border-[#80613a] bg-[#2b1d12] px-6 py-3.5 text-sm font-semibold text-[#e0d3c3] shadow-[inset_0_1px_0_rgba(232,201,132,.12),0_3px_9px_rgba(0,0,0,.3)] transition hover:border-[#d8b45c] hover:text-[#f0e4d2]">{t.secondary}</a>
