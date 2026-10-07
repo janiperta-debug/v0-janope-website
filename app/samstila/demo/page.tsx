@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Activity, Bell, BriefcaseBusiness, Building2, CalendarDays, ChevronRight,
-  ClipboardList, Gauge, LayoutDashboard, Mail, Menu, MessageSquare,
+  ClipboardList, LayoutDashboard, Mail, Menu, MessageSquare,
   Settings, UsersRound, X
 } from "lucide-react";
 
